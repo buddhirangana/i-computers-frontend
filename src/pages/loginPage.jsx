@@ -11,7 +11,7 @@ export default function LoginPage() {
         console.log("Password:", password)
         //backend localhost:3000/users/login
 
-        axios.post("http://localhost:3000/users/login", {
+        axios.post("http://localhost:3000/api/users/login", {
             email: email,
             password: password
         }).then((response) => {
