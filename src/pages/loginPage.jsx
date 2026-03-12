@@ -1,23 +1,35 @@
-import { Link } from "react-router-dom";
-import { useState } from "react"
-import axios from "axios"
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     function handleLogin() {
-        console.log("Email:", email)
-        console.log("Password:", password)
+        console.log("Email:", email);
+        console.log("Password:", password);
         //backend localhost:3000/users/login
 
         axios.post(import.meta.env.VITE_API_URL + "/users/login", {
             email: email,
             password: password
         }).then((response) => {
-            console.log("Login successful: ", response.data)
+            console.log("Login successful: ", response.data);
+            localStorage.setItem("token", response.data.token);
+
+            if (response.data.isAdmin) {
+                // window.location.href = "/admin";
+                navigate("/admin");
+            } else {
+                //window.location.href = "/";
+                navigate("/");
+            }
+
         }).catch((error) => {
-            console.log("Login failed: ", error)
+            toast.error(error.response.data.message);
         })
 
     }
