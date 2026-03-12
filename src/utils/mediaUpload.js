@@ -6,5 +6,31 @@ let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6
 const supabase = createClient(url, key);
 
 export default function uploadMedia(file) {
-    return new Promise();
+    return new Promise((resolve, reject) => {
+
+        if (!file) {
+            reject("No file selected");
+            return;
+        }
+
+        const timestamp = new Date().getTime();
+        const fileName = `${timestamp}_${file.name}`;
+
+        supabase.storage
+            .from("images")
+            .upload(fileName, file, {
+                upsert: false,
+                cacheControl: "3600",
+            })
+            .then(() => {
+                const { data } = supabase.storage
+                    .from("images")
+                    .getPublicUrl(fileName);
+
+                resolve(data.publicUrl);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+    });
 }
