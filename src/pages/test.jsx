@@ -17,6 +17,7 @@ export default function TestPage() {
         }).then((response) => {
             console.log(response);
             const publicUrl = supabase.storage.from("images").getPublicUrl(file.name).data.publicUrl;
+            console.log(publicUrl);
         }).catch((error) => {
             console.log(error);
         });
