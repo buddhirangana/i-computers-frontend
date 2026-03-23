@@ -1,6 +1,8 @@
 import { FaPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 const sampleProducts = [
     {
@@ -92,26 +94,74 @@ const sampleProducts = [
 
 export default function AdminProductPage() {
 
-    const [products, setProducts] = useState(sampleProducts);
+    const [products, setProducts] = useState([]);
+
+    useEffect(
+        () => {
+            //backend api
+            const token = localStorage.getItem("token");
+
+            axios.get(import.meta.env.VITE_API_URL + "/products", {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            }).then(
+                (response) => {
+                    setProducts(response.data);
+                }
+            ).catch(
+                (error) => {
+                    console.log(error);
+                }
+            );
+        }, []
+    );
 
     return (
         <div className="w-full h-full">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Labelled Price</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {products.map((item) => (
+                        <tr key={item.productId}>
+                            <td><img src={item.images[0]} alt={item.name} className="w-16 h-16 object-cover" /></td>
+                            <td>{item.productId}</td>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            <td>{item.labelledPrice}</td>
+                            <td>{item.brand}</td>
+                            <td>{item.model}</td>
+                            <td>{item.category}</td>
+                            <td>{item.stock}</td>
+                            <td>
+                                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                    Edit
+                                </button>
+                                <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
 
-            {
-                products.map(
-                    (item) => {
-                        console.log(item);
-                        return <p>
-                            {item.productId}
-                        </p>
-                    }
-                )
-            }
-
-
-            <Link to="/admin/add-product" className="fixed bottom-6 right-8 w-[60px] h-[60px] bg-accent hover:text-accent hover:bg-black flex justify-center items-center text-white text-3xl rounded-full shadow-2xl">
+            <Link to="/admin/add-product" className="fixed bottom-6 right-8 w-15 h-15 bg-accent hover:text-accent hover:bg-black flex justify-center items-center text-white text-3xl rounded-full shadow-2xl">
                 <FaPlus />
             </Link>
         </div>
-    )
+    );
 }

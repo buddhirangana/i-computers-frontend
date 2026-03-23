@@ -32,37 +32,52 @@ export default function AdminAddProductPage(){
                 return;
             }
 
-            const mediaUploadPromises = []
-
-            for(let i=0; i<images.length; i++){
-
-                mediaUploadPromises.push(uploadMedia(images[i]));
-
+            if (!name.trim()) {
+                toast.error("Product name is required.");
+                return;
             }
 
-            const urls = await Promise.all(mediaUploadPromises);
-            const altNamesArray = altNames.split(",")
+            const parsedPrice = Number(price);
+            const parsedLabelledPrice = Number(labelledPrice);
+            const parsedStock = Number(stock);
+
+            if (Number.isNaN(parsedPrice) || Number.isNaN(parsedLabelledPrice) || Number.isNaN(parsedStock)) {
+                toast.error("Price, labelled price and stock must be valid numbers.");
+                return;
+            }
+
+            const altNamesArray = altNames
+                .split(",")
+                .map((name) => name.trim())
+                .filter(Boolean);
+
+            const files = Array.from(images || []);
+            const urls = files.length > 0 ? await Promise.all(files.map(uploadMedia)) : [];
+
+            const cleanedProductId = productId.trim() || `prod-${Date.now()}`;
 
             const productData = {
-                productId : productId,
-                name : name,
-                altNames : altNamesArray,
-                price : price,
-                labelledPrice : labelledPrice,
-                description : description,
-                images : urls,
-                brand : brand,
-                model : model,
-                category : category,
-                isAvailable : isAvailable,
-                stock : stock
-            }
+                productId: cleanedProductId,
+                name: name.trim(),
+                altNames: altNamesArray,
+                price: parsedPrice,
+                labelledPrice: parsedLabelledPrice,
+                description: description.trim(),
+                images: urls,
+                brand: brand.trim() || "Others",
+                model: model.trim() || "Unknown",
+                category: category.trim() || "Others",
+                isAvailable: Boolean(isAvailable),
+                stock: parsedStock
+            };
 
+            console.log("Creating product with:", productData);
 
-            await axios.post(import.meta.env.VITE_API_URL+"/products", productData,
+            await axios.post(import.meta.env.VITE_API_URL + "/products", productData,
                 {
-                    headers : {
-                        "Authorization" : "Bearer "+token
+                    headers: {
+                        "Authorization": "Bearer " + token,
+                        "Content-Type": "application/json"
                     }
                 }
             )
