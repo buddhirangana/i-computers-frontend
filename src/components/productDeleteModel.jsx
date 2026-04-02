@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { TbTrash } from "react-icons/tb";
 
-export default function ProductDeleteModal(props){
+export default function ProductDeleteModel(props){
 
     const [isModalOpen , setIsModalOpen] = useState(false)
 

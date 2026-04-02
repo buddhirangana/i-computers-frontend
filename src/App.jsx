@@ -12,7 +12,7 @@ function App() {
     <>
       <div className='w-full h-screen flex items-center justify-center bg-primary text-secondary'>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/*' element={<HomePage />} />
           <Route path='/admin/*' element={<AdminPage />} />
           <Route path='/test' element={<TestPage />} />
           <Route path='/login' element={<LoginPage />} />

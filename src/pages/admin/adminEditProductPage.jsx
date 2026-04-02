@@ -19,6 +19,8 @@ export default function AdminEditProductPage(){
     const [category, setCategory] = useState(location.state?.category || "");
     const [isAvailable, setIsAvailable] = useState(location.state?.isAvailable || false);
     const [stock, setStock] = useState(location.state?.stock || 0);
+    const [isUpdating, setIsUpdating] = useState(false);
+
     const navigate = useNavigate();
 
     console.log("Location state: ", location.state);
@@ -34,63 +36,68 @@ export default function AdminEditProductPage(){
 
     
     
-    async function handleSave(){
+    async function handleUpdate(){
 
-        // try{
+        try{
 
-        //     const token = localStorage.getItem("token");
+            setIsUpdating(true);
+            const token = localStorage.getItem("token");
 
-        //     if(token == null){
-        //         toast.error("You must be logged in to perform this action.");
-        //         window.location.href = "/login";
-        //         return;
-        //     }
+            if(token == null){
+                toast.error("You must be logged in to perform this action.");
+                window.location.href = "/login";
+                return;
+            }
 
-        //     const mediaUploadPromises = []
+            const mediaUploadPromises = []
 
-        //     for(let i=0; i<images.length; i++){
+            for(let i=0; i<images.length; i++){
 
-        //         mediaUploadPromises.push(uploadMedia(images[i]));
+                mediaUploadPromises.push(uploadMedia(images[i]));
 
-        //     }
+            }
 
-        //     const urls = await Promise.all(mediaUploadPromises);
-        //     const altNamesArray = altNames.split(",")
+            const urls = await Promise.all(mediaUploadPromises);
 
-        //     const productData = {
-        //         productId : productId,
-        //         name : name,
-        //         altNames : altNamesArray,
-        //         price : price,
-        //         labelledPrice : labelledPrice,
-        //         description : description,
-        //         images : urls,
-        //         brand : brand,
-        //         model : model,
-        //         category : category,
-        //         isAvailable : isAvailable,
-        //         stock : stock
-        //     }
+            const altNamesArray = altNames.split(",")
+
+            const productData = {
+                name : name,
+                altNames : altNamesArray,
+                price : price,
+                labelledPrice : labelledPrice,
+                description : description,
+                images : urls,
+                brand : brand,
+                model : model,
+                category : category,
+                isAvailable : isAvailable,
+                stock : stock
+            }
+
+            if(urls.length == 0){
+                productData.images = location.state.images;
+            }
+
+            await axios.put(import.meta.env.VITE_API_URL+"/products/"+productId, productData,
+                {
+                    headers : {
+                        "Authorization" : "Bearer "+token
+                    }
+                }
+            )
+
+            toast.success("Product updated successfully!");
+            //
+            navigate("/admin/products");
 
 
-        //     await axios.post(import.meta.env.VITE_API_URL+"/products", productData,
-        //         {
-        //             headers : {
-        //                 "Authorization" : "Bearer "+token
-        //             }
-        //         }
-        //     )
-
-        //     toast.success("Product added successfully!");
-        //     //
-        //     navigate("/admin/products");
-
-
-        // }catch(error){
-        //     console.error("Error adding product:", error);
-        //     console.log("Error response data:", error?.response);
-        //     toast.error(error?.response?.data?.message || "Failed to add product. Please try again.")
-        // }
+        }catch(error){
+            setIsUpdating(false);
+            console.error("Error Updating product:", error);
+            console.log("Error response data:", error?.response);
+            toast.error(error?.response?.data?.message || "Failed to Update product. Please try again.")
+        }
     }
 
     return(
@@ -98,7 +105,7 @@ export default function AdminEditProductPage(){
             <div className="sticky top-0 w-full h-[100px] rounded-lg bg-accent text-white flex items-center p-5 justify-between shadow-2xl">
                 <h1 className="text-2xl  font-semibold">Edit Product</h1>
                 <div className="h-full  flex justify-center items-center">
-                    <button onClick={handleSave} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Update</button>
+                    <button onClick={handleUpdate} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600" disabled={isUpdating}>{isUpdating?"Updating...":"Update"}</button>
                     <button className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Cancel</button>
                 </div>
             </div>
@@ -108,6 +115,7 @@ export default function AdminEditProductPage(){
                     <label className="block mb-2 font-semibold">Product ID</label>
                     <input className="border border-gray-300 rounded-md p-2 w-full"
                         value={productId}
+                        disabled={true}
                         onChange={(e)=>{setProductId(e.target.value)}}
                     />
                 </div>
