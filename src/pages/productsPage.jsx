@@ -11,7 +11,7 @@ export default function ProductsPage(){
         () => {
             if(!isProductsAreLoaded){
                 axios.get(import.meta.env.VITE_API_URL + "/products").then(
-                    (response) => {
+                    (response) => {C
                         console.log(response.data);
                         setProducts(response.data);
                         setIsProductsAreLoaded(true);
