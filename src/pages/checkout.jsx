@@ -1,15 +1,17 @@
 import { useState } from "react"
 import { addToCart, getCart, getCartTotal } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
-import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import CreateOrderModal from "../components/createOderModal"
 
-export default function CartPage(){
-    const [cart , setCart] = useState(getCart())
+export default function CheckoutPage(){
+    const location = useLocation()
+    const [cart , setCart] = useState(location.state)
     return(
         <div className="w-full min-h-full flex flex-col p-5 pb-20 items-center gap-4">
             {
                 cart.map(
-                    (item)=>{
+                    (item , index)=>{
                         return(
                             <div key={item.product.productId} className="bg-white w-[500px] h-[150px] rounded-lg shadow-2xl flex p-2 items-center relative">
                                  <img className="w-[100px] h-[100px] object-cover rounded-l-lg" src={item.product.image}/>
@@ -29,8 +31,12 @@ export default function CartPage(){
                                             <button className="text-xl font-bold cursor-pointer hover:text-accent"
                                                 onClick={
                                                     ()=>{
-                                                        addToCart(item.product , -1)
-                                                        setCart(getCart())
+                                                        const newCart = [...cart]
+                                                        newCart[index].quantity -= 1
+                                                        if(newCart[index].quantity <= 0){
+                                                            newCart.splice(index , 1)
+                                                        }
+                                                        setCart(newCart)
                                                     }
                                                 }
                                             >-</button>
@@ -38,8 +44,12 @@ export default function CartPage(){
                                             <button
                                                 onClick={
                                                     ()=>{
-                                                        addToCart(item.product , 1)
-                                                        setCart(getCart())
+                                                        //const newCart = {...cart}
+                                                        const newCart = [...cart]
+
+                                                        newCart[index].quantity += 1
+
+                                                        setCart(newCart)
                                                     }
                                                 }
                                              className="text-xl font-bold cursor-pointer hover:text-accent">+</button>
@@ -53,7 +63,7 @@ export default function CartPage(){
                 )
             }
             <div className=" w-[500px] bg-white border  rounded-t-lg  shadow-2xl flex p-2 items-center  justify-between fixed bottom-0">
-                <Link to="/checkout" state={cart} className="bg-accent text-white px-4 py-2 rounded-lg font-semibold">Checkout</Link>
+                <CreateOrderModal cart={cart}/>
                 <p className="text-xl font-bold ml-4">Total: {getFormattedPrice(getCartTotal(cart))}</p>
             </div>
         </div>
