@@ -6,7 +6,6 @@ import { BiEdit } from "react-icons/bi";
 import LoadingAnimation from "../../components/loadingAnimation";
 import ProductDeleteModel from "../../components/productDeleteModel";
 
-
 export default function AdminProductPage() {
     const [products, setProducts] = useState([]);
     const [isProductsAreLoaded, setIsProductsAreLoaded] = useState(false);
@@ -114,11 +113,10 @@ export default function AdminProductPage() {
 
                                                 <td className="px-5 py-4">
                                                     <span
-                                                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
-                                                            item.isAvailable
+                                                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${item.isAvailable
                                                                 ? "bg-green-50 text-green-600"
                                                                 : "bg-red-50 text-red-600"
-                                                        }`}
+                                                            }`}
                                                     >
                                                         {item.isAvailable ? "Available" : "Unavailable"}
                                                     </span>
