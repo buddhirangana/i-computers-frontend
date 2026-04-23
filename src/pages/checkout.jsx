@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { addToCart, getCart, getCartTotal } from "../utils/cart"
+import { getCartTotal } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
 import { useLocation } from "react-router-dom"
 import CreateOrderModal from "../components/createOderModal"
