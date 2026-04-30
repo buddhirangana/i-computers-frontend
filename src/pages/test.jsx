@@ -1,44 +1,93 @@
-import { createClient } from "@supabase/supabase-js";
-import { useState } from "react"
-import uploadMedia from "../utils/mediaUpload";
+// import { useRef, useState } from "react";
 
-let url = "https://oqebshcqwhjdopmjtxll.supabase.co";
-let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZWJzaGNxd2hqZG9wbWp0eGxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMTkyMjksImV4cCI6MjA4ODg5NTIyOX0.YXd6EFZRVOcp5g6vmPz8sTUgu33GqG04rEeG9xtON-E";
+// export default function TestPage() {
 
-const supabase = createClient(url, key);
+// 	const videoRef = useRef(null);
+// 	const [buttonText, setButtonText] = useState("Play")
 
-export default function TestPage() {
-    const [file, setFile] = useState(null);
+// 	return (
+// 		<div className="w-full h-screen flex justify-center  bg-primary text-secondary flex-col gap-10 ">
+			
+// 			<div className="w-[400px] h-[400px] bg-red-900 rounded-full rounded-tr-none border-12 overflow-hidden relative justify-center items-center flex">
+// 				<video ref={videoRef} autoPlay src="/1080p.mp4" className="w-full h-full object-cover"/>
+// 				<button
 
-    async function handleUpload() {
-        try {
-            const url = await uploadMedia(file);
-            console.log(url);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+// 				onClick={
+// 					()=>{
+// 						if(videoRef.current.paused){
+// 							videoRef.current.play()
+// 							setButtonText("Pause")
+// 						}else{
+// 							videoRef.current.pause()
+// 							setButtonText("Play")
+// 						}
+						
+// 					}
+// 				}
 
-    // function handleUpload() {
-    //     console.log(file);
-    //     supabase.storage.from("images").upload(file.name, file, {
-    //         upsert: false,
-    //         cacheControl: "3600",
-    //     }).then((response) => {
-    //         console.log(response);
-    //         const publicUrl = supabase.storage.from("images").getPublicUrl(file.name).data.publicUrl;
-    //         console.log(publicUrl);
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     });
-    // }
 
-    return (
-        <div className="w-full h-screen flex flex-col items-center justify-center bg-primary">
-            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-            <button className="bg-secondary text-white px-4 py-2 rounded-lg" onClick={handleUpload}>
-                Upload
-            </button>
-        </div>
-    )
-}
+// 				className="bg-sky-50 p-5 rounded-lg absolute">
+// 					{buttonText}
+// 				</button>
+// 			</div>
+			
+// 		</div>
+// 	);
+// }
+// import { useState } from "react";
+// import uploadMedia from "../utils/mediaUpload";
+
+
+// export default function TestPage() {
+
+// 	const [file , setFile] = useState(null);
+
+// 	async function handleUpload(){
+		
+// 		try{
+
+// 			const url = await uploadMedia(file);
+// 			console.log(url);
+
+// 		}catch(error){
+// 			console.log(error);
+// 		}
+		
+
+// 	}
+
+// 	function handleUploadOld(){
+
+// 		uploadMedia(file).then((url)=>{
+// 			console.log(url);
+// 		}).catch((error)=>{
+// 			console.log(error);
+// 		})
+// 	}
+
+// 	return (
+// 		<div className="w-full h-screen flex justify-center items-center bg-primary text-secondary flex-col gap-10">
+			
+// 			<input onChange={
+// 				(e)=>{
+// 					setFile(e.target.files[0])
+// 				}
+// 			} type="file"/>
+
+// 			<button onClick={handleUpload} className="bg-secondary text-primary px-4 py-2 rounded-lg hover:bg-secondary/80 transition">
+// 				Upload
+// 			</button>
+// 		</div>
+// 	);
+// }
+
+export default function TestPage(){
+	return(
+		<div className="w-full h-full ">
+
+			<div className="bg-green-500 lg:bg-red-600 w-[300px] h-[300px]">
+			</div>
+			
+		</div>
+	)
+} 

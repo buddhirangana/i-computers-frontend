@@ -11,7 +11,7 @@ export default function ProductsPage(){
         () => {
             if(!isProductsAreLoaded){
                 axios.get(import.meta.env.VITE_API_URL + "/products").then(
-                    (response) => {C
+                    (response) => {
                         console.log(response.data);
                         setProducts(response.data);
                         setIsProductsAreLoaded(true);
@@ -27,7 +27,7 @@ export default function ProductsPage(){
     )
 
     return(
-        <div className="w-full h-full flex justify-center flex-wrap">
+        <div className="w-full h-full flex justify-center flex-wrap lg:pb-0">
             {
                 products.map(
                     (item)=>{
@@ -37,6 +37,7 @@ export default function ProductsPage(){
                     }
                 )
             }
+            <div className="w-full h-[150px]"></div>
         </div>
     )
 }
