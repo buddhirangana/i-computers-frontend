@@ -25,10 +25,59 @@ export default function AdminAddProductPage(){
 
         try{
             setIsSaving(true);
+            
+            // Validation
+            if (!productId.trim()) {
+                toast.error("Product ID is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!name.trim()) {
+                toast.error("Product name is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!price || isNaN(price) || price <= 0) {
+                toast.error("Valid price is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!labelledPrice || isNaN(labelledPrice) || labelledPrice <= 0) {
+                toast.error("Valid labelled price is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!description.trim()) {
+                toast.error("Description is required");
+                setIsSaving(false);
+                return;
+            }
+            if (images.length === 0) {
+                toast.error("At least one image is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!brand) {
+                toast.error("Brand is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!model.trim()) {
+                toast.error("Model is required");
+                setIsSaving(false);
+                return;
+            }
+            if (!category) {
+                toast.error("Category is required");
+                setIsSaving(false);
+                return;
+            }
+
             const token = localStorage.getItem("token");
 
             if(token == null){
                 toast.error("You must be logged in to perform this action.");
+                setIsSaving(false);
                 window.location.href = "/login";
                 return;
             }
@@ -42,6 +91,11 @@ export default function AdminAddProductPage(){
             }
 
             const urls = await Promise.all(mediaUploadPromises);
+            if (!urls || urls.length === 0) {
+                toast.error("Failed to upload images");
+                setIsSaving(false);
+                return;
+            }
             const altNamesArray = altNames.split(",")
 
             const productData = {
@@ -69,7 +123,7 @@ export default function AdminAddProductPage(){
             )
 
             toast.success("Product added successfully!");
-            //
+            setIsSaving(false);
             navigate("/admin/products");
 
 
@@ -77,7 +131,8 @@ export default function AdminAddProductPage(){
             setIsSaving(false);
             console.error("Error adding product:", error);
             console.log("Error response data:", error?.response);
-            toast.error(error?.response?.data?.message || "Failed to add product. Please try again.")
+            const errorMessage = error?.response?.data?.message || error?.message || "Failed to add product. Please try again.";
+            toast.error(errorMessage);
         }
     }
 
@@ -210,14 +265,14 @@ export default function AdminAddProductPage(){
                 <div className="w-1/4   p-2 ">
                     <label className="block mb-2 font-semibold ">Availability</label>
                     <select
-                        value={isAvailable}
+                        value={String(isAvailable)}
                         onChange={
                             (e)=>{
                                 setIsAvailable(e.target.value === "true");
                             }
                         } className="border border-gray-300 rounded-md p-2 w-full  ">
-                        <option className="bg-green-600 text-white font-semibold" value={true} >Available</option>
-                        <option className="bg-red-600 text-white font-semibold" value={false}>Not Available</option>
+                        <option value="true">Available</option>
+                        <option value="false">Not Available</option>
                     </select>
                 </div>
             </div>

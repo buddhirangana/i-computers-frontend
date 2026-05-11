@@ -8,6 +8,7 @@ import CustomerOrdersPage from "./customerMyOrdersPage";
 import SettingsPage from "./settings";
 import BottomNavigationBar from "../components/bottomNavigationBar";
 import NotFoundPage from "./notFoundPage";
+import LandingPage from "./landingPage";
 
 export default function HomePage(){
     return(
@@ -15,7 +16,7 @@ export default function HomePage(){
             <Header/>
             <div className="w-full min-h-[calc(100%-100px)] overflow-y-scroll  border">
                 <Routes>
-                    <Route path="/" element={<h1>Welcome to iComputers Store!</h1>} />
+                    <Route path="/" element={<LandingPage/>} />
                     <Route path="/products" element={<ProductsPage/>} />
                     <Route path="/contact-us" element={<h1>Contact Us Page</h1>} />
                     <Route path="/overview/:productId" element={<ProductOverviewPage/>} />

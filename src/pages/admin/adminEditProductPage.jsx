@@ -41,10 +41,49 @@ export default function AdminEditProductPage(){
         try{
 
             setIsUpdating(true);
+            
+            // Validation
+            if (!name.trim()) {
+                toast.error("Product name is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!price || isNaN(price) || price <= 0) {
+                toast.error("Valid price is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!labelledPrice || isNaN(labelledPrice) || labelledPrice <= 0) {
+                toast.error("Valid labelled price is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!description.trim()) {
+                toast.error("Description is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!brand) {
+                toast.error("Brand is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!model.trim()) {
+                toast.error("Model is required");
+                setIsUpdating(false);
+                return;
+            }
+            if (!category) {
+                toast.error("Category is required");
+                setIsUpdating(false);
+                return;
+            }
+
             const token = localStorage.getItem("token");
 
             if(token == null){
                 toast.error("You must be logged in to perform this action.");
+                setIsUpdating(false);
                 window.location.href = "/login";
                 return;
             }
@@ -58,8 +97,13 @@ export default function AdminEditProductPage(){
             }
 
             const urls = await Promise.all(mediaUploadPromises);
+            if (urls.length > 0 && (!urls[0] || urls.some(url => !url))) {
+                toast.error("Failed to upload images");
+                setIsUpdating(false);
+                return;
+            }
 
-            const altNamesArray = altNames.split(",")
+            const altNamesArray = altNames.trim() ? altNames.split(",").map(name => name.trim()) : []
 
             const productData = {
                 name : name,
@@ -88,7 +132,7 @@ export default function AdminEditProductPage(){
             )
 
             toast.success("Product updated successfully!");
-            //
+            setIsUpdating(false);
             navigate("/admin/products");
 
 
@@ -230,14 +274,14 @@ export default function AdminEditProductPage(){
                 <div className="w-1/4   p-2 ">
                     <label className="block mb-2 font-semibold ">Availability</label>
                     <select
-                        value={isAvailable}
+                        value={String(isAvailable)}
                         onChange={
                             (e)=>{
                                 setIsAvailable(e.target.value === "true");
                             }
                         } className="border border-gray-300 rounded-md p-2 w-full  ">
-                        <option className="bg-green-600 text-white font-semibold" value={true} >Available</option>
-                        <option className="bg-red-600 text-white font-semibold" value={false}>Not Available</option>
+                        <option value="true">Available</option>
+                        <option value="false">Not Available</option>
                     </select>
                 </div>
             </div>

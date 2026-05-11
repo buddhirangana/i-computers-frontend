@@ -9,7 +9,7 @@ export default function uploadMedia(file) {
     return new Promise((resolve, reject) => {
 
         if (!file) {
-            reject("No file selected");
+            reject(new Error("No file selected"));
             return;
         }
 
@@ -27,10 +27,16 @@ export default function uploadMedia(file) {
                     .from("images")
                     .getPublicUrl(fileName);
 
+                if (!data || !data.publicUrl) {
+                    reject(new Error("Failed to get image public URL"));
+                    return;
+                }
+
                 resolve(data.publicUrl);
             })
             .catch((error) => {
-                reject(error);
+                const errorMessage = error?.message || "Failed to upload image to storage";
+                reject(new Error(errorMessage));
             });
     });
 }
