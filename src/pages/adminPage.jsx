@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import AdminProductPage from "./admin/adminProductPage";
 import AdminAddProductPage from "./admin/adminAddProductPage";
@@ -8,25 +9,17 @@ import AdminUsersPage from "./admin/adminUsersPage";
 import AdminReviewsPage from "./admin/adminReviewsPage";
 
 export default function AdminPage() {
+    useEffect(() => {
+        document.title = "Admin Dashboard | iComputers";
+    }, []);
+
     return (
         <div className="w-full h-screen flex  items-center bg-accent">
             <div className="w-[300px] h-full text-white">
-
-                {/* <h1 className="text-2xl font-bold mb-4">Using anchor tags 👇</h1>
-
-                <a href="/admin/" className="block py-2 px-4 hover:bg-gray-700">Orders</a>
-                <a href="/admin/products" className="block py-2 px-4 hover:bg-gray-700">Products</a>
-                <a href="/admin/users" className="block py-2 px-4 hover:bg-gray-700">Users</a>
-                <a href="/admin/reviews" className="block py-2 px-4 hover:bg-gray-700">Reviews</a>
-
-                <h1 className="text-2xl font-bold mb-4">Using link tags 👇</h1> */}
-
                 <Link to="/admin/" className="block py-2 px-4 hover:bg-gray-700">Orders</Link>
                 <Link to="/admin/products" className="block py-2 px-4 hover:bg-gray-700">Products</Link>
                 <Link to="/admin/users" className="block py-2 px-4 hover:bg-gray-700">Users</Link>
                 <Link to="/admin/reviews" className="block py-2 px-4 hover:bg-gray-700">Reviews</Link>
-
-
             </div>
             <div className="w-[calc(100%-300px)] h-full bg-primary border-[10px] border-accent rounded-2xl">
                 <Routes>

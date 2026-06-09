@@ -27,14 +27,13 @@ export default function AdminEditProductPage(){
     
     useEffect(
         ()=>{
+            document.title = "Edit Product | iComputers";
             if(location.state==null){
                 toast.error("No product data found. Please select a product to edit.");
                 navigate("/admin/products");
             }
         },[]
     )
-
-    
     
     async function handleUpdate(){
 

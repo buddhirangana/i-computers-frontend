@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../utils/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -12,34 +12,38 @@ export default function ForgetPassword() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const navigate = useNavigate();
 
-    function sendEmail(){
+    useEffect(() => {
+        document.title = "Forgot Password | iComputers";
+    }, []);
 
-        api.post("/users/send-otp",{
-            email : email
-        }).then(()=>{
+    function sendEmail() {
+
+        api.post("/users/send-otp", {
+            email: email
+        }).then(() => {
             setIsEmailSent(true);
             toast.success("OTP sent to your email!");
         }
-        ).catch((error)=>{
+        ).catch((error) => {
             toast.error(error.response.data.message);
         });
     }
 
-    async function resetPassword(){
+    async function resetPassword() {
 
-        if(newPassword !== confirmPassword){
+        if (newPassword !== confirmPassword) {
             toast.error("Passwords do not match!");
             return;
         }
 
-        try{
-            await api.post("/users/verify-otp",{
+        try {
+            await api.post("/users/verify-otp", {
                 email: email,
                 otp: otp,
                 newPassword: newPassword
             });
             toast.success("Password reset successfully!");
-            navigate("/login");            
+            navigate("/login");
         } catch (error) {
             toast.error(error?.response?.data?.message);
         }
@@ -50,7 +54,7 @@ export default function ForgetPassword() {
             {
                 !isEmailSent && (
                     <div className="w-[500px] h-[500px] backdrop-blur-lg rounded-xl shadow-2xl flex flex-col justify-center items-center">
-                        <h2 className="text-2xl font-bold mb-4">Forgot Password</h2>
+                        <h1 className="text-2xl font-bold mb-4">Forgot Password</h1>
                         <p className="text-lg mb-6">Enter your email to reset your password.</p>
                         <input
                             type="email"
@@ -65,13 +69,13 @@ export default function ForgetPassword() {
                         >
                             Send Reset Link
                         </button>
-                    </div>  
-                    )
+                    </div>
+                )
             }
             {
                 isEmailSent && (
                     <div className="w-[500px] h-[500px] backdrop-blur-lg rounded-xl shadow-2xl flex flex-col justify-center items-center">
-                        <h2 className="text-2xl font-bold mb-4">Forgot Password</h2>
+                        <h1 className="text-2xl font-bold mb-4">Forgot Password</h1>
                         <p className="text-lg mb-6">Enter the OTP sent to your email and set a new password.</p>
                         <input
                             type="text"
@@ -100,8 +104,8 @@ export default function ForgetPassword() {
                         >
                             Reset Password
                         </button>
-                    </div>  
-                    )
+                    </div>
+                )
             }
         </div>
     );

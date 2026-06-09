@@ -30,6 +30,7 @@ export default function AdminReviewsPage() {
     };
 
     useEffect(() => {
+        document.title = "Manage Reviews | iComputers";
         fetchReviews();
     }, []);
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import uploadMedia from "../../utils/mediaUpload";
 import axios from "axios";
@@ -21,6 +21,10 @@ export default function AdminAddProductPage(){
     const [isSaving, setIsSaving] = useState(false);
     const navigate = useNavigate();
     
+    useEffect(() => {
+        document.title = "Add Product | iComputers";
+    }, []);
+
     async function handleSave(){
 
         try{

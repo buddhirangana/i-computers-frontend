@@ -12,6 +12,7 @@ export default function AdminProductPage() {
 
     useEffect(
         () => {
+            document.title = "Manage Products | iComputers";
             if (!isProductsAreLoaded) {
                 const token = localStorage.getItem("token");
 

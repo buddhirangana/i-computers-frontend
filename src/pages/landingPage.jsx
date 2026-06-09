@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 export default function LandingPage() {
+    useEffect(() => {
+        document.title = "iComputers | Premium Custom PC Builds & Tech Store in Sri Lanka";
+    }, []);
+
     return (
         <div className="w-full h-full relative">
             <video autoPlay loop muted className="w-full h-full object-cover">

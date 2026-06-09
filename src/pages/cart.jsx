@@ -1,12 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { addToCart, getCart, getCartTotal } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
 import { Link } from "react-router-dom"
 
 export default function CartPage(){
     const [cart , setCart] = useState(getCart())
+    
+    useEffect(() => {
+        document.title = "Your Shopping Cart | iComputers";
+    }, []);
+
     return(
         <div className="w-full min-h-full flex flex-col p-5  items-center gap-4 pb-[150px] lg:pb-20">
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Your Shopping Cart</h1>
             {
                 cart.map(
                     (item)=>{
@@ -15,7 +21,7 @@ export default function CartPage(){
                                     <img className="w-[100px] h-[100px] object-cover rounded-l-lg" src={item.product.image}/>
 
                                     <div className="h-full w-full lg:w-[400px] ">
-                                        <h1 className="text-lg font-semibold">{item.product.name}</h1>
+                                        <h2 className="text-lg font-semibold text-gray-800">{item.product.name}</h2>
                                         <p className="text-sm text-gray-500">{item.product.productId}</p>
                                         {
                                             item.product.labelledPrice > item.product.price && <span className="text-sm text-gray-500 mt-2 line-through">{getFormattedPrice(item.product.labelledPrice)}</span>

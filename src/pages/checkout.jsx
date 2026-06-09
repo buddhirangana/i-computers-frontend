@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { getCartTotal } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
 import { useLocation } from "react-router-dom"
@@ -7,8 +7,14 @@ import CreateOrderModal from "../components/createOderModal"
 export default function CheckoutPage(){
     const location = useLocation()
     const [cart , setCart] = useState(location.state)
+    
+    useEffect(() => {
+        document.title = "Checkout | iComputers";
+    }, []);
+
     return(
         <div className="w-full min-h-full flex flex-col p-5 pb-[150px] lg:pb-20 items-center gap-4">
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Checkout Details</h1>
             {
                 cart.map(
                     (item , index)=>{
@@ -17,7 +23,7 @@ export default function CheckoutPage(){
                                  <img className="w-[100px] h-[100px] object-cover rounded-l-lg" src={item.product.image}/>
 
                                     <div className="h-full w-full lg:w-[400px] ">
-                                        <h1 className="text-lg font-semibold">{item.product.name}</h1>
+                                        <h2 className="text-lg font-semibold text-gray-800">{item.product.name}</h2>
                                         <p className="text-sm text-gray-500">{item.product.productId}</p>
                                         {
                                             item.product.labelledPrice > item.product.price && <span className="text-sm text-gray-500 mt-2 line-through">{getFormattedPrice(item.product.labelledPrice)}</span>

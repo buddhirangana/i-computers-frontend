@@ -12,7 +12,6 @@ export default function ProductOverviewPage(){
     const parameters = useParams()
     const [product , setProduct] = useState(null)
     const [status , setStatus] = useState("loading")// loading , success , error
-    
     const [reviews, setReviews] = useState([])
     const [newRating, setNewRating] = useState(5)
     const [newComment, setNewComment] = useState("")
@@ -91,8 +90,13 @@ export default function ProductOverviewPage(){
         ? (reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length).toFixed(1) 
         : 0
 
-
-    
+    useEffect(() => {
+        if (product) {
+            document.title = `${product.name} | iComputers`;
+        } else {
+            document.title = "Product Details | iComputers";
+        }
+    }, [product]);
 
     return(
         <div className="w-full min-h-full bg-white flex flex-col">

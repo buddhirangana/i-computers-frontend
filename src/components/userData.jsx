@@ -18,7 +18,6 @@ export default function UserData() {
 					},
 				})
 				.then((response) => {
-                    console.log(response.data)
 					setUser(response.data);
 				})
 				.catch((error) => {

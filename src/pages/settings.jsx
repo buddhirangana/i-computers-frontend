@@ -15,6 +15,10 @@ export default function SettingsPage() {
     const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
 
     useEffect(() => {
+        document.title = "Profile Settings | iComputers";
+    }, []);
+
+    useEffect(() => {
         const token = localStorage.getItem("token");
 
         if (token) {
@@ -25,7 +29,6 @@ export default function SettingsPage() {
                     },
                 })
                 .then((response) => {
-                    console.log(response.data);
                     setUser(response.data);
                     setFirstName(response.data.firstName);
                     setLastName(response.data.lastName);
@@ -96,11 +99,13 @@ export default function SettingsPage() {
     }
 
     return (
-        <div className="w-full h-full flex items-center justify-center gap-6">
+        <div className="w-full min-h-full flex flex-col items-center justify-center py-12 px-6 gap-6 bg-gray-50 pb-[150px] lg:pb-20">
             {user ? (
                 <>
-                    <div className="w-[400px] h-[400px] bg-white shadow-lg p-6">
-                        <h1 className="text-2xl font-bold mb-4">Basic Information</h1>
+                    <h1 className="text-3xl font-bold text-gray-800">Profile Settings</h1>
+                    <div className="flex flex-col md:flex-row gap-6">
+                        <div className="w-[400px] h-[400px] bg-white shadow-lg p-6 rounded-2xl border border-gray-150">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Basic Information</h2>
                         <div className="mb-4">
                             <label className="block text-gray-700 mb-2">First Name</label>
                             <input
@@ -128,9 +133,9 @@ export default function SettingsPage() {
                         <button onClick={updateProfile} className="px-4 py-2 bg-accent text-white rounded" disabled={isUpdatingProfile}>
                             {isUpdatingProfile ? "Updating..." : "Update Profile"}
                         </button>
-                    </div>
-                    <div className="w-[400px] h-[400px] bg-white shadow-lg p-6 relative">
-                        <h1 className="text-2xl font-bold mb-4">Change Password</h1>
+                        </div>
+                        <div className="w-[400px] h-[400px] bg-white shadow-lg p-6 relative rounded-2xl border border-gray-150">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Change Password</h2>
                         <div className="mb-4">
                             <label className="block text-gray-700 mb-2">New Password</label>
                             <input
@@ -152,6 +157,7 @@ export default function SettingsPage() {
                         <button onClick={updatePassword} disabled={isUpdatingPassword} className="px-4 py-2 absolute bottom-6 bg-accent text-white rounded">
                             {isUpdatingPassword ? "Updating..." : "Update Password"}
                         </button>
+                        </div>
                     </div>
                 </>
             ) : (

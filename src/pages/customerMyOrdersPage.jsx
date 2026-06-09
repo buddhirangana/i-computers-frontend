@@ -17,6 +17,10 @@ export default function CustomerOrdersPage() {
     const [isOrdersAreLoaded, setIsOrdersAreLoaded] = useState(false);
 
     useEffect(() => {
+        document.title = "My Orders | iComputers";
+    }, []);
+
+    useEffect(() => {
         if (!isOrdersAreLoaded) {
             const token = localStorage.getItem("token");
 

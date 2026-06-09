@@ -9,6 +9,9 @@ import SettingsPage from "./settings";
 import BottomNavigationBar from "../components/bottomNavigationBar";
 import NotFoundPage from "./notFoundPage";
 import LandingPage from "./landingPage";
+import AboutUsPage from "./aboutUsPage";
+import ContactUsPage from "./contactUsPage";
+import Footer from "../components/footer";
 
 export default function HomePage(){
     return(
@@ -18,7 +21,8 @@ export default function HomePage(){
                 <Routes>
                     <Route path="/" element={<LandingPage/>} />
                     <Route path="/products" element={<ProductsPage/>} />
-                    <Route path="/contact-us" element={<h1>Contact Us Page</h1>} />
+                    <Route path="/about-us" element={<AboutUsPage/>} />
+                    <Route path="/contact-us" element={<ContactUsPage/>} />
                     <Route path="/overview/:productId" element={<ProductOverviewPage/>} />
                     <Route path="/cart" element={<CartPage/>} />
                     <Route path="/my-orders" element={<CustomerOrdersPage/>} />
@@ -26,6 +30,7 @@ export default function HomePage(){
                     <Route path="/checkout" element={<CheckoutPage/>} />
                     <Route path="/*" element={<NotFoundPage/>} />
                 </Routes>
+                <Footer />
                 <BottomNavigationBar/>
             </div>
         </div>
