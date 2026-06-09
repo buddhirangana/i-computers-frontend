@@ -1,108 +1,146 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { FaInstagram, FaYoutube, FaXTwitter, FaTwitch, FaFacebookF, FaDiscord, FaReddit, FaTiktok } from "react-icons/fa6";
+
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
-
     return (
-        <footer className="w-full bg-secondary text-gray-300 border-t border-gray-750 shrink-0">
-            {/* Top section: grid footer */}
-            <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                
-                {/* Column 1: Brand Info */}
-                <div className="flex flex-col gap-4">
-                    <Link to="/" className="flex items-center gap-2 w-fit">
-                        <img src="/logo.png" alt="Logo" className="h-[48px] object-contain" />
-                    </Link>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                        Sri Lanka's premium tech landmark. We assemble high-performance custom gaming PCs, configure workspaces, and deliver authentic computer hardware nationwide.
-                    </p>
-                    <div className="flex items-center gap-3 mt-2">
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-accent hover:text-white flex items-center justify-center transition-all duration-200">
-                            <FaFacebookF className="text-sm" />
+        <footer className="w-full bg-black text-gray-400 border-t border-gray-900 shrink-0 font-sans">
+            <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+                {/* Column 1: Company */}
+                <div className="flex flex-col gap-5">
+                    <h3 className="text-white font-bold text-sm tracking-wider uppercase">Company</h3>
+                    <ul className="flex flex-col gap-3 text-sm">
+                        <li>
+                            <Link to="/" className="hover:text-white transition-colors duration-200">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/products" className="hover:text-white transition-colors duration-200">Products</Link>
+                        </li>
+                        <li>
+                            <Link to="/about-us" className="hover:text-white transition-colors duration-200">About Us</Link>
+                        </li>
+                        <li>
+                            <Link to="/contact-us" className="hover:text-white transition-colors duration-200">Contact Us</Link>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Invest With Us</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Team</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Wholesale</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Column 2: Brands */}
+                <div className="flex flex-col gap-5">
+                    <h3 className="text-white font-bold text-sm tracking-wider uppercase">Brands</h3>
+                    <ul className="flex flex-col gap-3 text-sm">
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Arctic</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Thermaltake</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Addlink</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Keychron</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Asus</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">MSI</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Corsair</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">MarsRhino</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Column 3: Support */}
+                <div className="flex flex-col gap-5">
+                    <h3 className="text-white font-bold text-sm tracking-wider uppercase">Support</h3>
+                    <ul className="flex flex-col gap-3 text-sm">
+                        <li>
+                            <Link to="/cart" className="hover:text-white transition-colors duration-200">Shopping Cart</Link>
+                        </li>
+                        <li>
+                            <Link to="/my-orders" className="hover:text-white transition-colors duration-200">Track My Orders</Link>
+                        </li>
+                        <li>
+                            <Link to="/settings" className="hover:text-white transition-colors duration-200">Profile Settings</Link>
+                        </li>
+                        <li>
+                            <Link to="/login" className="hover:text-white transition-colors duration-200">Sign In / Register</Link>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Shipping</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Returns & Refunds</a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-white transition-colors duration-200">Warranty</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Column 4: Contact */}
+                <div className="flex flex-col gap-5 col-span-2 md:col-span-1">
+                    <h3 className="text-white font-bold text-sm tracking-wider uppercase">Contact</h3>
+                    <div className="grid grid-cols-4 gap-y-5 gap-x-2 w-fit text-gray-400">
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaInstagram className="text-[24px]" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-accent hover:text-white flex items-center justify-center transition-all duration-200">
-                            <FaTwitter className="text-sm" />
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaYoutube className="text-[24px]" />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-accent hover:text-white flex items-center justify-center transition-all duration-200">
-                            <FaInstagram className="text-sm" />
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaXTwitter className="text-[24px]" />
                         </a>
-                        <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-accent hover:text-white flex items-center justify-center transition-all duration-200">
-                            <FaYoutube className="text-sm" />
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaTwitch className="text-[24px]" />
+                        </a>
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaFacebookF className="text-[24px]" />
+                        </a>
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaDiscord className="text-[24px]" />
+                        </a>
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaReddit className="text-[24px]" />
+                        </a>
+                        <a href="#" className="hover:text-white transition-colors duration-200">
+                            <FaTiktok className="text-[24px]" />
                         </a>
                     </div>
                 </div>
-
-                {/* Column 2: Navigation Links */}
-                <div className="flex flex-col gap-4">
-                    <h3 className="text-white font-bold text-base tracking-wider uppercase">Quick Links</h3>
-                    <ul className="flex flex-col gap-2.5 text-sm">
-                        <li>
-                            <Link to="/" className="hover:text-white hover:underline transition-all duration-200">Home Landing</Link>
-                        </li>
-                        <li>
-                            <Link to="/products" className="hover:text-white hover:underline transition-all duration-200">Products Catalog</Link>
-                        </li>
-                        <li>
-                            <Link to="/about-us" className="hover:text-white hover:underline transition-all duration-200">About Our Company</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact-us" className="hover:text-white hover:underline transition-all duration-200">Contact Support</Link>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Column 3: Customer Care */}
-                <div className="flex flex-col gap-4">
-                    <h3 className="text-white font-bold text-base tracking-wider uppercase">Customer Support</h3>
-                    <ul className="flex flex-col gap-2.5 text-sm">
-                        <li>
-                            <Link to="/cart" className="hover:text-white hover:underline transition-all duration-200">Shopping Cart</Link>
-                        </li>
-                        <li>
-                            <Link to="/my-orders" className="hover:text-white hover:underline transition-all duration-200">Track My Orders</Link>
-                        </li>
-                        <li>
-                            <Link to="/settings" className="hover:text-white hover:underline transition-all duration-200">Profile Settings</Link>
-                        </li>
-                        <li>
-                            <Link to="/login" className="hover:text-white hover:underline transition-all duration-200">Sign In / Register</Link>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Column 4: Store Info */}
-                <div className="flex flex-col gap-4">
-                    <h3 className="text-white font-bold text-base tracking-wider uppercase">Store Details</h3>
-                    <ul className="flex flex-col gap-3.5 text-sm">
-                        <li className="flex gap-3 items-start">
-                            <FiMapPin className="text-accent text-lg shrink-0 mt-0.5" />
-                            <span className="text-gray-400 leading-normal">
-                                123 Tech Avenue, Galle Road, Colombo 03, Sri Lanka
-                            </span>
-                        </li>
-                        <li className="flex gap-3 items-center">
-                            <FiPhone className="text-accent text-lg shrink-0" />
-                            <span className="text-gray-400">+94 11 234 5678</span>
-                        </li>
-                        <li className="flex gap-3 items-center">
-                            <FiMail className="text-accent text-lg shrink-0" />
-                            <span className="text-gray-400 font-medium">support@icomputers.lk</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
 
-            {/* Bottom section: copyright banner with padding adjustment for mobile floating bottom bar */}
-            <div className="w-full bg-gray-950/40 border-t border-gray-800 py-6 px-6 pb-[100px] lg:pb-6">
+            {/* Bottom copyright banner */}
+            <div className="w-full bg-[#050505] border-t border-gray-900 py-6 px-6 pb-[100px] lg:pb-6">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-gray-500">
                     <span>
-                        &copy; {currentYear} iComputers. All rights reserved. Design & Develop by <a href="https://buddhirangana.com" target="_blank" rel="noreferrer">Buddhi Rangana</a>.
+                        &copy; {currentYear} All rights reserved by iComputers. Developed by <a href="http://buddhirangana.com" target="_blank">Buddhi Rangana.</a>
                     </span>
-                    <div className="flex items-center gap-4">
-                        <span className="hover:text-gray-400 cursor-pointer">Privacy Policy</span>
-                        <span className="hover:text-gray-400 cursor-pointer">Terms of Service</span>
+                    <div className="flex items-center gap-6">
+                        <span className="hover:text-gray-400 cursor-pointer transition-colors duration-200">Privacy Policy</span>
+                        <span className="hover:text-gray-400 cursor-pointer transition-colors duration-200">Terms of Use</span>
                     </div>
                 </div>
             </div>
