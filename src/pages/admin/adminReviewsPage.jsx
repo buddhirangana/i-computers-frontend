@@ -94,10 +94,10 @@ export default function AdminReviewsPage() {
 
     return (
         <div className="w-full h-full overflow-y-scroll bg-gray-50 p-6 rounded-lg">
-            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-white border border-gray-200 shadow-sm flex lg:flex-row flex-col lg:items-center justify-between px-6 py-4 mb-6 gap-4">
+            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-accent text-white border border-gray-200 shadow-sm flex lg:flex-row flex-col lg:items-center justify-between px-6 py-4 mb-6 gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800">Product Reviews</h1>
-                    <p className="text-sm text-gray-500 mt-1">Moderate customer reviews and product ratings</p>
+                    <h1 className="text-3xl font-bold">Product Reviews</h1>
+                    <p className="text-sm mt-1">Moderate customer reviews and product ratings</p>
                 </div>
 
                 <div className="relative w-full lg:w-80">
@@ -109,7 +109,7 @@ export default function AdminReviewsPage() {
                         placeholder="Search by product, user or review..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-gray-100 hover:bg-gray-200 focus:bg-white border border-transparent focus:border-accent rounded-xl text-sm focus:outline-none transition-colors duration-200"
+                        className="w-full pl-10 pr-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 focus:bg-white border border-transparent focus:border-accent rounded-xl text-sm focus:outline-none transition-colors duration-200"
                     />
                 </div>
             </div>

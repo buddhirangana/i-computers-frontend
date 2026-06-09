@@ -141,60 +141,59 @@ export default function AdminAddProductPage(){
     }
 
     return(
-        <div className="w-full h-full flex flex-col items-center p-4 overflow-y-scroll">
+        <div className="w-full h-full flex flex-col items-center p-4 overflow-y-scroll ">
             <div className="sticky top-0 w-full h-[100px] rounded-lg bg-accent text-white flex items-center p-5 justify-between shadow-2xl">
-                <h1 className="text-2xl  font-semibold">Add New Product</h1>
-                <div className="h-full  flex justify-center items-center">
+                <h1 className="text-2xl font-semibold">Add New Product</h1>
+                <div className="h-full flex justify-center items-center">
                     <button onClick={handleSave} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600" >{isSaving? "Saving..." : "Save"}</button>
-                    <button className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Cancel</button>
+                    <button onClick={() => navigate("/admin/products")} className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Cancel</button>
                 </div>
             </div>
             <div className="w-full flex flex-wrap bg-white shadow-2xl p-5 mt-8 rounded-lg">
-                
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Product ID</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                <div className="w-1/4 p-2">
+                    <label className="block mb-2 font-semibold text-gray-800">Product ID</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={productId}
                         onChange={(e)=>{setProductId(e.target.value)}}
                     />
                 </div>
-                <div className="w-3/4   p-2">
-                    <label className="block mb-2 font-semibold">Name</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                <div className="w-3/4 p-2">
+                    <label className="block mb-2 font-semibold text-gray-800">Name</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={name}
                         onChange={(e)=>{setName(e.target.value)}}
                     />
                 </div>
-                <div className="w-full   p-2">
-                    <label className="block mb-2 font-semibold">Alternative Names (comma separated)</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                <div className="w-full p-2">
+                    <label className="block mb-2 font-semibold text-gray-800">Alternative Names (comma separated)</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={altNames}
                         onChange={(e)=>{setAltNames(e.target.value)}}
                     />
                 </div>
                 <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Price</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                    <label className="block mb-2 font-semibold text-gray-800">Price</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={price}
                         onChange={(e)=>{setPrice(e.target.value)}}
                     />
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Labelled Price</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                <div className="w-1/4 p-2">
+                    <label className="block mb-2 font-semibold text-gray-800">Labelled Price</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={labelledPrice}
                         onChange={(e)=>{setLabelledPrice(e.target.value)}}
                     />
                 </div>
                 <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Category</label>
+                    <label className="block mb-2 font-semibold text-gray-800">Category</label>
                     <select
                     value={category}
                     onChange={
                         (e)=>{
                             setCategory(e.target.value);                            
                         }                        
-                    } className="border border-gray-300 rounded-md p-2 w-full">
+                    } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
                         <option value="Laptop" >Laptop</option>
                         <option value="Mobile">Mobile</option>
                         <option value="Headphones">Headphones</option>
@@ -210,8 +209,8 @@ export default function AdminAddProductPage(){
                 </div>
                 <div className="w-1/4   p-2">
                     {/* images */}
-                    <label className="block mb-2 font-semibold">Images</label>
-                    <input type="file" multiple className="border border-gray-300 rounded-md p-2 w-full"
+                    <label className="block mb-2 font-semibold text-gray-800">Images</label>
+                    <input type="file" multiple className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         onChange={
                             (e)=>{
                                 setImages(e.target.files)
@@ -220,8 +219,8 @@ export default function AdminAddProductPage(){
                     />
                 </div>
                 <div className="w-full   p-2">
-                    <label className="block mb-2 font-semibold">Description</label>
-                    <textarea className="border border-gray-300 rounded-md p-2 w-full"
+                    <label className="block mb-2 font-semibold text-gray-800">Description</label>
+                    <textarea className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={description}
                         onChange={(e)=>{setDescription(e.target.value)}}
                     />
@@ -234,7 +233,7 @@ export default function AdminAddProductPage(){
                             (e)=>{
                                 setBrand(e.target.value);                            
                             }
-                        } className="border border-gray-300 rounded-md p-2 w-full  ">
+                        } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
                         <option value="Apple" >Apple</option>
                         <option value="Samsung">Samsung</option>
                         <option value="Sony">Sony</option>
@@ -249,15 +248,15 @@ export default function AdminAddProductPage(){
                     </select>
                 </div>
                 <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Model</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                    <label className="block mb-2 font-semibold text-gray-800">Model</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={model}
                         onChange={(e)=>{setModel(e.target.value)}}
                     />
                 </div>
                 <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold">Stock</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full"
+                    <label className="block mb-2 font-semibold text-gray-800">Stock</label>
+                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
                         value={stock}
                         onChange={(e)=>{setStock(e.target.value)}}
                     />
@@ -267,14 +266,14 @@ export default function AdminAddProductPage(){
                     <input type="checkbox" checked={isAvailable} onChange={(e)=>{setIsAvailable(e.target.checked)}} />
                 </div> */}
                 <div className="w-1/4   p-2 ">
-                    <label className="block mb-2 font-semibold ">Availability</label>
+                    <label className="block mb-2 font-semibold text-gray-800">Availability</label>
                     <select
                         value={String(isAvailable)}
                         onChange={
                             (e)=>{
                                 setIsAvailable(e.target.value === "true");
                             }
-                        } className="border border-gray-300 rounded-md p-2 w-full  ">
+                        } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
                         <option value="true">Available</option>
                         <option value="false">Not Available</option>
                     </select>

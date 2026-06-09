@@ -48,16 +48,16 @@ export default function AdminOrdersPage() {
 
     return (
         <div className="w-full h-full overflow-y-scroll bg-gray-50 p-6 rounded-lg">
-            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-between px-6 mb-6">
+            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-accent text-white border border-gray-200 shadow-sm flex items-center justify-between px-6 mb-6">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800">Orders</h1>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <h1 className="text-3xl font-bold">Orders</h1>
+                    <p className="text-sm mt-1">
                         Manage your store Orders with ease
                     </p>
                 </div>
                 <div className="flex items-center gap-4">
-                    <span className="text-sm text-gray-600">
-                        Total Orders: <span className="font-semibold text-gray-800">{totalOrders}</span>
+                    <span className="text-sm">
+                        Total Orders: <span className="font-semibold">{totalOrders}</span>
                     </span>
                 </div>
             </div>

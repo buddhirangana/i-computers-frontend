@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import LoadingAnimation from "../../components/loadingAnimation";
-import { FaUserShield, FaUserSlash, FaUserCheck, FaSearch } from "react-icons/fa";
+import { FaUserShield, FaUserSlash, FaUserCheck, FaSearch, FaTrash } from "react-icons/fa";
 
 export default function AdminUsersPage() {
     const [users, setUsers] = useState([]);
@@ -70,6 +70,26 @@ export default function AdminUsersPage() {
         );
     };
 
+    const handleDeleteUser = (email) => {
+        if (window.confirm(`Are you sure you want to delete user ${email}?`)) {
+            const token = localStorage.getItem("token");
+            axios.delete(import.meta.env.VITE_API_URL + `/users/${email}`, {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            }).then(
+                (response) => {
+                    toast.success(response.data.message || "User deleted successfully.");
+                    fetchUsers();
+                }
+            ).catch(
+                (error) => {
+                    toast.error(error?.response?.data?.message || "Failed to delete user.");
+                }
+            );
+        }
+    };
+
     const filteredUsers = users.filter(user => 
         `${user.firstName} ${user.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -77,10 +97,10 @@ export default function AdminUsersPage() {
 
     return (
         <div className="w-full h-full overflow-y-scroll bg-gray-50 p-6 rounded-lg">
-            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-white border border-gray-200 shadow-sm flex lg:flex-row flex-col lg:items-center justify-between px-6 py-4 mb-6 gap-4">
+            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-accent text-white border border-gray-200 shadow-sm flex lg:flex-row flex-col lg:items-center justify-between px-6 py-4 mb-6 gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800">User Accounts</h1>
-                    <p className="text-sm text-gray-500 mt-1">Manage registration roles and access controls</p>
+                    <h1 className="text-3xl font-bold">User Accounts</h1>
+                    <p className="text-sm mt-1">Manage registration roles and access controls</p>
                 </div>
                 
                 <div className="relative w-full lg:w-80">
@@ -92,7 +112,7 @@ export default function AdminUsersPage() {
                         placeholder="Search by name or email..." 
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-gray-100 hover:bg-gray-200 focus:bg-white border border-transparent focus:border-accent rounded-xl text-sm focus:outline-none transition-colors duration-200"
+                        className="w-full pl-10 pr-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 focus:bg-white border border-transparent focus:border-accent rounded-xl text-sm focus:outline-none transition-colors duration-200"
                     />
                 </div>
             </div>
@@ -192,6 +212,15 @@ export default function AdminUsersPage() {
                                                             }`}
                                                         >
                                                             {item.isBlocked ? <FaUserCheck className="text-lg" /> : <FaUserSlash className="text-lg" />}
+                                                        </button>
+
+                                                        {/* Delete User */}
+                                                        <button
+                                                            onClick={() => handleDeleteUser(item.email)}
+                                                            title="Delete Account"
+                                                            className="p-2 rounded-xl border flex items-center justify-center transition-all bg-red-50 hover:bg-red-100 border-red-100 text-red-600"
+                                                        >
+                                                            <FaTrash className="text-lg" />
                                                         </button>
                                                     </div>
                                                 </td>

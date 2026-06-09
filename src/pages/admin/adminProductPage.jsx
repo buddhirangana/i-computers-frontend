@@ -37,10 +37,10 @@ export default function AdminProductPage() {
 
     return (
         <div className="w-full h-full overflow-y-scroll bg-gray-50 p-6 rounded-lg">
-            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-between px-6 mb-6">
+            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-accent text-white border border-gray-200 shadow-sm flex items-center justify-between px-6 mb-6">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800">Products</h1>
-                    <p className="text-sm text-gray-500 mt-1">Manage your store inventory with ease</p>
+                    <h1 className="text-3xl font-bold ">Products</h1>
+                    <p className="text-sm mt-1">Manage your store inventory with ease</p>
                 </div>
             </div>
 
