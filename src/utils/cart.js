@@ -1,5 +1,4 @@
 const exampleCart = [
-
     {
         product : {
             productId : "1234567890",
@@ -19,8 +18,6 @@ const exampleCart = [
         },
         quantity : 1
     }
-
-
 ]
 
 export function getCart(){

@@ -17,7 +17,7 @@ export default function HomePage(){
     return(
         <div className="w-full h-screen flex flex-col  ">
             <Header/>
-            <div className="w-full min-h-[calc(100%-100px)] overflow-y-scroll  border">
+            <div className="w-full min-h-[calc(100%-100px)] overflow-y-scroll">
                 <Routes>
                     <Route path="/" element={<LandingPage/>} />
                     <Route path="/products" element={<ProductsPage/>} />

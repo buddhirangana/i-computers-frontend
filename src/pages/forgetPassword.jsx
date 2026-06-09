@@ -50,63 +50,65 @@ export default function ForgetPassword() {
     }
 
     return (
-        <div className="w-full h-screen flex justify-center items-center">
-            {
-                !isEmailSent && (
-                    <div className="w-[500px] h-[500px] backdrop-blur-lg rounded-xl shadow-2xl flex flex-col justify-center items-center">
-                        <h1 className="text-2xl font-bold mb-4">Forgot Password</h1>
-                        <p className="text-lg mb-6">Enter your email to reset your password.</p>
+        <div className="w-full h-screen flex justify-center items-center bg-[url('/login-bg.jpg')] bg-center bg-cover relative">
+            {/* Solid dark overlay to ensure readability */}
+            <div className="absolute inset-0 bg-black/78 z-0"></div>
+
+            <div className="w-0 lg:w-1/2 h-full z-10"></div>
+            <div className="w-[90%] lg:w-1/2 h-full flex justify-center items-center z-10">
+                {!isEmailSent && (
+                    <div className="w-full h-[500px] glass-card shadow-glow-blue flex flex-col justify-center items-center p-8 border border-white/10">
+                        <h1 className="text-4xl font-bold mb-4 text-white tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">Forgot Password</h1>
+                        <p className="text-sm text-gray-300 mb-8 text-center max-w-xs">Enter your email address to receive an OTP to reset your password.</p>
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder="Email Address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="bg-transparent border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-3/4 p-3 rounded-lg glass-input border border-white/10 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                         />
                         <button
                             onClick={sendEmail}
-                            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+                            className="mt-6 w-3/4 p-3 bg-accent hover:bg-accent-dark hover:shadow-glow-blue text-white font-bold rounded-lg transition-all duration-200 cursor-pointer"
                         >
-                            Send Reset Link
+                            Send OTP Link
                         </button>
                     </div>
-                )
-            }
-            {
-                isEmailSent && (
-                    <div className="w-[500px] h-[500px] backdrop-blur-lg rounded-xl shadow-2xl flex flex-col justify-center items-center">
-                        <h1 className="text-2xl font-bold mb-4">Forgot Password</h1>
-                        <p className="text-lg mb-6">Enter the OTP sent to your email and set a new password.</p>
+                )}
+                {isEmailSent && (
+                    <div className="w-full h-[500px] glass-card shadow-glow-blue flex flex-col justify-center items-center p-8 border border-white/10">
+                        <h1 className="text-4xl font-extrabold mb-4 text-white tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">Forgot Password</h1>
+                        <p className="text-sm text-gray-300 mb-6 text-center max-w-xs">Enter the OTP sent to your email and choose a new password.</p>
                         <input
                             type="text"
-                            placeholder="OTP"
+                            placeholder="Enter OTP Code"
                             value={otp}
                             onChange={(e) => setOtp(e.target.value)}
-                            className="bg-transparent border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                            className="w-3/4 p-3 mb-4 rounded-lg glass-input border border-white/10 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                         />
                         <input
                             type="password"
                             placeholder="New Password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
-                            className="bg-transparent border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                            className="w-3/4 p-3 mb-4 rounded-lg glass-input border border-white/10 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                         />
                         <input
                             type="password"
                             placeholder="Confirm New Password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="bg-transparent border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                            className="w-3/4 p-3 mb-6 rounded-lg glass-input border border-white/10 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                         />
                         <button
                             onClick={resetPassword}
-                            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+                            className="w-3/4 p-3 bg-accent hover:bg-accent-dark hover:shadow-glow-blue text-white font-bold rounded-lg transition-all duration-200 cursor-pointer"
                         >
                             Reset Password
                         </button>
                     </div>
-                )
-            }
+                )}
+            </div>
         </div>
     );
 }

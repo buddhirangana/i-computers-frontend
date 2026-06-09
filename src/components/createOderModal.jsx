@@ -58,28 +58,25 @@ export default function CreateOrderModal(props){
 
     return(
         <>
-        <button className="bg-accent text-white px-4 py-2 rounded-lg font-semibold" onClick={() => setIsModalOpen(true)}>Order now</button>
+        <button className="bg-accent hover:bg-accent-dark hover:shadow-glow-blue text-white px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 cursor-pointer" onClick={() => setIsModalOpen(true)}>Order now</button>
         {
             isModalOpen &&
-            <div className="fixed bg-black/70 w-screen h-screen top-0 left-0 flex justify-center items-center">
-                <div className="w-[400px] bg-white rounded-lg p-5 flex flex-col gap-4">
-                    <h1 className="text-2xl font-bold">Shipping Details</h1>
-                    <input type="text" placeholder="First Name" className="w-full border p-2 rounded" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" placeholder="Last Name" className="w-full border p-2 rounded" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                    <input type="text" placeholder="Address Line 1" className="w-full border p-2 rounded" value={addressLineOne} onChange={(e) => setAddressLineOne(e.target.value)} />
-                    <input type="text" placeholder="Address Line 2" className="w-full border p-2 rounded" value={addressLineTwo} onChange={(e) => setAddressLineTwo(e.target.value)} />
-                    <input type="text" placeholder="City" className="w-full border p-2 rounded" value={city} onChange={(e) => setCity(e.target.value)} />
-                    <input type="text" placeholder="State" className="w-full border p-2 rounded" value={state} onChange={(e) => setState(e.target.value)} />
-                    <input type="text" placeholder="Postal Code" className="w-full border p-2 rounded" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
-                    <input type="text" placeholder="Phone" className="w-full border p-2 rounded" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                    <div className="w-full flex flex-row justify-between items-center">
-                        <button className="bg-gray-500 text-white px-4 py-2 rounded-lg font-semibold" onClick={() => setIsModalOpen(false)}>Cancel</button>
-                        <button className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold" onClick={createOder}
-                        >Place Order</button>
-
+            <div className="fixed bg-black/80 backdrop-blur-sm w-screen h-screen top-0 left-0 flex justify-center items-center z-50">
+                <div className="w-[420px] glass-card p-6 flex flex-col gap-4 border border-white/10 shadow-2xl relative text-white">
+                    <h1 className="text-2xl font-bold text-white text-glow-blue">Shipping Details</h1>
+                    <input type="text" placeholder="First Name" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <input type="text" placeholder="Last Name" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    <input type="text" placeholder="Address Line 1" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={addressLineOne} onChange={(e) => setAddressLineOne(e.target.value)} />
+                    <input type="text" placeholder="Address Line 2" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={addressLineTwo} onChange={(e) => setAddressLineTwo(e.target.value)} />
+                    <input type="text" placeholder="City" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={city} onChange={(e) => setCity(e.target.value)} />
+                    <input type="text" placeholder="State" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={state} onChange={(e) => setState(e.target.value)} />
+                    <input type="text" placeholder="Postal Code" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+                    <input type="text" placeholder="Phone" className="w-full bg-white/5 border border-white/10 text-white p-2 rounded focus:border-accent focus:outline-none transition-all duration-200" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                    <div className="w-full flex flex-row justify-between items-center mt-2">
+                        <button className="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 cursor-pointer" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                        <button className="bg-accent hover:bg-accent-dark hover:shadow-glow-blue text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 cursor-pointer" onClick={createOder}>Place Order</button>
                     </div>
                 </div>
-
             </div>
         }      
         </> 

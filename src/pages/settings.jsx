@@ -99,64 +99,69 @@ export default function SettingsPage() {
     }
 
     return (
-        <div className="w-full min-h-full flex flex-col items-center justify-center py-12 px-6 gap-6 bg-gray-50 pb-[150px] lg:pb-20">
+        <div className="w-full min-h-full flex flex-col items-center justify-center py-12 px-6 gap-6 bg-primary pb-[150px] lg:pb-28 text-gray-300">
             {user ? (
                 <>
-                    <h1 className="text-3xl font-bold text-gray-800">Profile Settings</h1>
+                    <h1 className="text-3xl font-bold text-white text-glow-blue">Profile Settings</h1>
                     <div className="flex flex-col md:flex-row gap-6">
-                        <div className="w-[400px] h-[400px] bg-white shadow-lg p-6 rounded-2xl border border-gray-150">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Basic Information</h2>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">First Name</label>
-                            <input
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                            />
+                        <div className="w-[400px] h-[400px] glass-card p-6 border border-white/8 shadow-lg hover:border-accent/30 transition-all duration-300 flex flex-col justify-between">
+                            <div>
+                                <h2 className="text-2xl font-bold text-white mb-4">Basic Information</h2>
+                                <div className="mb-4">
+                                    <label className="block text-gray-300 mb-2 text-sm font-semibold">First Name</label>
+                                    <input
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        className="w-full p-2 bg-white/5 border border-white/10 text-white rounded focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-200"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-gray-300 mb-2 text-sm font-semibold">Last Name</label>
+                                    <input
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                        className="w-full p-2 bg-white/5 border border-white/10 text-white rounded focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-200"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-gray-300 mb-2 text-sm font-semibold">Profile Image</label>
+                                    <input
+                                        type="file"
+                                        onChange={(e) => setImageFile(e.target.files[0])}
+                                        className="w-full p-2 bg-white/5 border border-white/10 text-white rounded focus:border-accent focus:outline-none transition-all duration-200 file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-accent file:text-white hover:file:bg-accent-dark cursor-pointer text-xs"
+                                    />
+                                </div>
+                            </div>
+                            <button onClick={updateProfile} className="px-4 py-2 bg-accent hover:bg-accent-dark shadow hover:shadow-glow-blue text-white rounded font-semibold cursor-pointer w-full transition-all duration-200" disabled={isUpdatingProfile}>
+                                {isUpdatingProfile ? "Updating..." : "Update Profile"}
+                            </button>
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">Last Name</label>
-                            <input
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">Profile Image</label>
-                            <input
-                                type="file"
-                                onChange={(e) => setImageFile(e.target.files[0])}
-                                className="w-full p-2 border border-gray-300 rounded"
-                            />
-                        </div>
-                        <button onClick={updateProfile} className="px-4 py-2 bg-accent text-white rounded" disabled={isUpdatingProfile}>
-                            {isUpdatingProfile ? "Updating..." : "Update Profile"}
-                        </button>
-                        </div>
-                        <div className="w-[400px] h-[400px] bg-white shadow-lg p-6 relative rounded-2xl border border-gray-150">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Change Password</h2>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">New Password</label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">Confirm Password</label>
-                            <input
-                                type="password"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="w-full p-2 border border-gray-300 rounded"
-                            />
-                        </div>
-                        <button onClick={updatePassword} disabled={isUpdatingPassword} className="px-4 py-2 absolute bottom-6 bg-accent text-white rounded">
-                            {isUpdatingPassword ? "Updating..." : "Update Password"}
-                        </button>
+
+                        <div className="w-[400px] h-[400px] glass-card p-6 border border-white/8 shadow-lg hover:border-accent/30 transition-all duration-300 flex flex-col justify-between">
+                            <div>
+                                <h2 className="text-2xl font-bold text-white mb-4">Change Password</h2>
+                                <div className="mb-4">
+                                    <label className="block text-gray-300 mb-2 text-sm font-semibold">New Password</label>
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full p-2 bg-white/5 border border-white/10 text-white rounded focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-200"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-gray-300 mb-2 text-sm font-semibold">Confirm Password</label>
+                                    <input
+                                        type="password"
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        className="w-full p-2 bg-white/5 border border-white/10 text-white rounded focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all duration-200"
+                                    />
+                                </div>
+                            </div>
+                            <button onClick={updatePassword} disabled={isUpdatingPassword} className="px-4 py-2 bg-accent hover:bg-accent-dark shadow hover:shadow-glow-blue text-white rounded font-semibold cursor-pointer w-full transition-all duration-200">
+                                {isUpdatingPassword ? "Updating..." : "Update Password"}
+                            </button>
                         </div>
                     </div>
                 </>

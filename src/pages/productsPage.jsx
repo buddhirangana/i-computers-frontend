@@ -48,9 +48,25 @@ export default function ProductsPage(){
         <div className="w-full h-full flex justify-center flex-wrap lg:pb-0 pt-16 relative">
             <h1 className="sr-only">Products Catalog | I Computers</h1>
             <div className="full absolute top-0 left-0 w-full h-[100px] flex justify-center items-center">
-                <input value={query} onChange={(e) => setQuery(e.target.value)} type="text" placeholder="Search products..." className="w-1/2 p-3 rounded-lg border border-gray-400 focus:outline-none focus:ring-2 focus:ring-accent"/>
-                <button className="ml-4 px-4 py-3 bg-accent text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark" onClick={handleSearch}>Search</button>
-                <button className="ml-4 px-4 py-3 bg-secondary text-white rounded-lg hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary-dark" onClick={()=>{setIsProductsAreLoaded(false)}}>All Products</button>
+                <input 
+                    value={query} 
+                    onChange={(e) => setQuery(e.target.value)} 
+                    type="text" 
+                    placeholder="Search products..." 
+                    className="w-1/2 p-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
+                />
+                <button 
+                    className="ml-4 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent-dark shadow-md hover:shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200 cursor-pointer font-semibold" 
+                    onClick={handleSearch}
+                >
+                    Search
+                </button>
+                <button 
+                    className="ml-4 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-200 cursor-pointer font-semibold" 
+                    onClick={() => { setIsProductsAreLoaded(false) }}
+                >
+                    All Products
+                </button>
             </div>
             {
                 products.map(

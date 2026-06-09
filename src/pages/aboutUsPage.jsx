@@ -40,11 +40,11 @@ export default function AboutUsPage() {
     ];
 
     return (
-        <div className="w-full min-h-full bg-white flex flex-col pb-28">
+        <div className="w-full min-h-full bg-primary flex flex-col pb-28 text-gray-300">
             {/* Hero Section */}
-            <div className="w-full bg-gradient-to-r from-secondary to-accent text-white py-16 px-6 md:px-12 flex flex-col items-center justify-center text-center">
-                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">About iComputers</h1>
-                <p className="text-lg md:text-xl text-blue-100 max-w-2xl font-light">
+            <div className="w-full bg-gradient-to-r from-secondary to-[#0f172a] text-white py-20 px-6 md:px-12 flex flex-col items-center justify-center text-center border-b border-white/5">
+                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 font-sans text-glow-blue">About iComputers</h1>
+                <p className="text-lg md:text-xl text-blue-200 max-w-2xl font-light">
                     Your premier destination for high-performance computing, custom gaming rigs, and professional workstation hardware in Sri Lanka.
                 </p>
             </div>
@@ -52,49 +52,49 @@ export default function AboutUsPage() {
             {/* Who We Are Section */}
             <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div className="flex flex-col">
-                    <span className="text-xs font-bold text-accent uppercase tracking-wider mb-2">Our Story</span>
-                    <h2 className="text-3xl font-bold text-gray-800 mb-6">Empowering Tech Enthusiasts Since 2020</h2>
-                    <p className="text-gray-600 leading-relaxed mb-4">
+                    <span className="text-xs font-bold text-accent-light uppercase tracking-wider mb-2">Our Story</span>
+                    <h2 className="text-3xl font-bold text-white mb-6">Empowering Tech Enthusiasts Since 2020</h2>
+                    <p className="text-gray-400 leading-relaxed mb-4">
                         Founded with a vision to revolutionize the PC building landscape, I Computers has grown from a passionate team of tech geeks into one of the most trusted computer hardware stores in the country.
                     </p>
-                    <p className="text-gray-600 leading-relaxed mb-4">
+                    <p className="text-gray-400 leading-relaxed mb-4">
                         We specialize in custom gaming PCs, high-end workstations, server deployment, and high-quality accessories. We don't just sell components; we curate experiences tailored to your creative, gaming, and professional needs.
                     </p>
                     <div className="flex flex-col gap-3 mt-4">
-                        <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
-                            <FiCheckCircle className="text-green-500 text-lg shrink-0" />
+                        <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                            <FiCheckCircle className="text-accent-light text-lg shrink-0" />
                             <span>Authorized dealer of top global brands (ASUS, MSI, Corsair, Intel, AMD)</span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
-                            <FiCheckCircle className="text-green-500 text-lg shrink-0" />
+                        <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                            <FiCheckCircle className="text-accent-light text-lg shrink-0" />
                             <span>Professional stress-testing and benchmark reports provided</span>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-gray-50 p-8 rounded-3xl border border-gray-150 relative overflow-hidden flex flex-col gap-6 justify-center">
-                    <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-accent/5 rounded-full blur-2xl"></div>
-                    <div className="absolute -left-10 -top-10 w-40 h-40 bg-purple-500/5 rounded-full blur-2xl"></div>
+                <div className="glass-card p-8 rounded-3xl relative overflow-hidden flex flex-col gap-6 justify-center shadow-lg hover:shadow-glow-blue transition-all duration-300">
+                    <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
+                    <div className="absolute -left-10 -top-10 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl"></div>
                     
-                    <div className="flex gap-4 items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div className="p-3 bg-blue-50 rounded-xl">
-                            <FiCompass className="text-2xl text-accent" />
+                    <div className="flex gap-4 items-start bg-white/5 p-6 rounded-2xl border border-white/8 hover:border-accent/30 transition-all duration-300">
+                        <div className="p-3 bg-white/5 rounded-xl">
+                            <FiCompass className="text-2xl text-accent-light" />
                         </div>
                         <div>
-                            <h3 className="font-bold text-gray-800 text-lg mb-2">Our Mission</h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">
+                            <h3 className="font-bold text-white text-lg mb-2">Our Mission</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed">
                                 To provide premium, high-performance computing hardware backed by unparalleled technical support, enabling gamers, creators, and developers to push their boundaries.
                             </p>
                         </div>
                     </div>
 
-                    <div className="flex gap-4 items-start bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div className="p-3 bg-purple-50 rounded-xl">
-                            <FiEye className="text-2xl text-purple-600" />
+                    <div className="flex gap-4 items-start bg-white/5 p-6 rounded-2xl border border-white/8 hover:border-accent/30 transition-all duration-300">
+                        <div className="p-3 bg-white/5 rounded-xl">
+                            <FiEye className="text-2xl text-purple-400" />
                         </div>
                         <div>
-                            <h3 className="font-bold text-gray-800 text-lg mb-2">Our Vision</h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">
+                            <h3 className="font-bold text-white text-lg mb-2">Our Vision</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed">
                                 To be recognized as the ultimate landmark for custom PC builds and server hardware solutions, fostering a thriving technology ecosystem across Sri Lanka.
                             </p>
                         </div>
@@ -103,12 +103,12 @@ export default function AboutUsPage() {
             </div>
 
             {/* Statistics Banner */}
-            <div className="w-full bg-gray-50 border-y border-gray-200 py-12 px-6">
+            <div className="w-full bg-white/3 border-y border-white/8 py-12 px-6 backdrop-blur-md">
                 <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat) => (
                         <div key={stat.id} className="flex flex-col items-center text-center">
-                            <span className="text-3xl md:text-4xl font-extrabold text-accent mb-2">{stat.value}</span>
-                            <span className="text-sm text-gray-500 font-semibold">{stat.label}</span>
+                            <span className="text-3xl md:text-4xl font-extrabold text-accent-light mb-2">{stat.value}</span>
+                            <span className="text-sm text-gray-400 font-semibold">{stat.label}</span>
                         </div>
                     ))}
                 </div>
@@ -117,20 +117,20 @@ export default function AboutUsPage() {
             {/* Our Values Section */}
             <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center">
                 <div className="text-center mb-12">
-                    <span className="text-xs font-bold text-accent uppercase tracking-wider">How We Stand Out</span>
-                    <h2 className="text-3xl font-bold text-gray-800 mt-2">Our Core Values</h2>
-                    <p className="text-sm text-gray-500 mt-2">Every component we ship and build we assemble is guided by our values</p>
+                    <span className="text-xs font-bold text-accent-light uppercase tracking-wider">How We Stand Out</span>
+                    <h2 className="text-3xl font-bold text-white mt-2">Our Core Values</h2>
+                    <p className="text-sm text-gray-400 mt-2">Every component we ship and build we assemble is guided by our values</p>
                 </div>
 
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
                     {values.map((val) => (
-                        <div key={val.id} className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-accent shadow-sm hover:shadow-md transition-all duration-300 flex gap-4">
-                            <div className="p-3 bg-gray-50 rounded-xl shrink-0 h-fit">
+                        <div key={val.id} className="glass-card p-6 flex gap-4 hover:border-accent/40 hover:shadow-glow-blue transition-all duration-300">
+                            <div className="p-3 bg-white/5 rounded-xl shrink-0 h-fit">
                                 {val.icon}
                             </div>
                             <div>
-                                <h3 className="font-bold text-gray-800 text-lg mb-2">{val.title}</h3>
-                                <p className="text-sm text-gray-600 leading-relaxed">{val.description}</p>
+                                <h3 className="font-bold text-white text-lg mb-2">{val.title}</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed">{val.description}</p>
                             </div>
                         </div>
                     ))}

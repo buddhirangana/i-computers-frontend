@@ -5,17 +5,17 @@ import UserData from "./userData";
 
 export default function BottomNavigationBar(){
     return(
-        <div className="flex lg:hidden fixed bottom-0 w-full h-[80px] p-2   bg-white shadow-[0_-4px_12px_-4px_rgba(0,0,0,0.25)] justify-between">
-            <Link to="/" className="h-full aspect-square  flex justify-center items-center rounded-lg text-accent shadow-2xl shadow-accent text-3xl">
+        <div className="flex lg:hidden fixed bottom-0 w-full h-[80px] p-2 bg-[#030712]/80 backdrop-blur-md border-t border-white/8 shadow-[0_-4px_20px_rgba(0,0,0,0.6)] justify-between z-50">
+            <Link to="/" className="h-full aspect-square flex justify-center items-center rounded-lg text-accent hover:text-accent-light transition-colors duration-200 text-3xl">
                 <GoHome />
             </Link>
-            <Link to="/products" className="h-full aspect-square  flex justify-center items-center rounded-lg text-accent shadow-2xl shadow-accent text-3xl">
+            <Link to="/products" className="h-full aspect-square flex justify-center items-center rounded-lg text-accent hover:text-accent-light transition-colors duration-200 text-3xl">
                 <CiSearch />
             </Link>
-            <Link to="/cart" className="h-full aspect-square  flex justify-center items-center rounded-lg text-accent shadow-2xl shadow-accent text-3xl">
+            <Link to="/cart" className="h-full aspect-square flex justify-center items-center rounded-lg text-accent hover:text-accent-light transition-colors duration-200 text-3xl">
                 <CiShoppingCart />
             </Link>
-            <UserData className="h-full aspect-square  flex justify-center items-center rounded-lg text-accent shadow-2xl shadow-accent text-3xl"/>
+            <UserData className="h-full aspect-square flex justify-center items-center rounded-lg text-accent hover:text-accent-light transition-colors duration-200 text-3xl"/>
         </div>
     )
 }

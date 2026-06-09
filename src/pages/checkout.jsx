@@ -13,28 +13,28 @@ export default function CheckoutPage(){
     }, []);
 
     return(
-        <div className="w-full min-h-full flex flex-col p-5 pb-[150px] lg:pb-20 items-center gap-4">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Checkout Details</h1>
+        <div className="w-full min-h-full flex flex-col p-5 pb-[150px] lg:pb-28 items-center gap-4 text-gray-300 bg-primary">
+            <h1 className="text-3xl font-bold text-white mb-2 text-glow-blue">Checkout Details</h1>
             {
                 cart.map(
                     (item , index)=>{
                         return(
-                            <div key={item.product.productId} className="bg-white w-full lg:w-[500px] lg:h-[150px] rounded-lg shadow-2xl flex flex-col lg:flex-row p-2 lg:items-center relative">
-                                 <img className="w-[100px] h-[100px] object-cover rounded-l-lg" src={item.product.image}/>
+                            <div key={item.product.productId} className="glass-card w-full lg:w-[500px] lg:h-[150px] shadow-2xl flex flex-col lg:flex-row p-2 lg:items-center relative border border-white/8 hover:border-accent/30 transition-all duration-200">
+                                 <img className="w-[100px] h-[100px] object-cover rounded-lg bg-white/5" src={item.product.image}/>
 
-                                    <div className="h-full w-full lg:w-[400px] ">
-                                        <h2 className="text-lg font-semibold text-gray-800">{item.product.name}</h2>
-                                        <p className="text-sm text-gray-500">{item.product.productId}</p>
+                                    <div className="h-full w-full lg:w-[400px] pl-3">
+                                        <h2 className="text-lg font-semibold text-white">{item.product.name}</h2>
+                                        <p className="text-sm text-gray-400">{item.product.productId}</p>
                                         {
                                             item.product.labelledPrice > item.product.price && <span className="text-sm text-gray-500 mt-2 line-through">{getFormattedPrice(item.product.labelledPrice)}</span>
                                         }
-                                        <p className="text-accent font-semibold text-sm ">
+                                        <p className="text-accent-light font-semibold text-sm">
                                             {getFormattedPrice(item.product.price)}
                                         </p>
                                     </div>
-                                    <div className="w-[200px] h-full absolute right-2  flex flex-col justify-end items-end p-2">
-                                        <div className="w-[100px] h-[30px] border rounded-full flex items-center justify-between px-2">
-                                            <button className="text-xl font-bold cursor-pointer hover:text-accent"
+                                    <div className="w-[200px] h-full absolute right-2 flex flex-col justify-end items-end p-2">
+                                        <div className="w-[100px] h-[30px] border border-white/10 bg-white/5 rounded-full flex items-center justify-between px-3 text-white">
+                                            <button className="text-xl font-bold cursor-pointer hover:text-accent-light"
                                                 onClick={
                                                     ()=>{
                                                         const newCart = [...cart]
@@ -46,31 +46,28 @@ export default function CheckoutPage(){
                                                     }
                                                 }
                                             >-</button>
-                                                <span>{item.quantity}</span>
+                                                <span className="text-sm font-medium">{item.quantity}</span>
                                             <button
                                                 onClick={
                                                     ()=>{
-                                                        //const newCart = {...cart}
                                                         const newCart = [...cart]
-
                                                         newCart[index].quantity += 1
-
                                                         setCart(newCart)
                                                     }
                                                 }
-                                             className="text-xl font-bold cursor-pointer hover:text-accent">+</button>
+                                             className="text-xl font-bold cursor-pointer hover:text-accent-light">+</button>
                                         </div>
                                         {/* total */}
-                                        <p className="text-xl  mt-2"><span className="text-secondary font-semibold">{getFormattedPrice(item.product.price * item.quantity)}</span></p>
+                                        <p className="text-xl mt-2"><span className="text-accent-light font-semibold">{getFormattedPrice(item.product.price * item.quantity)}</span></p>
                                     </div>                           
                             </div>
                         )
                     }
                 )
             }
-            <div className=" lg:w-[500px] w-full bg-white border  rounded-t-lg  shadow-2xl flex p-2 items-center  justify-between fixed lg:bottom-0 bottom-[82px]">
+            <div className="lg:w-[500px] w-full bg-[#0b0f19]/90 backdrop-blur-lg border border-white/10 rounded-t-xl shadow-2xl flex p-4 items-center justify-between fixed lg:bottom-0 bottom-[82px] z-10 text-white">
                 <CreateOrderModal cart={cart}/>
-                <p className="text-xl font-bold ml-4">Total: {getFormattedPrice(getCartTotal(cart))}</p>
+                <p className="text-xl font-bold ml-4">Total: <span className="text-accent-light">{getFormattedPrice(getCartTotal(cart))}</span></p>
             </div>
         </div>
     )

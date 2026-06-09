@@ -11,28 +11,28 @@ export default function CartPage(){
     }, []);
 
     return(
-        <div className="w-full min-h-full flex flex-col p-5  items-center gap-4 pb-[150px] lg:pb-20">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Your Shopping Cart</h1>
+        <div className="w-full min-h-full flex flex-col p-5 items-center gap-4 pb-[150px] lg:pb-28 text-gray-300 bg-primary">
+            <h1 className="text-3xl font-bold text-white mb-2 text-glow-blue">Your Shopping Cart</h1>
             {
                 cart.map(
                     (item)=>{
                         return(
-                            <div key={item.product.productId} className="bg-white w-full lg:w-[500px] lg:h-[150px] rounded-lg shadow-2xl flex flex-col lg:flex-row p-2 lg:items-center relative">
-                                    <img className="w-[100px] h-[100px] object-cover rounded-l-lg" src={item.product.image}/>
+                            <div key={item.product.productId} className="glass-card w-full lg:w-[500px] lg:h-[150px] shadow-2xl flex flex-col lg:flex-row p-2 lg:items-center relative border border-white/8 hover:border-accent/30 transition-all duration-200">
+                                    <img className="w-[100px] h-[100px] object-cover rounded-lg bg-white/5" src={item.product.image}/>
 
-                                    <div className="h-full w-full lg:w-[400px] ">
-                                        <h2 className="text-lg font-semibold text-gray-800">{item.product.name}</h2>
-                                        <p className="text-sm text-gray-500">{item.product.productId}</p>
+                                    <div className="h-full w-full lg:w-[400px] pl-3">
+                                        <h2 className="text-lg font-semibold text-white">{item.product.name}</h2>
+                                        <p className="text-sm text-gray-400">{item.product.productId}</p>
                                         {
                                             item.product.labelledPrice > item.product.price && <span className="text-sm text-gray-500 mt-2 line-through">{getFormattedPrice(item.product.labelledPrice)}</span>
                                         }
-                                        <p className="text-accent font-semibold text-sm ">
+                                        <p className="text-accent-light font-semibold text-sm">
                                             {getFormattedPrice(item.product.price)}
                                         </p>
                                     </div>
-                                    <div className="w-[200px] h-full absolute right-2  flex flex-col justify-end items-end p-2">
-                                        <div className="w-[100px] h-[30px] border rounded-full flex items-center justify-between px-2">
-                                            <button className="text-xl font-bold cursor-pointer hover:text-accent"
+                                    <div className="w-[200px] h-full absolute right-2 flex flex-col justify-end items-end p-2">
+                                        <div className="w-[100px] h-[30px] border border-white/10 bg-white/5 rounded-full flex items-center justify-between px-3 text-white">
+                                            <button className="text-xl font-bold cursor-pointer hover:text-accent-light"
                                                 onClick={
                                                     ()=>{
                                                         addToCart(item.product , -1)
@@ -40,7 +40,7 @@ export default function CartPage(){
                                                     }
                                                 }
                                             >-</button>
-                                                <span>{item.quantity}</span>
+                                                <span className="text-sm font-medium">{item.quantity}</span>
                                             <button
                                                 onClick={
                                                     ()=>{
@@ -48,19 +48,19 @@ export default function CartPage(){
                                                         setCart(getCart())
                                                     }
                                                 }
-                                             className="text-xl font-bold cursor-pointer hover:text-accent">+</button>
+                                             className="text-xl font-bold cursor-pointer hover:text-accent-light">+</button>
                                         </div>
                                         {/* total */}
-                                        <p className="text-xl  mt-2"><span className="text-secondary font-semibold">{getFormattedPrice(item.product.price * item.quantity)}</span></p>
+                                        <p className="text-xl mt-2"><span className="text-accent-light font-semibold">{getFormattedPrice(item.product.price * item.quantity)}</span></p>
                                     </div>                           
                             </div>
                         )
                     }
                 )
             }
-            <div className=" w-full lg:w-[500px] bg-white border  rounded-t-lg  shadow-2xl flex p-2 items-center  justify-between fixed bottom-[82px] lg:bottom-0">
-                <Link to="/checkout" state={cart} className="bg-accent text-white px-4 py-2 rounded-lg font-semibold">Checkout</Link>
-                <p className="text-xl font-bold ml-4">Total: {getFormattedPrice(getCartTotal(cart))}</p>
+            <div className="w-full lg:w-[500px] bg-[#0b0f19]/90 backdrop-blur-lg border border-white/10 rounded-t-xl shadow-2xl flex p-4 items-center justify-between fixed bottom-[82px] lg:bottom-0 z-10 text-white">
+                <Link to="/checkout" state={cart} className="bg-accent text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent-dark hover:shadow-glow-blue transition-all duration-200 cursor-pointer">Checkout</Link>
+                <p className="text-xl font-bold ml-4">Total: <span className="text-accent-light">{getFormattedPrice(getCartTotal(cart))}</span></p>
             </div>
         </div>
     )

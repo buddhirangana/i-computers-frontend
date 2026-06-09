@@ -50,26 +50,26 @@ export default function CustomerOrdersPage() {
     }, [isOrdersAreLoaded]);
 
     return (
-        <div className="w-full h-full overflow-y-scroll bg-gray-50 p-6 rounded-lg">
-            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-between px-6 mb-6">
+        <div className="w-full h-full overflow-y-scroll bg-primary p-6 rounded-lg text-gray-300">
+            <div className="sticky top-0 z-10 w-full min-h-[90px] rounded-2xl glass-card border border-white/8 shadow-md flex items-center justify-between px-6 mb-6">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-800">Orders</h1>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <h1 className="text-3xl font-bold text-white text-glow-blue">Orders</h1>
+                    <p className="text-sm text-gray-400 mt-1">
                         Manage your store Orders with ease
                     </p>
                 </div>
                 <div className="flex items-center gap-4">
-                    <span className="text-sm text-gray-600">
-                        Total Orders: <span className="font-semibold text-gray-800">{totalOrders}</span>
+                    <span className="text-sm text-gray-400">
+                        Total Orders: <span className="font-semibold text-white">{totalOrders}</span>
                     </span>
                 </div>
             </div>
 
             {isOrdersAreLoaded ? (
                 <>
-                    <div className="w-full overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
-                        <table className="w-full min-w-[1200px] text-sm text-gray-700">
-                            <thead className="bg-gray-100 text-gray-600">
+                    <div className="w-full overflow-x-auto rounded-2xl border border-white/8 bg-white/3 backdrop-blur-md shadow-md">
+                        <table className="w-full min-w-[1200px] text-sm text-gray-300">
+                            <thead className="bg-white/5 text-white">
                                 <tr>
                                     <th className="text-left font-semibold px-5 py-4">
                                         Order ID
@@ -94,41 +94,41 @@ export default function CustomerOrdersPage() {
                                     return (
                                         <tr
                                             key={item.orderId}
-                                            className="border-t border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+                                            className="border-t border-white/5 hover:bg-white/3 transition-colors duration-200"
                                         >
                                             <td className="px-5 py-4">
-                                                <span className="inline-block rounded-md bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                                <span className="inline-block rounded-md bg-white/5 border border-white/8 px-3 py-1 text-xs font-medium text-gray-300">
                                                     {item.orderId}
                                                 </span>
                                             </td>
 
                                             <td className="px-5 py-4">
-                                                <div className="font-semibold text-gray-800">
+                                                <div className="font-semibold text-white">
                                                     {item.email}
                                                 </div>
                                             </td>
 
-                                            <td className="px-5 py-4 text-gray-500">
+                                            <td className="px-5 py-4 text-gray-400">
                                                 {item.firstName}
                                             </td>
 
-                                            <td className="px-5 py-4 text-gray-500">
+                                            <td className="px-5 py-4 text-gray-400">
                                                 {item.lastName}
                                             </td>
 
-                                            <td className="px-5 py-4 text-gray-700">{item.phone}</td>
+                                            <td className="px-5 py-4 text-gray-300">{item.phone}</td>
 
-                                            <td className="px-5 py-4 text-gray-600">
+                                            <td className="px-5 py-4 text-gray-400">
                                                 {new Date(item.date).toLocaleDateString()}
                                             </td>
                                             <td className="px-5 py-4">
-                                                <span className="font-semibold text-gray-800">
+                                                <span className="font-semibold text-white">
                                                     {getFormattedPrice(item.total)}
                                                 </span>
                                             </td>
 
                                             <td className="px-5 py-4">
-                                                <span className="inline-block rounded-full bg-blue-50 text-blue-600 px-3 py-1 text-xs font-medium">
+                                                <span className="inline-block rounded-full bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1 text-xs font-medium">
                                                     {item.status}
                                                 </span>
                                             </td>
@@ -141,7 +141,7 @@ export default function CustomerOrdersPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div className="w-full flex justify-end items-center gap-3 mt-4">
+                    <div className="w-full flex justify-end items-center gap-3 mt-6">
                         <button
                             onClick={() => {
                                 if (currentPage > 1) {
@@ -149,17 +149,17 @@ export default function CustomerOrdersPage() {
                                     setIsOrdersAreLoaded(false);
                                 }
                             }}
-                            className="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors duration-200"
+                            className="px-3 py-1 bg-white/5 border border-white/10 text-white rounded hover:bg-white/10 transition-colors duration-200 cursor-pointer text-sm font-semibold"
                         >
                             Previous
                         </button>
-                        <span className="text-sm text-gray-600">Page {currentPage} of {totalPages}</span>
+                        <span className="text-sm text-gray-400">Page {currentPage} of {totalPages}</span>
                         <button
                             onClick={() => {
                                 setCurrentPage(currentPage + 1);
                                 setIsOrdersAreLoaded(false);
                             }}
-                            className="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors duration-200"
+                            className="px-3 py-1 bg-white/5 border border-white/10 text-white rounded hover:bg-white/10 transition-colors duration-200 cursor-pointer text-sm font-semibold"
                         >
                             Next
                         </button>
@@ -169,7 +169,7 @@ export default function CustomerOrdersPage() {
                                 setPageSize(parseInt(e.target.value));
                                 setIsOrdersAreLoaded(false);
                             }}
-                            className="ml-4 px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors duration-200"
+                            className="ml-4 px-3 py-1 bg-[#0b0f19] border border-white/10 text-white rounded hover:bg-white/5 transition-colors duration-200 cursor-pointer text-sm"
                         >
                             <option value={2}>2</option>
                             <option value={5}>5</option>
