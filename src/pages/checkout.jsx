@@ -7,6 +7,7 @@ import CreateOrderModal from "../components/createOderModal"
 export default function CheckoutPage(){
     const location = useLocation()
     const [cart , setCart] = useState(location.state)
+    const [isModalOpen, setIsModalOpen] = useState(false)
     
     useEffect(() => {
         document.title = "Checkout | iComputers";
@@ -65,10 +66,11 @@ export default function CheckoutPage(){
                     }
                 )
             }
-            <div className="lg:w-[500px] w-full bg-[#0b0f19]/90 backdrop-blur-lg border border-white/10 rounded-t-xl shadow-2xl flex p-4 items-center justify-between fixed lg:bottom-0 bottom-[82px] z-10 text-white">
-                <CreateOrderModal cart={cart}/>
+            <div className="fixed bottom-[95px] lg:bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[500px] bg-[#0b0f19]/95 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl flex p-4 items-center justify-between z-40 text-white hover:border-accent/30 transition-all duration-300">
+                <button className="bg-accent hover:bg-accent-dark hover:shadow-glow-blue text-white px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 cursor-pointer text-sm" onClick={() => setIsModalOpen(true)}>Order now</button>
                 <p className="text-xl font-bold ml-4">Total: <span className="text-accent-light">{getFormattedPrice(getCartTotal(cart))}</span></p>
             </div>
+            <CreateOrderModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} cart={cart}/>
         </div>
     )
 }
