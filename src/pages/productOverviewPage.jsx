@@ -125,53 +125,64 @@ export default function ProductOverviewPage(){
                         </div>
                         <div className="w-full lg:w-1/2 flex flex-col p-6">
 
-                            <h1 className="text-3xl font-bold text-white">{product.name}
-                                {
-                                    product.altNames.map(
-                                        (alterantiveName , index) => {
-                                            return(
-                                                <span key={index} className=" text-gray-500 "> | {alterantiveName}</span>
-                                            )
-                                        }
-                                    )
-                                }
-                            </h1>
-                            <h2 className="text-sm text-gray-500 mt-5">Product ID: {product.productId}</h2>
-                            <div className="w-full mt-5 flex flex-col">
-                                <p className="text-accent-light font-semibold text-4xl text-glow-blue">
-                                    {
-                                        getFormattedPrice(product.price)
-                                    }
-                                </p>
-                                {
-                                    product.labelledPrice > product.price &&
-                                    <span className="text-xl text-gray-500 line-through ">
-                                        {
-                                            getFormattedPrice(product.labelledPrice)
-                                        }
-                                    </span>
-                                }
+                            {/* SKU Code */}
+                            <div className="text-xs text-accent font-extrabold uppercase tracking-widest">
+                                SKU: {product.productId}
                             </div>
+
+                            {/* Product Title */}
+                            <h1 className="text-3xl font-extrabold text-white tracking-tight leading-snug drop-shadow-[0_0_12px_rgba(255,255,255,0.05)] mt-2">
+                                {product.name}
+                            </h1>
+
+                            {/* Alternative Name Tags */}
+                            {product.altNames && product.altNames.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mt-3.5">
+                                    {product.altNames.map((altName, index) => (
+                                        <span key={index} className="text-[10px] bg-white/5 border border-white/8 text-gray-400 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                                            {altName}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Price Group Panel */}
+                            <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/8 w-fit flex flex-col gap-1 pr-16 shadow-inner">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Pricing</span>
+                                <div className="flex items-baseline gap-3 mt-1">
+                                    <span className="text-3xl font-extrabold text-accent-light text-glow-blue leading-none">
+                                        {getFormattedPrice(product.price)}
+                                    </span>
+                                    {product.labelledPrice > product.price && (
+                                        <span className="text-base text-gray-500 line-through font-semibold leading-none">
+                                            {getFormattedPrice(product.labelledPrice)}
+                                        </span>
+                                    )}
+                                </div>
+                            </div>
+
                             {/* Product Specifications Grid */}
-                            <div className="w-full mt-6 grid grid-cols-2 gap-4 border-y border-white/5 py-4">
+                            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 border-y border-white/5 py-5 max-w-xl">
                                 <div>
-                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Brand</span>
-                                    <span className="text-base text-white font-bold mt-0.5 block">{product.brand}</span>
+                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Brand</span>
+                                    <span className="text-base text-white font-extrabold mt-1 block">{product.brand}</span>
                                 </div>
                                 <div>
-                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Model</span>
-                                    <span className="text-base text-white font-bold mt-0.5 block">{product.model}</span>
+                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Model</span>
+                                    <span className="text-base text-white font-extrabold mt-1 block truncate max-w-[170px]" title={product.model}>{product.model}</span>
                                 </div>
-                                <div className="col-span-2">
-                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Category</span>
-                                    <span className="text-base text-white font-bold mt-0.5 block">{product.category}</span>
+                                <div>
+                                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Category</span>
+                                    <span className="text-xs text-accent-light font-extrabold uppercase tracking-wider mt-1 block bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-lg text-center w-fit">
+                                        {product.category}
+                                    </span>
                                 </div>
                             </div>
 
                             {/* Description Section */}
-                            <div className="w-full mt-6">
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Description</span>
-                                <p className="text-base text-gray-300 leading-relaxed whitespace-pre-line">
+                            <div className="w-full mt-6 max-w-xl">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-2.5">Product Description</span>
+                                <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-line">
                                     {product.description}
                                 </p>
                             </div>
@@ -208,9 +219,9 @@ export default function ProductOverviewPage(){
                                         </div>
 
                                         {/* Action Buttons */}
-                                        <div className="flex mt-8 gap-5 fixed lg:static bottom-[82px] right-0 p-2 backdrop-blur-2xl lg:backdrop-blur-none w-full z-10 bg-[#030712]/80 border-t lg:border-t-0 border-white/8 lg:bg-transparent shadow-2xl lg:shadow-none justify-center lg:justify-start">                                
+                                        <div className="flex mt-8 gap-4 fixed lg:static bottom-[82px] left-0 p-2 backdrop-blur-2xl lg:backdrop-blur-none w-full z-10 bg-[#030712]/80 border-t lg:border-t-0 border-white/8 lg:bg-transparent shadow-2xl lg:shadow-none justify-center lg:justify-start">                                
                                             <button 
-                                                className="w-62.5 h-16 bg-green-600 text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-green-700 transition-colors duration-300 shadow-md flex items-center justify-center" 
+                                                className="w-full lg:w-48 h-12 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl cursor-pointer transition-colors duration-300 shadow-md flex items-center justify-center text-sm" 
                                                 onClick={() => {
                                                     addToCart(product, quantity);
                                                     toast.success(`${quantity} x ${product.name} added to cart!`);
@@ -232,7 +243,7 @@ export default function ProductOverviewPage(){
                                                         quantity: quantity
                                                     }
                                                 ]}
-                                                className="w-62.5 h-16 bg-accent text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-accent-dark shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center"
+                                                className="w-full lg:w-48 h-12 bg-accent hover:bg-accent-dark text-white font-bold rounded-xl shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center text-sm"
                                             >
                                                 Buy Now
                                             </Link>
@@ -240,7 +251,7 @@ export default function ProductOverviewPage(){
                                     </>
                                 ) : (
                                     <div className="mt-8">
-                                        <div className="inline-block px-5 py-2.5 bg-red-500/20 border border-red-500/40 text-red-500 font-extrabold rounded-lg uppercase tracking-wider text-sm mb-4">
+                                        <div className="inline-block px-5 py-2 bg-red-500/20 border border-red-500/30 text-red-500 font-extrabold rounded-lg uppercase tracking-wider text-xs mb-4">
                                             Out of Stock
                                         </div>
                                         <p className="text-sm text-gray-400">This item is currently out of stock and cannot be purchased.</p>

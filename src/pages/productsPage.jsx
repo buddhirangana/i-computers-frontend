@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/productCard";
 import toast from "react-hot-toast";
 import api from "../utils/api";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { BiChevronDown, BiChevronUp, BiSearch, BiShoppingBag } from "react-icons/bi";
 
 export default function ProductsPage() {
     const [allProducts, setAllProducts] = useState([]);
@@ -112,22 +112,47 @@ export default function ProductsPage() {
         <div className="w-full min-h-full flex flex-col p-6 items-center gap-6 pb-[150px] lg:pb-28 text-gray-300 bg-primary">
             <h1 className="sr-only">Products Catalog | I Computers</h1>
             
-            {/* Search Section */}
-            <div className="w-full flex justify-center items-center gap-4 max-w-4xl mx-auto mt-4">
-                <input 
-                    value={query} 
-                    onChange={(e) => setQuery(e.target.value)} 
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            handleSearch();
-                        }
-                    }}
-                    type="text" 
-                    placeholder="Search products..." 
-                    className="flex-1 max-w-lg p-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
-                />
+            {/* Catalog Header Title */}
+            <div className="w-full text-center flex flex-col items-center gap-3 mt-6">
+                <h2 className="text-4xl font-extrabold text-white tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.25)]">
+                    Explore Our Catalog
+                </h2>
+                <p className="text-gray-400 text-sm md:text-base max-w-lg">
+                    Discover state-of-the-art computer systems, high-performance components, and gaming accessories.
+                </p>
+            </div>
+
+            {/* Premium Glassmorphic Search Bar Container */}
+            <div className="w-full flex justify-center items-center gap-3 max-w-4xl mx-auto mt-2">
+                <div className="relative flex-1 max-w-md flex items-center bg-white/5 border border-white/10 rounded-xl px-4 py-1 hover:border-white/20 focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/40 transition-all duration-300 shadow-inner">
+                    <BiSearch className="text-gray-400 text-xl flex-shrink-0" />
+                    <input 
+                        value={query} 
+                        onChange={(e) => setQuery(e.target.value)} 
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                handleSearch();
+                            }
+                        }}
+                        type="text" 
+                        placeholder="Search catalog products..." 
+                        className="w-full bg-transparent pl-3 pr-2 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none"
+                    />
+                    {query && (
+                        <button
+                            onClick={() => {
+                                setQuery("");
+                                setSearchParams({});
+                            }}
+                            className="text-gray-400 hover:text-white text-xs font-bold px-2 py-1 cursor-pointer transition-colors"
+                            type="button"
+                        >
+                            Clear
+                        </button>
+                    )}
+                </div>
                 <button 
-                    className="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent-dark shadow-md hover:shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200 cursor-pointer font-semibold" 
+                    className="px-6 py-3 bg-accent hover:bg-accent-dark text-white rounded-xl shadow-md hover:shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200 cursor-pointer font-bold text-sm" 
                     onClick={handleSearch}
                 >
                     Search
@@ -135,17 +160,20 @@ export default function ProductsPage() {
             </div>
 
             {/* Controls Section (Categories & Sorting) */}
-            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mt-4 border-b border-white/5 pb-4">
+            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mt-6 border-b border-white/5 pb-4">
                 {/* Categories Pill list */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
                     {allCategories.map((cat) => (
                         <button
                             key={cat}
-                            onClick={() => setSelectedCategory(cat)}
-                            className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200 cursor-pointer ${
+                            onClick={() => {
+                                setSelectedCategory(cat);
+                                setIsSortOpen(false);
+                            }}
+                            className={`px-4.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer border ${
                                 selectedCategory === cat
-                                    ? "bg-white text-slate-900 shadow-glow-blue border-none"
-                                    : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
+                                    ? "bg-accent text-white border-accent shadow-glow-blue hover:bg-accent-dark"
+                                    : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border-white/10 hover:border-white/20"
                             }`}
                         >
                             {cat}
@@ -155,12 +183,12 @@ export default function ProductsPage() {
 
                 {/* Sort Dropdown */}
                 <div className="flex items-center gap-2 relative z-20" ref={sortDropdownRef}>
-                    <span className="text-sm text-gray-400 font-medium">Sort by:</span>
+                    <span className="text-sm text-gray-400 font-semibold">Sort by:</span>
                     <button
                         onClick={() => setIsSortOpen(!isSortOpen)}
-                        className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-white text-sm font-semibold flex items-center gap-1.5 hover:bg-white/10 cursor-pointer transition-all duration-200"
+                        className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white text-sm font-semibold flex items-center gap-1.5 hover:bg-white/10 cursor-pointer transition-all duration-200 min-w-[150px] justify-between"
                     >
-                        {sortBy}
+                        <span>{sortBy}</span>
                         {isSortOpen ? <BiChevronUp className="text-lg" /> : <BiChevronDown className="text-lg" />}
                     </button>
 
@@ -188,14 +216,20 @@ export default function ProductsPage() {
             </div>
 
             {/* Products Grid */}
-            <div className="w-full max-w-6xl mx-auto flex flex-wrap justify-center gap-6 mt-4">
+            <div className="w-full max-w-6xl mx-auto flex flex-wrap justify-center gap-2 mt-4">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((item) => (
                         <ProductCard key={item.productId} product={item} />
                     ))
                 ) : (
-                    <div className="w-full text-center py-16 text-gray-400 font-medium">
-                        No products found matching your filter criteria.
+                    <div className="w-full py-20 flex flex-col items-center justify-center gap-3 text-center">
+                        <div className="w-16 h-16 rounded-full bg-slate-800/40 border border-slate-700/30 flex items-center justify-center mb-2 shadow-inner">
+                            <BiShoppingBag className="text-slate-400 text-3xl" />
+                        </div>
+                        <p className="text-white text-lg font-bold">No Products Found</p>
+                        <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
+                            We couldn't find any products matching your search query or filter. Try checking your spelling or adjusting filters.
+                        </p>
                     </div>
                 )}
             </div>
