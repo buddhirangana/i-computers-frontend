@@ -16,7 +16,7 @@ export default function AdminPage() {
     const [isAdminVerified, setIsAdminVerified] = useState(false);
 
     useEffect(() => {
-        document.title = "Admin Dashboard | iComputers";
+        document.title = "Admin Dashboard | IONIX Computers";
 
         const token = localStorage.getItem("token");
         if (!token) {

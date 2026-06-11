@@ -11,7 +11,7 @@ export default function ProductsPage(){
     const [isProductsAreLoaded, setIsProductsAreLoaded] = useState(false);
 
     useEffect(() => {
-        document.title = "Products Catalog | iComputers";
+        document.title = "Products Catalog | IONIX Computers";
     }, []);
 
     useEffect(

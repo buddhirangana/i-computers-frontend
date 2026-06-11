@@ -30,7 +30,7 @@ export default function AdminUsersPage() {
     };
 
     useEffect(() => {
-        document.title = "Manage Users | iComputers";
+        document.title = "Manage Users | IONIX Computers";
         fetchUsers();
     }, []);
 

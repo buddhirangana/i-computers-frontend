@@ -4,7 +4,7 @@ import { FiPhone, FiMail, FiMapPin, FiClock, FiSend } from "react-icons/fi";
 
 export default function ContactUsPage() {
     useEffect(() => {
-        document.title = "Contact Us | iComputers";
+        document.title = "Contact Us | IONIX Computers";
     }, []);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

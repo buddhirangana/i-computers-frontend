@@ -12,7 +12,7 @@ export default function AdminProductPage() {
 
     useEffect(
         () => {
-            document.title = "Manage Products | iComputers";
+            document.title = "Manage Products | IONIX Computers";
             if (!isProductsAreLoaded) {
                 const token = localStorage.getItem("token");
 

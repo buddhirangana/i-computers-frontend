@@ -13,7 +13,7 @@ export default function ForgetPassword() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        document.title = "Forgot Password | iComputers";
+        document.title = "Forgot Password | IONIX Computers";
     }, []);
 
     function sendEmail() {

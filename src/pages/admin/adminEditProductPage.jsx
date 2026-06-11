@@ -27,7 +27,7 @@ export default function AdminEditProductPage(){
     
     useEffect(
         ()=>{
-            document.title = "Edit Product | iComputers";
+            document.title = "Edit Product | IONIX Computers";
             if(location.state==null){
                 toast.error("No product data found. Please select a product to edit.");
                 navigate("/admin/products");

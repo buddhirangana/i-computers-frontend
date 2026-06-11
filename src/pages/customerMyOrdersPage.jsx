@@ -17,7 +17,7 @@ export default function CustomerOrdersPage() {
     const [isOrdersAreLoaded, setIsOrdersAreLoaded] = useState(false);
 
     useEffect(() => {
-        document.title = "My Orders | iComputers";
+        document.title = "My Orders | IONIX Computers";
     }, []);
 
     useEffect(() => {

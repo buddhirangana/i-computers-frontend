@@ -15,7 +15,7 @@ export default function SettingsPage() {
     const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
 
     useEffect(() => {
-        document.title = "Profile Settings | iComputers";
+        document.title = "Profile Settings | IONIX Computers";
     }, []);
 
     useEffect(() => {

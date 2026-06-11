@@ -22,7 +22,7 @@ export default function AdminAddProductPage(){
     const navigate = useNavigate();
     
     useEffect(() => {
-        document.title = "Add Product | iComputers";
+        document.title = "Add Product | IONIX Computers";
     }, []);
 
     async function handleSave(){

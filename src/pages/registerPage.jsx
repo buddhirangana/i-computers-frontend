@@ -13,7 +13,7 @@ export default function RegisterPage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        document.title = "Sign Up | iComputers";
+        document.title = "Sign Up | IONIX Computers";
     }, []);
 
     function handleRegister() {

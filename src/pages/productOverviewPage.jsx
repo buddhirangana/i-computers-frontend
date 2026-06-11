@@ -92,9 +92,9 @@ export default function ProductOverviewPage(){
 
     useEffect(() => {
         if (product) {
-            document.title = `${product.name} | iComputers`;
+            document.title = `${product.name} | IONIX Computers`;
         } else {
-            document.title = "Product Details | iComputers";
+            document.title = "Product Details | IONIX Computers";
         }
     }, [product]);
 

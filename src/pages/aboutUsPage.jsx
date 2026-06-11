@@ -3,7 +3,7 @@ import { FiCpu, FiAward, FiUsers, FiTrendingUp, FiCompass, FiEye, FiCheckCircle 
 
 export default function AboutUsPage() {
     useEffect(() => {
-        document.title = "About Us | iComputers";
+        document.title = "About Us | IONIX Computers";
     }, []);
     const stats = [
         { id: 1, label: "Custom Builds Completed", value: "15,000+" },

@@ -13,7 +13,7 @@ export default function LoginPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        document.title = "Sign In | iComputers";
+        document.title = "Sign In | IONIX Computers";
     }, []);
 
     const googleLogin = useGoogleLogin(

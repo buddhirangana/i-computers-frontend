@@ -9,7 +9,7 @@ export default function LandingPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        document.title = "iComputers | Premium Custom PC Builds & Tech Store in Sri Lanka";
+        document.title = "IONIX Computers | No 1 Smart Technology Partner in Sri Lanka";
         
         axios.get(import.meta.env.VITE_API_URL + "/products")
             .then((response) => {
@@ -147,11 +147,11 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 3. iComputers Stats Section */}
+            {/* 3. IONIX Computers Stats Section */}
             <div className="w-full py-24 bg-black/40 relative overflow-hidden">
                 {/* Large background watermarked text */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.01] text-[120px] md:text-[200px] font-black select-none z-0 tracking-widest">
-                    iCOMPUTERS
+                    IONIX Computers
                 </div>
                 
                 <div className="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
@@ -252,11 +252,11 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 7. Designed by #iCOMPUTERS Grid */}
+            {/* 7. Designed by #IONIX Computers Grid */}
             <div className="max-w-6xl mx-auto px-6 py-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Custom Showcase</span>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1">Designed by #iCOMPUTERS</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1">Designed by #IONIX Computers</h2>
                     <div className="w-12 h-1 bg-accent rounded-full mt-4"></div>
                 </div>
                 
@@ -286,7 +286,7 @@ export default function LandingPage() {
                         {/* Cool circular badge layout */}
                         <div className="w-48 h-48 rounded-full border-4 border-dashed border-accent-light/30 flex items-center justify-center p-3 animate-[spin_40s_linear_infinite] mb-6">
                             <div className="w-full h-full rounded-full bg-accent/10 border border-accent/20 flex flex-col items-center justify-center p-4">
-                                <span className="text-white font-extrabold text-xl tracking-wider">iCOMPUTERS</span>
+                                <span className="text-white font-extrabold text-xl tracking-wider">IONIX Computers</span>
                                 <span className="text-xs text-accent-light font-bold mt-1 uppercase tracking-widest">Est. 2017</span>
                             </div>
                         </div>

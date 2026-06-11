@@ -17,7 +17,7 @@ export default function AdminOrdersPage() {
     const [isOrdersAreLoaded, setIsOrdersAreLoaded] = useState(false);
 
     useEffect(() => {
-        document.title = "Manage Orders | iComputers";
+        document.title = "Manage Orders | IONIX Computers";
         if (!isOrdersAreLoaded) {
             const token = localStorage.getItem("token");
 

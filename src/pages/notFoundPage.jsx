@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function NotFoundPage() {
     
     useEffect(() => {
-        document.title = "Page Not Found | iComputers";
+        document.title = "Page Not Found | IONIX Computers";
     }, []);
 
     return (

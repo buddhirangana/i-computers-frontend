@@ -136,7 +136,7 @@ export default function Footer() {
             <div className="w-full bg-[#050505] border-t border-gray-900 py-6 px-6 pb-[100px] lg:pb-6">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-gray-500">
                     <span>
-                        &copy; {currentYear} All rights reserved by iComputers. Developed by <a href="http://buddhirangana.com" target="_blank">Buddhi Rangana.</a>
+                        &copy; {currentYear} All rights reserved by IONIX Computers. Developed by <a href="http://buddhirangana.com" target="_blank">Buddhi Rangana.</a>
                     </span>
                     <div className="flex items-center gap-6">
                         <span className="hover:text-gray-400 cursor-pointer transition-colors duration-200">Privacy Policy</span>
