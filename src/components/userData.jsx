@@ -3,7 +3,7 @@ import api from "../utils/api";
 import { Link, useNavigate } from "react-router-dom";
 import { BiUser, BiSolidUser } from "react-icons/bi";
 
-export default function UserData() {
+export default function UserData({ className }) {
     const [user, setUser] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [imageError, setImageError] = useState(false);
@@ -61,7 +61,7 @@ export default function UserData() {
                 // Logged In Trigger
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center focus:outline-none cursor-pointer h-full aspect-square justify-center"
+                    className={className || "flex items-center focus:outline-none cursor-pointer h-full aspect-square justify-center"}
                     aria-label="User profile menu"
                 >
                     {user.image && !imageError ? (
@@ -82,7 +82,7 @@ export default function UserData() {
                 // Logged Out Trigger
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="text-white hover:text-accent text-2xl transition-colors duration-200 focus:outline-none cursor-pointer flex items-center justify-center h-full aspect-square"
+                    className={className || "text-white hover:text-accent text-2xl transition-colors duration-200 focus:outline-none cursor-pointer flex items-center justify-center h-full aspect-square"}
                     aria-label="User login/signup menu"
                 >
                     <BiUser />

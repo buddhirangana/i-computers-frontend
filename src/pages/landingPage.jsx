@@ -286,8 +286,7 @@ export default function LandingPage() {
                         {/* Cool circular badge layout */}
                         <div className="w-48 h-48 rounded-full border-4 border-dashed border-accent-light/30 flex items-center justify-center p-3 animate-[spin_40s_linear_infinite] mb-6">
                             <div className="w-full h-full rounded-full bg-accent/10 border border-accent/20 flex flex-col items-center justify-center p-4">
-                                <span className="text-white font-extrabold text-xl tracking-wider">IONIX Computers</span>
-                                <span className="text-xs text-accent-light font-bold mt-1 uppercase tracking-widest">Est. 2017</span>
+                                <span className="text-white font-extrabold text-xl tracking-wider"><img src="/favicon.png" alt="IONIX Computers" /></span>
                             </div>
                         </div>
                         <h3 className="text-3xl font-black text-white mb-4">Our Commitment</h3>

@@ -25,7 +25,7 @@ export default function Header() {
     }, [isSearchOpen]);
 
     return (
-        <header className="w-full h-[100px] glass-nav sticky top-0 z-50 flex items-center justify-center shrink-0 shadow-lg">
+        <header className="w-full h-[90px] glass-nav sticky top-0 z-50 flex items-center justify-center shrink-0 shadow-lg">
             <Link to="/" className="lg:w-[200px] h-full absolute lg:left-10 flex justify-center items-center">
                 <img src="/logo.png" alt="Logo" className="h-[60px] mr-2 filter drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]"/>
             </Link>
