@@ -75,7 +75,7 @@ export default function LoginPage() {
             {/* Tech grid mask */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
 
-            <div className="absolute w-full max-w-md z-10">
+            <div className="w-full max-w-md z-10">
                 <div className="w-full glass-card p-6 sm:p-10 border border-white/8 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center">
 
                     {/* Brand Logo & Heading */}
