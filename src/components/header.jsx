@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { BiSearch, BiCart } from "react-icons/bi";
+import { BiSearch, BiCartAlt } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import UserData from "./userData";
 
@@ -80,7 +80,7 @@ export default function Header() {
                     className="text-white hover:text-accent text-3xl transition-colors duration-200 flex items-center justify-center p-1"
                     aria-label="Shopping cart"
                 >
-                    <BiCart />
+                    <BiCartAlt />
                 </Link>
             </div>
         </header>
