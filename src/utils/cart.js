@@ -101,3 +101,14 @@ export function getCartTotal(cart){
     return total;
     
 }
+
+export function deleteFromCart(productId){
+    const cart = getCart();
+    const existingProductIndex = cart.findIndex(
+        (item) => item.product.productId == productId
+    );
+    if (existingProductIndex !== -1) {
+        cart.splice(existingProductIndex, 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+}

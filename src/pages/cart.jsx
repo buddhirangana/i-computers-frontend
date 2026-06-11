@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import { addToCart, getCart, getCartTotal } from "../utils/cart"
+import { addToCart, getCart, getCartTotal, deleteFromCart } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
 import { Link } from "react-router-dom"
-import { BiShoppingBag } from "react-icons/bi"
+import { BiShoppingBag, BiTrash } from "react-icons/bi"
 
 export default function CartPage(){
     const [cart , setCart] = useState(getCart())
@@ -39,6 +39,16 @@ export default function CartPage(){
                     (item)=>{
                         return(
                             <div key={item.product.productId} className="glass-card w-full lg:w-[500px] lg:h-[150px] shadow-2xl flex flex-col lg:flex-row p-2 lg:items-center relative border border-white/8 hover:border-accent/30 transition-all duration-200">
+                                    <button 
+                                        onClick={() => {
+                                            deleteFromCart(item.product.productId);
+                                            setCart(getCart());
+                                        }}
+                                        className="absolute top-2 right-2 text-red-500 hover:text-red-400 hover:bg-red-500/10 p-1.5 rounded-lg transition-all duration-200 cursor-pointer z-10"
+                                        aria-label="Delete item from cart"
+                                    >
+                                        <BiTrash className="text-lg" />
+                                    </button>
                                     <img className="w-[100px] h-[100px] object-cover rounded-lg bg-white/5" src={item.product.image}/>
 
                                     <div className="h-full w-full lg:w-[400px] pl-3">
