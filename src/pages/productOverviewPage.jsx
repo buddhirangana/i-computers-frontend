@@ -16,6 +16,7 @@ export default function ProductOverviewPage(){
     const [newRating, setNewRating] = useState(5)
     const [newComment, setNewComment] = useState("")
     const [isSubmittingReview, setIsSubmittingReview] = useState(false)
+    const [quantity, setQuantity] = useState(1)
 
     const fetchReviews = () => {
         api.get("/reviews/product/" + parameters.productId).then(
@@ -135,7 +136,7 @@ export default function ProductOverviewPage(){
                                     )
                                 }
                             </h1>
-                            <h2 className="text-sm text-gray-500 mt-5">{product.productId}</h2>
+                            <h2 className="text-sm text-gray-500 mt-5">Product ID: {product.productId}</h2>
                             <div className="w-full mt-5 flex flex-col">
                                 <p className="text-accent-light font-semibold text-4xl text-glow-blue">
                                     {
@@ -151,45 +152,101 @@ export default function ProductOverviewPage(){
                                     </span>
                                 }
                             </div>
-                            {/* brand and model */}
-                            <div className="w-full mt-5 flex gap-10">
-                                <span className="text-lg text-gray-400"><span className="text-white font-semibold">{product.brand}</span></span>
-                                <span className="text-lg text-gray-400"><span className="text-white font-semibold">{product.model}</span></span>
+                            {/* Product Specifications Grid */}
+                            <div className="w-full mt-6 grid grid-cols-2 gap-4 border-y border-white/5 py-4">
+                                <div>
+                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Brand</span>
+                                    <span className="text-base text-white font-bold mt-0.5 block">{product.brand}</span>
+                                </div>
+                                <div>
+                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Model</span>
+                                    <span className="text-base text-white font-bold mt-0.5 block">{product.model}</span>
+                                </div>
+                                <div className="col-span-2">
+                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Category</span>
+                                    <span className="text-base text-white font-bold mt-0.5 block">{product.category}</span>
+                                </div>
                             </div>
-                            {/* category */}
-                            <div className="w-full mt-5 flex gap-10">
-                                <span className="text-lg text-gray-400"><span className="text-white font-semibold">{product.category}</span></span>
+
+                            {/* Description Section */}
+                            <div className="w-full mt-6">
+                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Description</span>
+                                <p className="text-base text-gray-300 leading-relaxed whitespace-pre-line">
+                                    {product.description}
+                                </p>
                             </div>
-                            <p className="text-lg mt-5 mb-8 text-gray-300 leading-relaxed">
-                                {
-                                    product.description
-                                }
-                            </p>
-                            <div className="flex mt-5 gap-5 fixed lg:static bottom-[82px] right-0 p-2 backdrop-blur-2xl lg:backdrop-blur-none w-full z-10 bg-[#030712]/80 border-t lg:border-t-0 border-white/8 lg:bg-transparent shadow-2xl lg:shadow-none">                                
-                                <button className="w-62.5 h-16 bg-green-600 text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-green-700 transition-colors duration-300 shadow-md" onClick={
-                                    ()=>{
-                                        addToCart(product , 1)
-                                        toast.success("Product added to cart")
-                                    }
-                                }>Add to Cart</button>
-                                <Link
-                                    to="/checkout"
-                                    state={
-                                        [
-                                           { 
-                                                product : {
-                                                    productId : product.productId,
-                                                    name : product.name,
-                                                    image : product.images[0],
-                                                    labelledPrice : product.labelledPrice,
-                                                    price : product.price,
-                                                },
-                                                quantity : 1
-                                            }
-                                        ]
-                                    }
-                                className="w-62.5 h-16 bg-accent text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-accent-dark shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center">Buy Now</Link>
-                            </div>
+
+                            {/* Stock Check and Controls */}
+                            {(() => {
+                                const isOutOfStock = product.stock <= 0 || !product.isAvailable;
+                                return !isOutOfStock ? (
+                                    <>
+                                        {/* Quantity Selector */}
+                                        <div className="flex items-center gap-4 mt-8">
+                                            <span className="text-sm font-bold text-gray-400">Quantity:</span>
+                                            <div className="w-[120px] h-[40px] border border-white/10 bg-white/5 rounded-full flex items-center justify-between px-3 text-white">
+                                                <button 
+                                                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                                                    className="text-xl font-bold cursor-pointer hover:text-accent-light px-2 select-none animate-press"
+                                                >
+                                                    -
+                                                </button>
+                                                <span className="text-base font-bold">{quantity}</span>
+                                                <button 
+                                                    onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
+                                                    className={`text-xl font-bold px-2 select-none animate-press ${
+                                                        quantity >= product.stock 
+                                                            ? "text-gray-600 cursor-not-allowed" 
+                                                            : "cursor-pointer hover:text-accent-light"
+                                                    }`}
+                                                    disabled={quantity >= product.stock}
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
+                                            <span className="text-xs text-gray-500 font-bold">({product.stock} available)</span>
+                                        </div>
+
+                                        {/* Action Buttons */}
+                                        <div className="flex mt-8 gap-5 fixed lg:static bottom-[82px] right-0 p-2 backdrop-blur-2xl lg:backdrop-blur-none w-full z-10 bg-[#030712]/80 border-t lg:border-t-0 border-white/8 lg:bg-transparent shadow-2xl lg:shadow-none justify-center lg:justify-start">                                
+                                            <button 
+                                                className="w-62.5 h-16 bg-green-600 text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-green-700 transition-colors duration-300 shadow-md flex items-center justify-center" 
+                                                onClick={() => {
+                                                    addToCart(product, quantity);
+                                                    toast.success(`${quantity} x ${product.name} added to cart!`);
+                                                }}
+                                            >
+                                                Add to Cart
+                                            </button>
+                                            <Link
+                                                to="/checkout"
+                                                state={[
+                                                    { 
+                                                        product: {
+                                                            productId: product.productId,
+                                                            name: product.name,
+                                                            image: product.images[0],
+                                                            labelledPrice: product.labelledPrice,
+                                                            price: product.price,
+                                                        },
+                                                        quantity: quantity
+                                                    }
+                                                ]}
+                                                className="w-62.5 h-16 bg-accent text-white text-xl font-semibold rounded-lg cursor-pointer hover:bg-accent-dark shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center"
+                                            >
+                                                Buy Now
+                                            </Link>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <div className="mt-8">
+                                        <div className="inline-block px-5 py-2.5 bg-red-500/20 border border-red-500/40 text-red-500 font-extrabold rounded-lg uppercase tracking-wider text-sm mb-4">
+                                            Out of Stock
+                                        </div>
+                                        <p className="text-sm text-gray-400">This item is currently out of stock and cannot be purchased.</p>
+                                    </div>
+                                );
+                            })()}
                         </div>
                     </div>
 
