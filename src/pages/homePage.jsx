@@ -12,6 +12,11 @@ import LandingPage from "./landingPage";
 import AboutUsPage from "./aboutUsPage";
 import ContactUsPage from "./contactUsPage";
 import Footer from "../components/footer";
+import PrivacyPolicy from "./privacyPolicy";
+import TermsOfUse from "./termsOfUse";
+import ReturnsRefunds from "./returnsRefunds";
+import Warranty from "./warranty";
+import FAQ from "./faq";
 
 export default function HomePage(){
     return(
@@ -23,6 +28,11 @@ export default function HomePage(){
                     <Route path="/products" element={<ProductsPage/>} />
                     <Route path="/about-us" element={<AboutUsPage/>} />
                     <Route path="/contact-us" element={<ContactUsPage/>} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+                    <Route path="/terms-of-use" element={<TermsOfUse/>} />
+                    <Route path="/returns-refunds" element={<ReturnsRefunds/>} />
+                    <Route path="/warranty" element={<Warranty/>} />
+                    <Route path="/faq" element={<FAQ/>} />
                     <Route path="/overview/:productId" element={<ProductOverviewPage/>} />
                     <Route path="/cart" element={<CartPage/>} />
                     <Route path="/my-orders" element={<CustomerOrdersPage/>} />

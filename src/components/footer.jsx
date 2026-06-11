@@ -142,9 +142,9 @@ export default function Footer() {
                                 { to: "/cart", label: "Shopping Cart" },
                                 { to: "/my-orders", label: "Track My Orders" },
                                 { to: "/settings", label: "Profile Settings" },
-                                { href: "#", label: "FAQ" },
-                                { href: "#", label: "Warranty" },
-                                { href: "#", label: "Returns & Refunds" }
+                                { to: "/faq", label: "FAQ" },
+                                { to: "/warranty", label: "Warranty" },
+                                { to: "/returns-refunds", label: "Returns & Refunds" }
                             ].map((item, index) => (
                                 <li key={index} className="group flex items-center">
                                     <span className="w-0 opacity-0 group-hover:w-2 group-hover:opacity-100 h-[2px] bg-accent mr-0 group-hover:mr-2.5 transition-all duration-300 rounded-full" />
@@ -177,14 +177,14 @@ export default function Footer() {
                         Copyright &copy; {currentYear}, <span className="text-gray-300 font-semibold transition-colors duration-200 hover:text-white">IONIX Computers</span>. All Rights Reserved. Developed by <a href="https://buddhirangana.com" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent hover:underline transition-colors duration-200">Buddhi Rangana.</a>
                     </span>
                     <div className="flex items-center gap-6">
-                        <span className="hover:text-white cursor-pointer transition-colors duration-200 relative group py-1">
+                        <Link to="/privacy-policy" className="hover:text-white cursor-pointer transition-colors duration-200 relative group py-1">
                             Privacy Policy
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-                        </span>
-                        <span className="hover:text-white cursor-pointer transition-colors duration-200 relative group py-1">
+                        </Link>
+                        <Link to="/terms-of-use" className="hover:text-white cursor-pointer transition-colors duration-200 relative group py-1">
                             Terms of Use
                             <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-                        </span>
+                        </Link>
                     </div>
                 </div>
             </div>
