@@ -198,13 +198,15 @@ export default function AdminAddProductPage(){
                         <option value="Mobile">Mobile</option>
                         <option value="Headphones">Headphones</option>
                         <option value="Camera">Camera</option>
-                        <option value="Others">Others</option>
-                        {/* graphic cards, processors, ssd, monitors, printers */}
+                        <option value="Motherboard">Motherboard</option>
                         <option value="Graphic Card">Graphic Card</option>
                         <option value="Processor">Processor</option>
                         <option value="SSD">SSD</option>
                         <option value="Monitor">Monitor</option>
                         <option value="Printer">Printer</option>
+                        <option value="RAM">RAM</option>
+                        <option value="Power Supply">Power Supply</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
                 <div className="w-1/4   p-2">
