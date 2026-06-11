@@ -1,102 +1,205 @@
 import { useState } from "react";
-import { FaEye } from "react-icons/fa6";
-import { TbTrash } from "react-icons/tb";
+import { createPortal } from "react-dom";
+import { FaEye, FaPhoneAlt } from "react-icons/fa";
+import { MdHome, MdOutlineEmail, MdCalendarToday, MdClose } from "react-icons/md";
 import getFormattedPrice from "../utils/price-format";
-import { FaPhoneAlt } from "react-icons/fa";
-import { MdHome } from "react-icons/md";
+
+function getStatusStyles(status) {
+    const s = status ? status.toLowerCase() : "";
+    if (s === "pending" || s === "processing") {
+        return {
+            badge: "bg-amber-500/5 text-amber-400 border-amber-500/20",
+        };
+    }
+    if (s === "delivered" || s === "completed" || s === "shipped") {
+        return {
+            badge: "bg-emerald-500/5 text-emerald-400 border-emerald-500/20",
+        };
+    }
+    if (s === "cancelled" || s === "failed") {
+        return {
+            badge: "bg-rose-500/5 text-rose-400 border-rose-500/20",
+        };
+    }
+    return {
+        badge: "bg-blue-500/5 text-blue-400 border-blue-500/20",
+    };
+}
 
 export default function CustomerOrderDetailsModal(props) {
-
-    const [isModalOpen, setIsModalOpen] = useState(false)
-
-    const order = props.order
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const order = props.order;
 
     return (
         <>
-            <FaEye className="text-2xl text-blue-500 cursor-pointer hover:text-blue-700"
-                onClick={
-                    () => {
-                        setIsModalOpen(true)
-                    }
-                }
-            />
-            {
-                isModalOpen &&
-                <div className="w-screen h-screen fixed bg-black/60 backdrop-blur-md top-0 left-0 flex justify-center items-center text-white z-99 animate-fade-in">
-                    <div className="w-[800px] max-w-[95vw] bg-[#0b0f19]/90 glass-card shadow-glow-blue flex flex-col justify-center items-center rounded-2xl p-6 relative border border-white/10">
+            <button
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="p-2.5 rounded-xl bg-white/5 border border-white/8 hover:bg-accent/15 hover:border-accent/35 text-accent-light hover:text-white transition-all duration-300 shadow-md group focus:outline-none cursor-pointer"
+                title="View Details"
+            >
+                <FaEye className="text-base group-hover:scale-110 transition-transform duration-300" />
+            </button>
 
-                        <button className="absolute top-4 right-4 text-gray-400 cursor-pointer hover:text-white text-xl font-bold transition-colors" onClick={() => setIsModalOpen(false)}>×</button>
+            {isModalOpen && createPortal(
+                <div className="fixed inset-0 bg-black/75 backdrop-blur-md flex justify-center items-center text-white z-[999] animate-fade-in p-4">
+                    <div className="w-[700px] max-w-full bg-[#0b0f19]/90 glass-card shadow-2xl border border-white/10 rounded-3xl p-6 sm:p-8 relative flex flex-col animate-scale-in">
+                        {/* Close Button */}
+                        <button
+                            type="button"
+                            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 focus:outline-none cursor-pointer text-lg font-bold"
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            <MdClose className="text-lg" />
+                        </button>
 
                         <div className="w-full">
-                            <div className="w-full flex flex-wrap items-center gap-3 border-b border-white/5 pb-4 mb-4">
-                                <span className="inline-block rounded-md bg-white/5 border border-white/10 px-3 py-1 text-xs font-semibold text-gray-300">
-                                    ID: {order.orderId}
-                                </span>
-                                <div className="flex flex-col gap-2">
-                                    <span className="text-sm text-gray-400 italic ml-2">{order.email}</span>
+                            <h3 className="text-lg font-black text-white uppercase tracking-wider mb-6 pb-3 border-b border-white/5">
+                                Order Details
+                            </h3>
+
+                            {/* Info Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-white/5 pb-6 mb-6">
+                                {/* Delivery Address Card */}
+                                <div className="flex flex-col gap-2.5">
+                                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                        Delivery Address
+                                    </h4>
+                                    <div className="flex gap-3 bg-white/3 border border-white/5 p-4 rounded-2xl h-full">
+                                        <MdHome className="text-xl text-accent-light shrink-0 mt-0.5" />
+                                        <div>
+                                            <div className="font-bold text-white text-sm">
+                                                {order.firstName} {order.lastName}
+                                            </div>
+                                            <p className="text-xs text-gray-400 leading-relaxed mt-1.5 font-light">
+                                                {order.addressLineOne}
+                                                {order.addressLineTwo && <>, {order.addressLineTwo}</>}
+                                                <br />
+                                                {order.city}, {order.state} {order.postalCode}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col gap-2 ml-auto">
-                                    <span className="text-gray-300 flex justify-center items-center gap-2 text-sm"><FaPhoneAlt className="text-accent" />{order.phone}</span>
+
+                                {/* Order Telemetry Card */}
+                                <div className="flex flex-col gap-2.5">
+                                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                        Metadata
+                                    </h4>
+                                    <div className="flex flex-col gap-2.5 bg-white/3 border border-white/5 p-4 rounded-2xl text-xs font-light text-gray-300">
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-500 font-medium">Order ID</span>
+                                            <span className="font-mono font-semibold text-white">
+                                                #{order.orderId ? String(order.orderId).toUpperCase() : "N/A"}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-500 font-medium flex items-center gap-1">
+                                                <MdCalendarToday className="text-xs" /> Date
+                                            </span>
+                                            <span className="text-white font-medium">
+                                                {new Date(order.date).toLocaleDateString(undefined, {
+                                                    year: "numeric",
+                                                    month: "short",
+                                                    day: "numeric",
+                                                })}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-500 font-medium flex items-center gap-1">
+                                                <FaPhoneAlt className="text-[10px]" /> Phone
+                                            </span>
+                                            <span className="font-medium text-white">{order.phone}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-500 font-medium flex items-center gap-1">
+                                                <MdOutlineEmail className="text-xs" /> Email
+                                            </span>
+                                            <span
+                                                className="truncate max-w-[160px] font-medium text-white font-mono"
+                                                title={order.email}
+                                            >
+                                                {order.email}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-500 font-medium">Status</span>
+                                            <span
+                                                className={`inline-block rounded-full border px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                                                    getStatusStyles(order.status).badge
+                                                }`}
+                                            >
+                                                {order.status}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="w-full flex justify-between items-center mt-2">
-                                <div className="flex justify-center items-center gap-3">
-                                    <MdHome className="text-xl text-accent-light shrink-0" />
-                                    <p className="text-gray-300 text-sm">
-                                        <span className="font-bold text-white">{order.firstName} {order.lastName}</span>, {order.addressLineOne} {order.addressLineTwo}, {order.city}, {order.state}, {order.postalCode}
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div className="w-full flex flex-wrap gap-4 items-center mt-3 pb-3 border-b border-white/5">
-                                <span className="text-sm text-gray-400">Order Date: {new Date(order.date).toLocaleDateString()}</span>
-                                <span className="inline-block rounded-full bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1 text-xs font-semibold">
-                                    {order.status}
-                                </span>
-                            </div>
-                            
+                            {/* Order Notes */}
                             {order.notes && (
-                                <div className="w-full flex flex-col gap-1 mt-3 pb-3 border-b border-white/5">
-                                    <p className="text-white font-semibold text-sm">Order Notes:</p>
-                                    <p className="text-sm text-gray-400 italic">{order.notes}</p>
+                                <div className="w-full flex flex-col gap-1.5 mb-6 bg-white/2 border border-white/5 p-3 rounded-xl">
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                        Notes
+                                    </p>
+                                    <p className="text-xs text-gray-400 italic font-light">{order.notes}</p>
                                 </div>
                             )}
-                        </div>
-                        
-                        <div className="w-full h-[250px] flex flex-col overflow-y-auto items-center p-2 mt-4 custom-scrollbar">
-                            {
-                                order.items.map(
-                                    (item, index) => {
+
+                            {/* Items List */}
+                            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+                                Items Ordered
+                            </h4>
+                            <div className="w-full max-h-[200px] overflow-y-auto flex flex-col gap-2.5 pr-2 custom-scrollbar">
+                                {order.items &&
+                                    order.items.map((item, index) => {
                                         return (
-                                            <div key={index} className="w-full flex justify-between items-center bg-white/3 border border-white/5 rounded-xl p-3 mb-3 hover:border-accent/30 transition-all duration-200">
+                                            <div
+                                                key={index}
+                                                className="w-full flex justify-between items-center bg-white/2 border border-white/5 rounded-2xl p-3 hover:border-accent/30 transition-all duration-300"
+                                            >
                                                 <div className="flex items-center gap-4">
-                                                    <img className="w-[70px] h-[70px] object-cover rounded-lg border border-white/10" src={item.product.image} alt={item.product.name} />
-                                                    <div className="flex flex-col gap-1">
-                                                        <span className="font-semibold text-white text-sm line-clamp-1">{item.product.name}</span>
-                                                        <span className="text-xs text-gray-400">Quantity: {item.quantity}</span>
-                                                        <span className="text-xs text-gray-400">Price: {getFormattedPrice(item.product.price)}</span>
+                                                    <img
+                                                        className="w-14 h-14 object-cover rounded-xl border border-white/10 shrink-0"
+                                                        src={item.product?.image || "https://www.w3schools.com/howto/img_avatar.png"}
+                                                        alt={item.product?.name || "Product"}
+                                                    />
+                                                    <div className="flex flex-col gap-0.5">
+                                                        <span className="font-semibold text-white text-sm line-clamp-1 max-w-[200px] sm:max-w-[320px]">
+                                                            {item.product?.name || "Unknown Product"}
+                                                        </span>
+                                                        <div className="flex items-center gap-2 text-xs text-gray-500 font-light">
+                                                            <span>Quantity: {item.quantity}</span>
+                                                            <span>•</span>
+                                                            <span className="font-mono">
+                                                                {getFormattedPrice(item.product?.price || 0)}
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="text-sm font-bold text-accent-light">
-                                                    {getFormattedPrice(item.product.price * item.quantity)}
+                                                <div className="text-sm font-bold text-accent-light font-mono text-right shrink-0">
+                                                    {getFormattedPrice((item.product?.price || 0) * item.quantity)}
                                                 </div>
                                             </div>
-                                        )
-                                    }
-                                )
-                            }
+                                        );
+                                    })}
+                            </div>
                         </div>
-                        
-                        <div className="w-full flex justify-end items-center bg-white/5 border border-white/5 rounded-xl p-4 mt-4">
-                            <span className="text-lg font-bold text-white">
-                                Total: <span className="text-accent-light">{getFormattedPrice(order.total)}</span>
+
+                        {/* Grand Total Summary */}
+                        <div className="w-full flex justify-between items-center bg-white/5 border border-white/5 rounded-2xl p-4 mt-6">
+                            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                Total Amount
+                            </span>
+                            <span className="text-xl font-black text-accent-light font-mono text-glow-blue">
+                                {getFormattedPrice(order.total)}
                             </span>
                         </div>
                     </div>
-                </div>
-            }
+                </div>,
+                document.body
+            )}
         </>
-    )
+    );
 }
+
