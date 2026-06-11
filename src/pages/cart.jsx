@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { addToCart, getCart, getCartTotal } from "../utils/cart"
 import getFormattedPrice from "../utils/price-format"
 import { Link } from "react-router-dom"
+import { BiShoppingBag } from "react-icons/bi"
 
 export default function CartPage(){
     const [cart , setCart] = useState(getCart())
@@ -9,6 +10,26 @@ export default function CartPage(){
     useEffect(() => {
         document.title = "Your Shopping Cart | IONIX Computers";
     }, []);
+
+    if (cart.length === 0) {
+        return (
+            <div className="w-full min-h-[75vh] flex flex-col items-center justify-center p-5 text-center bg-primary text-gray-300">
+                <div className="w-28 h-28 rounded-full bg-slate-800/40 border border-slate-700/30 flex items-center justify-center mb-6 shadow-inner">
+                    <BiShoppingBag className="text-slate-400 text-5xl" />
+                </div>
+                <h1 className="text-3xl font-extrabold text-white mb-3">Your cart is empty</h1>
+                <p className="text-gray-400 text-sm lg:text-base max-w-[420px] mb-8 leading-relaxed">
+                    Looks like you haven't added anything to your cart yet. Explore our products and find something you'll love!
+                </p>
+                <Link 
+                    to="/products" 
+                    className="px-8 py-3 bg-[#3b82f6] hover:bg-[#0040a7] text-white font-bold rounded-xl shadow-lg transition-all duration-200 hover:shadow-glow-blue cursor-pointer text-base"
+                >
+                    Continue Shopping
+                </Link>
+            </div>
+        )
+    }
 
     return(
         <div className="w-full min-h-full flex flex-col p-5 items-center gap-4 pb-[150px] lg:pb-28 text-gray-300 bg-primary">
