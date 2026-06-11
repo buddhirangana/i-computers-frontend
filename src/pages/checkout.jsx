@@ -10,7 +10,7 @@ export default function CheckoutPage(){
     const [isModalOpen, setIsModalOpen] = useState(false)
     
     useEffect(() => {
-        document.title = "Checkout | iComputers";
+        document.title = "Checkout | IONIX Computers";
     }, []);
 
     return(

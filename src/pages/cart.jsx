@@ -7,7 +7,7 @@ export default function CartPage(){
     const [cart , setCart] = useState(getCart())
     
     useEffect(() => {
-        document.title = "Your Shopping Cart | iComputers";
+        document.title = "Your Shopping Cart | IONIX Computers";
     }, []);
 
     return(

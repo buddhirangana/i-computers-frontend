@@ -9,7 +9,7 @@ export default function LandingPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        document.title = "IONIX Computers | No 1 Smart Technology Partner in Sri Lanka";
+        document.title = "IONIX Computers | No. 1 Smart Technology Partner in Sri Lanka";
         
         axios.get(import.meta.env.VITE_API_URL + "/products")
             .then((response) => {
@@ -82,7 +82,7 @@ export default function LandingPage() {
     return (
         <div className="w-full min-h-screen bg-primary text-gray-300 pb-20 select-none overflow-x-hidden">
             
-            {/* 1. Hero Video Banner Section */}
+            {/* Hero Video Banner Section */}
             <div className="w-full h-[650px] relative overflow-hidden flex items-center justify-center">
                 <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0">
                     <source src="/1080p.mp4" type="video/mp4" />
@@ -110,7 +110,7 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 2. Build Your Own PC Section */}
+            {/* Build Your Own PC Section */}
             <div className="w-full bg-secondary/30 border-y border-white/5 py-20 px-6">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col">
@@ -147,7 +147,7 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 3. IONIX Computers Stats Section */}
+            {/* IONIX Computers Stats Section */}
             <div className="w-full py-24 bg-black/40 relative overflow-hidden">
                 {/* Large background watermarked text */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.01] text-[120px] md:text-[200px] font-black select-none z-0 tracking-widest">
@@ -179,7 +179,7 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 4. New Arrivals */}
+            {/* New Arrivals */}
             <div className="max-w-6xl mx-auto px-6 py-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Fresh In Store</span>
@@ -200,7 +200,7 @@ export default function LandingPage() {
                 )}
             </div>
 
-            {/* 5. Best Sellers */}
+            {/* Best Sellers */}
             <div className="max-w-6xl mx-auto px-6 py-10">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Top Rated Choices</span>
@@ -221,7 +221,7 @@ export default function LandingPage() {
                 )}
             </div>
 
-            {/* 6. Pro Categories */}
+            {/* Pro Categories */}
             <div className="max-w-6xl mx-auto px-6 py-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Browse Collections</span>
@@ -252,11 +252,11 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 7. Designed by #IONIX Computers Grid */}
+            {/* Designed by #IONIX Computers Grid */}
             <div className="max-w-6xl mx-auto px-6 py-20">
                 <div className="flex flex-col items-center text-center mb-12">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Custom Showcase</span>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1">Designed by #IONIX Computers</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1">Designed by #IONIX</h2>
                     <div className="w-12 h-1 bg-accent rounded-full mt-4"></div>
                 </div>
                 
@@ -278,7 +278,7 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 8. Brand Badge & Values Section */}
+            {/* Brand Badge & Values Section */}
             <div className="w-full bg-secondary/35 border-y border-white/5 py-24 px-6">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
                     
@@ -333,7 +333,7 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            {/* 9. Google Customer Reviews Section */}
+            {/* Google Customer Reviews Section */}
             <div className="max-w-6xl mx-auto px-6 py-24">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-wider">Client Testimonials</span>

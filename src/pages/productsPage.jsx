@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/productCard";
 import toast from "react-hot-toast";
 import api from "../utils/api";
@@ -8,39 +9,42 @@ export default function ProductsPage(){
 
     const [products, setProducts] = useState([]);
     const [query , setQuery] = useState("");
-    const [isProductsAreLoaded, setIsProductsAreLoaded] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const searchQuery = searchParams.get("search") || "";
 
     useEffect(() => {
         document.title = "Products Catalog | IONIX Computers";
     }, []);
 
-    useEffect(
-        () => {
-            if(!isProductsAreLoaded){
-                axios.get(import.meta.env.VITE_API_URL + "/products").then(
-                    (response) => {
-                        setProducts(response.data);
-                        setIsProductsAreLoaded(true);
-                    }
-                ).catch(
-                    (error) => {
-                        console.log(error);
-                    }
-                );
-            }
+    useEffect(() => {
+        // Sync the query input text state with URL search param
+        setQuery(searchQuery);
+
+        if (searchQuery.trim()) {
+            api.get("/products/search/" + encodeURIComponent(searchQuery.trim()))
+                .then((response) => {
+                    setProducts(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toast.error("Failed to search products!");
+                });
+        } else {
+            axios.get(import.meta.env.VITE_API_URL + "/products")
+                .then((response) => {
+                    setProducts(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
-        ,[isProductsAreLoaded]
-    )
+    }, [searchQuery]);
 
-    async function handleSearch(){
-        try{
-
-            const response = await api.get("/products/search/"+query);
-            setProducts(response.data);
-
-        }catch(error){
-            console.log(error);
-            toast .error("Failed to search products!");
+    function handleSearch(){
+        if (query.trim()) {
+            setSearchParams({ search: query.trim() });
+        } else {
+            setSearchParams({});
         }
     }
 
@@ -51,6 +55,11 @@ export default function ProductsPage(){
                 <input 
                     value={query} 
                     onChange={(e) => setQuery(e.target.value)} 
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleSearch();
+                        }
+                    }}
                     type="text" 
                     placeholder="Search products..." 
                     className="w-1/2 p-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
@@ -63,7 +72,10 @@ export default function ProductsPage(){
                 </button>
                 <button 
                     className="ml-4 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-200 cursor-pointer font-semibold" 
-                    onClick={() => { setIsProductsAreLoaded(false) }}
+                    onClick={() => { 
+                        setSearchParams({});
+                        setQuery("");
+                    }}
                 >
                     All Products
                 </button>
