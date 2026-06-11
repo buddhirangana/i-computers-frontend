@@ -12,7 +12,7 @@ import ForgetPassword from "./pages/forgetPassword";
 function App() {
 	return (
 		<GoogleOAuthProvider clientId="716762410389-aj6869tdov6m97gtnjh7e8pffncvn0qe.apps.googleusercontent.com">			
-			<div className="w-full h-screen flex justify-center items-center bg-primary text-secondary">
+			<div className="w-full h-screen bg-primary text-secondary">
 				<Toaster position="top-right" />
 				<Routes>
 					<Route path="/*" element={<HomePage />} />
