@@ -110,11 +110,11 @@ export default function ProductsPage() {
 
     return (
         <div className="w-full min-h-full flex flex-col p-6 items-center gap-6 pb-[150px] lg:pb-28 text-gray-300 bg-primary">
-            <h1 className="sr-only">Products Catalog | I Computers</h1>
+            <h1 className="sr-only">Products Catalog | IONIX Computers</h1>
             
             {/* Catalog Header Title */}
             <div className="w-full text-center flex flex-col items-center gap-3 mt-6">
-                <h2 className="text-4xl font-extrabold text-white tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.25)]">
+                <h2 className="text-4xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.25)]">
                     Explore Our Catalog
                 </h2>
                 <p className="text-gray-400 text-sm md:text-base max-w-lg">
@@ -144,7 +144,7 @@ export default function ProductsPage() {
                                 setQuery("");
                                 setSearchParams({});
                             }}
-                            className="text-gray-400 hover:text-white text-xs font-bold px-2 py-1 cursor-pointer transition-colors"
+                            className="text-gray-400 hover:text-white text-xs font-semibold px-2 py-1 cursor-pointer transition-colors"
                             type="button"
                         >
                             Clear
@@ -152,7 +152,7 @@ export default function ProductsPage() {
                     )}
                 </div>
                 <button 
-                    className="px-6 py-3 bg-accent hover:bg-accent-dark text-white rounded-xl shadow-md hover:shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200 cursor-pointer font-bold text-sm" 
+                    className="px-6 py-3 bg-accent hover:bg-accent-dark text-white rounded-xl shadow-md hover:shadow-glow-blue focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200 cursor-pointer font-semibold text-sm" 
                     onClick={handleSearch}
                 >
                     Search
@@ -170,7 +170,7 @@ export default function ProductsPage() {
                                 setSelectedCategory(cat);
                                 setIsSortOpen(false);
                             }}
-                            className={`px-4.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer border ${
+                            className={`px-4.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer border ${
                                 selectedCategory === cat
                                     ? "bg-accent text-white border-accent shadow-glow-blue hover:bg-accent-dark"
                                     : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border-white/10 hover:border-white/20"
@@ -183,10 +183,10 @@ export default function ProductsPage() {
 
                 {/* Sort Dropdown */}
                 <div className="flex items-center gap-2 relative z-20" ref={sortDropdownRef}>
-                    <span className="text-sm text-gray-400 font-semibold">Sort by:</span>
+                    <span className="text-sm text-gray-400 font-medium">Sort by:</span>
                     <button
                         onClick={() => setIsSortOpen(!isSortOpen)}
-                        className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white text-sm font-semibold flex items-center gap-1.5 hover:bg-white/10 cursor-pointer transition-all duration-200 min-w-[150px] justify-between"
+                        className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white text-sm font-medium flex items-center gap-1.5 hover:bg-white/10 cursor-pointer transition-all duration-200 min-w-[150px] justify-between"
                     >
                         <span>{sortBy}</span>
                         {isSortOpen ? <BiChevronUp className="text-lg" /> : <BiChevronDown className="text-lg" />}
@@ -201,9 +201,9 @@ export default function ProductsPage() {
                                         setSortBy(option);
                                         setIsSortOpen(false);
                                     }}
-                                    className={`flex w-full px-4 py-2 text-sm text-left rounded-lg transition-colors duration-150 cursor-pointer font-bold ${
+                                    className={`flex w-full px-4 py-2 text-sm text-left rounded-lg transition-colors duration-150 cursor-pointer font-semibold ${
                                         sortBy === option
-                                            ? "bg-accent/15 text-accent font-bold"
+                                            ? "bg-accent/15 text-accent font-semibold"
                                             : "text-slate-700 hover:bg-slate-100 hover:text-accent"
                                     }`}
                                 >
@@ -226,7 +226,7 @@ export default function ProductsPage() {
                         <div className="w-16 h-16 rounded-full bg-slate-800/40 border border-slate-700/30 flex items-center justify-center mb-2 shadow-inner">
                             <BiShoppingBag className="text-slate-400 text-3xl" />
                         </div>
-                        <p className="text-white text-lg font-bold">No Products Found</p>
+                        <p className="text-white text-lg font-semibold">No Products Found</p>
                         <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
                             We couldn't find any products matching your search query or filter. Try checking your spelling or adjusting filters.
                         </p>

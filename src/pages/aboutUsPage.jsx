@@ -8,9 +8,9 @@ export default function AboutUsPage() {
     }, []);
 
     const stats = [
-        { id: 1, label: "Custom Builds Completed", value: "15,000+" },
+        { id: 1, label: "Custom Builds Completed", value: "200+" },
         { id: 2, label: "Satisfied Customers", value: "99.8%" },
-        { id: 3, label: "Years of Excellence", value: "5+" },
+        { id: 3, label: "Years of Excellence", value: "4+" },
         { id: 4, label: "Genuine Brands", value: "50+" }
     ];
 
@@ -46,7 +46,7 @@ export default function AboutUsPage() {
             {/* Hero Section with Ambient Mesh Glow */}
             <div className="relative w-full bg-gradient-to-b from-[#0b0f19] to-[#030712] text-white py-24 px-6 md:px-12 flex flex-col items-center justify-center text-center border-b border-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none"></div>
-                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 font-sans text-glow-blue relative z-10">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 font-sans text-glow-blue relative z-10">
                     About IONIX Computers
                 </h1>
                 <p className="text-base md:text-lg text-blue-200 max-w-2xl font-light relative z-10 leading-relaxed">
@@ -59,8 +59,8 @@ export default function AboutUsPage() {
                 {/* Left Column: Our Story */}
                 <div className="flex flex-col gap-6">
                     <div>
-                        <span className="text-xs font-bold text-accent uppercase tracking-wider block mb-1">Our Story</span>
-                        <h2 className="text-3xl font-extrabold text-white">Empowering Tech Enthusiasts Since 2020</h2>
+                        <span className="text-xs font-semibold text-accent uppercase tracking-wider block mb-1">Our Story</span>
+                        <h2 className="text-3xl font-bold text-white">Empowering Tech Enthusiasts Since 2022</h2>
                     </div>
                     <p className="text-sm text-gray-400 leading-relaxed">
                         Founded with a vision to revolutionize the PC building landscape, IONIX Computers has grown from a passionate team of tech geeks into one of the most trusted computer hardware stores in the country.
@@ -69,11 +69,11 @@ export default function AboutUsPage() {
                         We specialize in custom gaming PCs, high-end workstations, server deployment, and high-quality accessories. We don't just sell components; we curate experiences tailored to your creative, gaming, and professional needs.
                     </p>
                     <div className="flex flex-col gap-3.5 mt-2">
-                        <div className="flex items-center gap-3 text-sm text-gray-300 font-semibold">
+                        <div className="flex items-center gap-3 text-sm text-gray-300 font-medium">
                             <FiCheckCircle className="text-accent-light text-lg shrink-0" />
                             <span>Authorized dealer of top global brands (ASUS, MSI, Corsair, Intel, AMD)</span>
                         </div>
-                        <div className="flex items-center gap-3 text-sm text-gray-300 font-semibold">
+                        <div className="flex items-center gap-3 text-sm text-gray-300 font-medium">
                             <FiCheckCircle className="text-accent-light text-lg shrink-0" />
                             <span>Professional stress-testing and benchmark reports provided</span>
                         </div>
@@ -91,7 +91,7 @@ export default function AboutUsPage() {
                             <FiCompass className="text-2xl text-accent-light" />
                         </div>
                         <div>
-                            <h3 className="font-extrabold text-white text-base mb-2 uppercase tracking-wide">Our Mission</h3>
+                            <h3 className="font-bold text-white text-base mb-2 uppercase tracking-wide">Our Mission</h3>
                             <p className="text-sm text-gray-400 leading-relaxed">
                                 To provide premium, high-performance computing hardware backed by unparalleled technical support, enabling gamers, creators, and developers to push their boundaries.
                             </p>
@@ -104,7 +104,7 @@ export default function AboutUsPage() {
                             <FiEye className="text-2xl text-purple-400" />
                         </div>
                         <div>
-                            <h3 className="font-extrabold text-white text-base mb-2 uppercase tracking-wide">Our Vision</h3>
+                            <h3 className="font-bold text-white text-base mb-2 uppercase tracking-wide">Our Vision</h3>
                             <p className="text-sm text-gray-400 leading-relaxed">
                                 To be recognized as the ultimate landmark for custom PC builds and server hardware solutions, fostering a thriving technology ecosystem across Sri Lanka.
                             </p>
@@ -118,8 +118,8 @@ export default function AboutUsPage() {
                 <div className="w-full glass-card border border-white/10 rounded-3xl p-10 backdrop-blur-md shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat) => (
                         <div key={stat.id} className="flex flex-col items-center text-center">
-                            <span className="text-3xl md:text-4xl font-extrabold text-accent-light mb-1.5 text-glow-blue">{stat.value}</span>
-                            <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">{stat.label}</span>
+                            <span className="text-3xl md:text-4xl font-bold text-accent-light mb-1.5 text-glow-blue">{stat.value}</span>
+                            <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{stat.label}</span>
                         </div>
                     ))}
                 </div>
@@ -128,8 +128,8 @@ export default function AboutUsPage() {
             {/* Our Values Section */}
             <div className="max-w-[1440px] mx-auto px-6 py-16 flex flex-col items-center">
                 <div className="text-center mb-12 flex flex-col items-center gap-1.5">
-                    <span className="text-xs font-bold text-accent uppercase tracking-wider block">How We Stand Out</span>
-                    <h2 className="text-3xl font-extrabold text-white">Our Core Values</h2>
+                    <span className="text-xs font-semibold text-accent uppercase tracking-wider block">How We Stand Out</span>
+                    <h2 className="text-3xl font-bold text-white">Our Core Values</h2>
                     <p className="text-sm text-gray-400 max-w-sm leading-relaxed">Every component we ship and build we assemble is guided by our values</p>
                 </div>
 
@@ -140,7 +140,7 @@ export default function AboutUsPage() {
                                 {val.icon}
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-white text-base mb-1.5 uppercase tracking-wide">{val.title}</h3>
+                                <h3 className="font-semibold text-white text-base mb-1.5 uppercase tracking-wide">{val.title}</h3>
                                 <p className="text-sm text-gray-400 leading-relaxed">{val.description}</p>
                             </div>
                         </div>
@@ -151,14 +151,14 @@ export default function AboutUsPage() {
             {/* Premium Call to Action (CTA) Section */}
             <div className="max-w-7xl w-[90%] mx-auto mt-12 bg-gradient-to-r from-accent/20 via-[#0b0f19] to-purple-500/10 border border-white/8 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
                 <div className="flex flex-col gap-2.5 max-w-xl text-center md:text-left">
-                    <h3 className="text-2xl font-extrabold text-white tracking-tight">Ready to Build Your Dream Custom PC?</h3>
+                    <h3 className="text-2xl font-bold text-white tracking-tight">Ready to Build Your Dream Custom PC?</h3>
                     <p className="text-sm text-gray-400 leading-relaxed">
                         Consult with our expert technicians to customize, stress-test, and assemble a machine tailored for you.
                     </p>
                 </div>
                 <Link 
                     to="/products" 
-                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark text-white font-bold rounded-xl shadow-lg hover:shadow-glow-blue transition-all duration-200 text-sm whitespace-nowrap cursor-pointer hover:scale-105"
+                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl shadow-lg hover:shadow-glow-blue transition-all duration-200 text-sm whitespace-nowrap cursor-pointer hover:scale-105"
                 >
                     Build Your PC Now
                 </Link>

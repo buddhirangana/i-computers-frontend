@@ -80,10 +80,10 @@ export default function CustomerOrdersPage() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-white/5 pb-8">
                     <div>
-                        <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
+                        <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
                             Dashboard
                         </span>
-                        <h1 className="text-3xl sm:text-4xl font-black text-white mt-4 uppercase tracking-tight">
+                        <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 uppercase tracking-tight">
                             Order History
                         </h1>
                         <p className="text-sm text-gray-500 mt-2 font-light">
@@ -91,10 +91,10 @@ export default function CustomerOrdersPage() {
                         </p>
                     </div>
                     <div className="flex items-center gap-3 bg-white/3 border border-white/8 rounded-2xl px-5 py-3.5 shadow-md self-start md:self-auto backdrop-blur-md">
-                        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                        <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Total Purchases:
                         </span>
-                        <span className="text-lg font-black text-white px-2.5 py-0.5 rounded-lg bg-accent/20 border border-accent/30 text-glow-blue font-mono">
+                        <span className="text-lg font-bold text-white px-2.5 py-0.5 rounded-lg bg-accent/20 border border-accent/30 text-glow-blue font-mono">
                             {totalOrders}
                         </span>
                     </div>
@@ -108,7 +108,7 @@ export default function CustomerOrdersPage() {
                                 <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center border border-white/10 mb-6 text-gray-400 text-3xl shadow-inner">
                                     <FiPackage />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide">
+                                <h3 className="text-xl font-bold text-white mb-2 tracking-wide">
                                     No Orders Yet
                                 </h3>
                                 <p className="text-sm text-gray-400 mb-8 max-w-xs font-light leading-relaxed">
@@ -116,7 +116,7 @@ export default function CustomerOrdersPage() {
                                 </p>
                                 <Link
                                     to="/products"
-                                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 text-xs tracking-wider uppercase"
+                                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-xs tracking-wider"
                                 >
                                     Start Shopping
                                 </Link>
@@ -125,7 +125,7 @@ export default function CustomerOrdersPage() {
                             /* Orders List Grid */
                             <div className="flex flex-col gap-4">
                                 {/* Desktop Header (Hidden on Mobile) */}
-                                <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-white/5 rounded-xl border border-white/5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                                <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-white/5 rounded-xl border border-white/5 text-xs font-semibold uppercase tracking-wider text-gray-400">
                                     <div className="col-span-2">Order ID</div>
                                     <div className="col-span-3">Customer info</div>
                                     <div className="col-span-2">Order Date</div>

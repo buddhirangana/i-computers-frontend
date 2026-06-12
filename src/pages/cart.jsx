@@ -23,7 +23,7 @@ export default function CartPage() {
                     <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center border border-white/10 mb-6 text-gray-400 text-3xl shadow-inner">
                         <FiShoppingBag />
                     </div>
-                    <h1 className="text-2xl sm:text-3xl font-black text-white mb-2 uppercase tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
                         Your Cart is Empty
                     </h1>
                     <p className="text-gray-400 text-sm max-w-xs mb-8 leading-relaxed font-light">
@@ -31,7 +31,7 @@ export default function CartPage() {
                     </p>
                     <Link
                         to="/products"
-                        className="px-8 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 text-xs tracking-wider uppercase cursor-pointer"
+                        className="px-8 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-xs tracking-wider cursor-pointer"
                     >
                         Continue Shopping
                     </Link>
@@ -219,4 +219,4 @@ export default function CartPage() {
             </div>
         </div>
     );
-}
+}
