@@ -5,7 +5,7 @@
 [![Vite](https://img.shields.io/badge/Vite-7.3.1-646CFF.svg?logo=vite)](https://vite.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.2.1-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com)
 
-Welcome to the frontend application repository of **IONIX Computers**, Sri Lanka's leading smart technology partner. This codebase delivers a premium, highly responsive, and high-performance e-commerce user interface tailored for computer hardware, custom gaming rigs, and tech accessories.
+Frontend application repository of **IONIX Computers**, Sri Lanka's leading smart technology partner. This codebase delivers a premium, highly responsive, and high-performance e-commerce user interface tailored for computer hardware, custom gaming rigs, and tech accessories.
 
 ## 🎨 Design Philosophy & Aesthetics
 
@@ -18,9 +18,10 @@ IONIX Computers is built with a state-of-the-art tech aesthetic:
 ## 🚀 Key Features
 
 ### 🛒 E-Commerce & Customer Journey
-*   **Landing Page**: Interactive slideshows, featured brands, categories, and real-time trending products.
+*   **Landing Page**: Interactive showcases, featured brands, categories, and real-time trending products.
+*   **Glassmorphic Product Cards**: Modernized cards featuring swap-on-hover images, automatic savings calculation tags (e.g. `SAVE 15%`), wishlist buttons, and glowing stock indicators (pulsing green/red dots).
 *   **Interactive Store**: Responsive product list with advanced search, tags, dynamic filtering, and detailed page listings.
-*   **Product Overview**: Detailed specifications sheets, warranty options, and high-fidelity product modals.
+*   **Image Slide Zoom & Lightbox**: Interactive slideshow that supports **pan-on-hover zoom** for deep product detail checks and a **full-screen lightbox viewer modal** with arrow slide navigation.
 *   **Cart & Checkout Pipeline**: Seamless state-managed shopping cart with checkout wizard, price calculations, and confirmation details.
 *   **Customer Profiles**: Order tracking interface (`/my-orders`) detailing order stages, order items, and shipping status.
 
@@ -29,8 +30,11 @@ IONIX Computers is built with a state-of-the-art tech aesthetic:
 *   **Local Accounts**: Account creation, authentication flow, and forgotten password recovery layouts.
 
 ### 🛠️ Admin Control Dashboard
+*   **Premium Active Sidebar**: Modern navigation sidebar tracking route indicators dynamically using `useLocation()`, styled menu highlights, and live online system profile indicators.
 *   **Inventory Management**: Dedicated layout to inspect products, add items, configure metadata, and delete assets with safety confirmations.
-*   **Order Review**: Administrative view of incoming client requests, dispatch statuses, and details.
+*   **Orders & Reviews Moderation**: Administrative tables equipped with custom gradient header banners (`from-accent to-blue-600`), scrollable container viewports, and custom colored status dots (Pending, Processing, Approved, Blocked, Blocked, Verified status levels).
+*   **Detailed Order Inspection**: Deep modal layout separating delivery addresses and customer metadata inside clean grids, itemised line totals, and status configuration forms.
+*   **Add & Edit Product Forms**: Grouped panel layouts, drop-zone file upload boxes, and rounded input fields styled with focus state glow accents.
 
 ## 🛠️ Technology Stack
 
@@ -52,6 +56,8 @@ i-computers-frontend/
 │   ├── components/        # Reusable global UI widgets & layout wrappers
 │   │   ├── footer.jsx     # Tech-accented footer with brand info
 │   │   ├── header.jsx     # Navigation bar with responsive links & user dropdown
+│   │   ├── imageSlidesShow.jsx # Product view zoom viewport & fullscreen lightbox modal
+│   │   ├── orderDetailsModal.jsx # Admin customer order metadata card & status updates
 │   │   └── ...            # Modals, sliders, cards, loading animations
 │   ├── pages/             # Page view containers for Router
 │   │   ├── admin/         # Sub-views for admin panels
@@ -61,10 +67,11 @@ i-computers-frontend/
 │   ├── utils/             # Helper libraries & APIs
 │   │   ├── api.js         # Base Axios client instance
 │   │   ├── cart.js        # Cart helpers
-│   │   └── ...            # Price formatters & media uploading utilities
+│   │   ├── mediaUpload.js # Supabase storage image upload utility
+│   │   └── ...            # Price formatters
 │   ├── App.css            # Component-level styles
 │   ├── App.jsx            # Router setup & Google OAuth Context wrapper
-│   ├── index.css          # Tailwind CSS layer definitions & color variables
+│   ├── index.css          # Tailwind CSS layer definitions, colors & custom scrollbar utilities
 │   └── main.jsx           # React app entrypoint
 ├── index.html             # HTML Shell with Mona Sans font import
 ├── vite.config.js         # Vite compilation preferences
@@ -92,9 +99,17 @@ i-computers-frontend/
     ```
 
 3.  Configure Environment Variables:
-    Create a `.env` file in the root directory and specify the backend API URL:
+    Create a `.env` file in the root directory and specify the required API endpoints and OAuth integrations:
     ```env
+    # Backend server API URL
     VITE_API_URL="http://localhost:3000/api"
+
+    # Supabase credentials (used for image uploading inside inventory/forms)
+    VITE_SUPABASE_URL="https://your-project-id.supabase.co"
+    VITE_SUPABASE_KEY="your-anon-public-key"
+
+    # Google OAuth Sign-in API Client ID
+    VITE_GOOGLE_CLIENT_ID="your-client-id-here.apps.googleusercontent.com"
     ```
 
 ### 💻 Running Locally
