@@ -143,103 +143,90 @@ export default function AdminEditProductPage(){
         }
     }
 
-    return(
-        <div className="w-full h-full flex flex-col items-center p-4 overflow-y-scroll">
-            <div className="sticky top-0 w-full h-[100px] rounded-lg bg-accent text-white flex items-center p-5 justify-between shadow-2xl">
-                <h1 className="text-2xl  font-semibold">Edit Product</h1>
-                <div className="h-full  flex justify-center items-center">
-                    <button onClick={handleUpdate} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600" disabled={isUpdating}>{isUpdating?"Updating...":"Update"}</button>
-                    <button onClick={() => navigate("/admin/products")} className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Cancel</button>
+    return (
+        <div className="w-full h-full flex flex-col items-center p-6 overflow-y-auto custom-scrollbar-light bg-gray-50">
+            <div className="sticky top-0 z-20 w-full min-h-[90px] rounded-2xl bg-gradient-to-r from-accent to-blue-600 text-white border border-white/10 shadow-lg flex items-center p-5 justify-between">
+                <div>
+                    <h1 className="text-2xl font-bold">Edit Product</h1>
+                    <p className="text-xs text-white/80 mt-0.5">Modify an existing product listing details</p>
+                </div>
+                <div className="flex items-center gap-3">
+                    <button 
+                        onClick={() => navigate("/admin/products")} 
+                        className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-xs border border-white/20 hover:border-white/30 uppercase tracking-wider transition-all duration-200 cursor-pointer"
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        onClick={handleUpdate} 
+                        className="px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-200 cursor-pointer" 
+                        disabled={isUpdating}
+                    >
+                        {isUpdating ? "Updating..." : "Update Product"}
+                    </button>
                 </div>
             </div>
-            <div className="w-full flex flex-wrap bg-white shadow-2xl p-5 mt-8 rounded-lg">
+
+            <div className="w-full bg-white border border-gray-200 shadow-sm p-6 mt-6 rounded-2xl flex flex-wrap gap-y-4">
+                {/* Section: Basic Identification */}
+                <div className="w-full text-xs font-bold text-accent border-b border-gray-100 pb-1.5 mb-2 mt-2 uppercase tracking-widest">
+                    Product Identification
+                </div>
                 
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Product ID</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+                <div className="w-full md:w-1/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Product ID</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-100 rounded-xl p-3 w-full text-gray-400 text-sm focus:outline-none cursor-not-allowed font-medium"
                         value={productId}
                         disabled={true}
                         onChange={(e)=>{setProductId(e.target.value)}}
                     />
                 </div>
-                <div className="w-3/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Name</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+                
+                <div className="w-full md:w-3/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Product Name</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
                         value={name}
+                        placeholder="e.g. ASUS TUF Gaming B650 Motherboard"
                         onChange={(e)=>{setName(e.target.value)}}
                     />
                 </div>
-                <div className="w-full   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Alternative Names (comma separated)</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+                
+                <div className="w-full p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Alternative Search Tags (comma separated)</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
                         value={altNames}
+                        placeholder="e.g. am5 motherboard, b650 wifi, asus tuf b650"
                         onChange={(e)=>{setAltNames(e.target.value)}}
                     />
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Price</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
-                        value={price}
-                        onChange={(e)=>{setPrice(e.target.value)}}
-                    />
+
+                {/* Section: Specifications */}
+                <div className="w-full text-xs font-bold text-accent border-b border-gray-100 pb-1.5 mb-2 mt-4 uppercase tracking-widest">
+                    Product Details & Description
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Labelled Price</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
-                        value={labelledPrice}
-                        onChange={(e)=>{setLabelledPrice(e.target.value)}}
-                    />
-                </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Category</label>
-                    <select
-                    value={category}
-                    onChange={
-                        (e)=>{
-                            setCategory(e.target.value);                            
-                        }                        
-                    } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
-                        <option value="Laptop" >Laptop</option>
-                        <option value="Mobile">Mobile</option>
-                        <option value="Headphones">Headphones</option>
-                        <option value="Camera">Camera</option>
-                        <option value="Others">Others</option>
-                        {/* graphic cards, processors, ssd, monitors, printers */}
-                        <option value="Graphic Card">Graphic Card</option>
-                        <option value="Processor">Processor</option>
-                        <option value="SSD">SSD</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Printer">Printer</option>
-                    </select>
-                </div>
-                <div className="w-1/4   p-2">
-                    {/* images */}
-                    <label className="block mb-2 font-semibold text-gray-800">Images</label>
-                    <input type="file" multiple className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
-                        onChange={
-                            (e)=>{
-                                setImages(e.target.files)
-                            }
-                        }
-                    />
-                </div>
-                <div className="w-full   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Description</label>
-                    <textarea className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+                
+                <div className="w-full p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Description</label>
+                    <textarea 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200 h-32 resize-none"
                         value={description}
+                        placeholder="Provide detailed technical specifications and features..."
                         onChange={(e)=>{setDescription(e.target.value)}}
                     />
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Brand</label>
+
+                <div className="w-full md:w-1/3 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Brand</label>
                     <select
                         value={brand}
-                        onChange={
-                            (e)=>{
-                                setBrand(e.target.value);                            
-                            }
-                        } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
-                        <option value="Apple" >Apple</option>
+                        onChange={(e)=>{setBrand(e.target.value)}} 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
+                    >
+                        <option value="">Select Brand</option>
+                        <option value="Apple">Apple</option>
                         <option value="Samsung">Samsung</option>
                         <option value="Sony">Sony</option>
                         <option value="Dell">Dell</option>
@@ -252,39 +239,101 @@ export default function AdminEditProductPage(){
                         <option value="Others">Others</option>
                     </select>
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Model</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+
+                <div className="w-full md:w-1/3 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Model</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
                         value={model}
+                        placeholder="e.g. B650-PLUS WIFI"
                         onChange={(e)=>{setModel(e.target.value)}}
                     />
                 </div>
-                <div className="w-1/4   p-2">
-                    <label className="block mb-2 font-semibold text-gray-800">Stock</label>
-                    <input className="border border-gray-300 rounded-md p-2 w-full text-gray-800"
+
+                <div className="w-full md:w-1/3 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Category</label>
+                    <select
+                        value={category}
+                        onChange={(e)=>{setCategory(e.target.value)}} 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
+                    >
+                        <option value="">Select Category</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Headphones">Headphones</option>
+                        <option value="Camera">Camera</option>
+                        <option value="Motherboard">Motherboard</option>
+                        <option value="Graphic Card">Graphic Card</option>
+                        <option value="Processor">Processor</option>
+                        <option value="SSD">SSD</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Printer">Printer</option>
+                        <option value="RAM">RAM</option>
+                        <option value="Power Supply">Power Supply</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                {/* Section: Inventory, Pricing & Media */}
+                <div className="w-full text-xs font-bold text-accent border-b border-gray-100 pb-1.5 mb-2 mt-4 uppercase tracking-widest">
+                    Pricing, Inventory & Media
+                </div>
+
+                <div className="w-full md:w-1/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Selling Price (LKR)</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
+                        value={price}
+                        placeholder="e.g. 96000"
+                        onChange={(e)=>{setPrice(e.target.value)}}
+                    />
+                </div>
+
+                <div className="w-full md:w-1/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Original Price (LKR)</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
+                        value={labelledPrice}
+                        placeholder="e.g. 115000"
+                        onChange={(e)=>{setLabelledPrice(e.target.value)}}
+                    />
+                </div>
+
+                <div className="w-full md:w-1/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Stock Count</label>
+                    <input 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
                         value={stock}
+                        placeholder="e.g. 10"
                         onChange={(e)=>{setStock(e.target.value)}}
                     />
                 </div>
-                {/* <div className="w-1/4   p-2 flex items-center">
-                    <label className="block mb-2 font-semibold mr-4">Available</label>
-                    <input type="checkbox" checked={isAvailable} onChange={(e)=>{setIsAvailable(e.target.checked)}} />
-                </div> */}
-                <div className="w-1/4   p-2 ">
-                    <label className="block mb-2 font-semibold text-gray-800">Availability</label>
+
+                <div className="w-full md:w-1/4 p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Availability Status</label>
                     <select
                         value={String(isAvailable)}
-                        onChange={
-                            (e)=>{
-                                setIsAvailable(e.target.value === "true");
-                            }
-                        } className="border border-gray-300 rounded-md p-2 w-full text-gray-800">
+                        onChange={(e)=>{setIsAvailable(e.target.value === "true")}} 
+                        className="border border-gray-200 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/15 rounded-xl p-3 w-full text-gray-800 text-sm focus:outline-none transition-all duration-200"
+                    >
                         <option value="true">Available</option>
                         <option value="false">Not Available</option>
                     </select>
                 </div>
+
+                <div className="w-full p-2">
+                    <label className="block mb-1.5 font-bold text-[11px] text-gray-400 uppercase tracking-wider">Product Images</label>
+                    <div className="border-2 border-dashed border-gray-200 bg-gray-50/50 rounded-2xl p-6 flex flex-col items-center justify-center hover:border-accent/40 transition-colors duration-200">
+                        <input 
+                            type="file" 
+                            multiple 
+                            className="text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:uppercase file:bg-accent/10 file:text-accent file:cursor-pointer hover:file:bg-accent/20 transition-all cursor-pointer"
+                            onChange={(e)=>{setImages(e.target.files)}}
+                        />
+                        <span className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mt-3">Select multiple files (this will replace existing images)</span>
+                    </div>
+                </div>
             </div>
-            
         </div>
-    )
+    );
 }
