@@ -225,11 +225,13 @@ export default function AdminAddProductPage(){
                         <option value="">Select Brand</option>
                         <option value="Apple">Apple</option>
                         <option value="Samsung">Samsung</option>
+                        <option value="Fantech">Fantech</option>
                         <option value="Sony">Sony</option>
                         <option value="Dell">Dell</option>
                         <option value="HP">HP</option>
                         <option value="Lenovo">Lenovo</option>
                         <option value="Asus">Asus</option>
+                        <option value="MSI">MSI</option>
                         <option value="Acer">Acer</option>
                         <option value="Nvidia">Nvidia</option>
                         <option value="AMD">AMD</option>
@@ -267,6 +269,7 @@ export default function AdminAddProductPage(){
                         <option value="Printer">Printer</option>
                         <option value="RAM">RAM</option>
                         <option value="Power Supply">Power Supply</option>
+                        <option value="Game Controller">Game Controller</option>
                         <option value="Others">Others</option>
                     </select>
                 </div>

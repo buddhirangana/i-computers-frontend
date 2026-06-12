@@ -521,7 +521,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Custom Showcase</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Designed by #IONIX</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Build by #IONIX</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
 
