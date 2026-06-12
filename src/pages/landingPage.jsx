@@ -81,28 +81,28 @@ export default function LandingPage() {
 
     return (
         <div className="w-full min-h-screen bg-primary text-gray-300 pb-20 select-none overflow-x-hidden">
-            
+
             {/* Hero Video Banner Section */}
-            <div className="w-full h-[650px] relative overflow-hidden flex items-center justify-center">
+            <div className="w-full h-[650px] md:h-[850px] relative overflow-hidden flex items-center justify-center">
                 <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0 opacity-70">
-                    <source src="/1080p.mp4" type="video/mp4" />
+                    <source src="/slider-video.webm" type="video/webm" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-black/45 z-10"></div>
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-10" />
-                
+
                 <div className="absolute z-20 flex flex-col justify-center items-center text-center px-4 max-w-4xl">
-                    <span className="text-accent-light text-xs font-extrabold uppercase tracking-widest mb-5 bg-accent/15 px-4 py-2 rounded-full border border-accent/20 shadow-[0_0_15px_rgba(59,130,246,0.25)] animate-pulse">
-                        ⚡ Premium Custom PC Builders
+                    <span className="text-accent-light text-xs font-bold uppercase tracking-widest mb-5 bg-accent/15 px-4 py-2 rounded-full border border-accent/20 shadow-[0_0_15px_rgba(59,130,246,0.25)] animate-pulse">
+                        ⚡ No. 1 Smart Technology Partner in Sri Lanka
                     </span>
                     <h1 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight leading-none uppercase">
-                        Unleash Your <br className="md:hidden" />
+                        Build Your <br className="md:hidden" />
                         <span className="relative">
-                            <span className="bg-gradient-to-r from-accent-light via-blue-500 to-accent bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(59,130,246,0.3)]">Power</span>
+                            <span className="bg-gradient-to-r from-accent-light via-blue-500 to-accent bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(59,130,246,0.3)]">Dream PC</span>
                             <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent blur-[1px]"></span>
                         </span>
                     </h1>
                     <p className="text-sm md:text-xl text-gray-300 mb-10 max-w-xl font-light leading-relaxed">
-                        Precision engineering, premium cable management, and high-performance gaming rigs tailored to your imagination.
+                        We specialize in providing state-of-the-art computer systems, premium gaming builds, high-performance components and accessories.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                         <Link to="/products" className="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-bold rounded-xl shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.5)] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
