@@ -83,7 +83,7 @@ export default function CustomerOrdersPage() {
                         <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
                             Dashboard
                         </span>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 uppercase tracking-tight">
+                        <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
                             Order History
                         </h1>
                         <p className="text-sm text-gray-500 mt-2 font-light">
@@ -116,7 +116,7 @@ export default function CustomerOrdersPage() {
                                 </p>
                                 <Link
                                     to="/products"
-                                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-xs tracking-wider"
+                                    className="px-6 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-s"
                                 >
                                     Start Shopping
                                 </Link>
@@ -145,12 +145,12 @@ export default function CustomerOrdersPage() {
                                             {/* Desktop layout */}
                                             <div className="hidden md:grid grid-cols-12 gap-4 items-center text-sm">
                                                 <div className="col-span-2">
-                                                    <span className="inline-block rounded-lg bg-white/5 border border-white/8 px-3 py-1.5 text-xs font-mono text-white font-semibold">
+                                                    <span className="inline-block rounded-lg bg-white/5 border border-white/8 px-3 py-1.5 text-xs text-white font-semibold">
                                                         #{item.orderId ? String(item.orderId).slice(-8).toUpperCase() : "N/A"}
                                                     </span>
                                                 </div>
                                                 <div className="col-span-3">
-                                                    <div className="font-bold text-white truncate">
+                                                    <div className="font-semibold text-white truncate">
                                                         {item.firstName} {item.lastName}
                                                     </div>
                                                     <div className="text-xs text-gray-500 truncate mt-0.5 font-light">
@@ -183,10 +183,10 @@ export default function CustomerOrdersPage() {
                                             <div className="md:hidden flex flex-col gap-4">
                                                 <div className="flex justify-between items-start">
                                                     <div>
-                                                        <span className="inline-block rounded-lg bg-white/5 border border-white/8 px-2.5 py-1 text-xs font-mono text-white font-semibold mb-2">
+                                                        <span className="inline-block rounded-lg bg-white/5 border border-white/8 px-2.5 py-1 text-xs text-white font-semibold mb-2">
                                                             #{item.orderId ? String(item.orderId).slice(-8).toUpperCase() : "N/A"}
                                                         </span>
-                                                        <div className="font-bold text-white text-base">
+                                                        <div className="font-semibold text-white text-base">
                                                             {item.firstName} {item.lastName}
                                                         </div>
                                                         <div className="text-xs text-gray-400 font-light mt-0.5">

@@ -121,8 +121,8 @@ export default function SettingsPage() {
                     <>
                         {/* Header */}
                         <div className="flex flex-col items-center text-center mb-12">
-                            <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Account Center</span>
-                            <h1 className="text-3xl sm:text-4xl font-black text-white mt-4 uppercase tracking-tight">Profile Settings</h1>
+                            <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Account Center</span>
+                            <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">Profile Settings</h1>
                             <p className="text-xs text-gray-500 mt-2 font-light">{user.email}</p>
                         </div>
 
@@ -132,7 +132,7 @@ export default function SettingsPage() {
                             {/* Card 1: Basic Information */}
                             <div className="glass-card p-6 sm:p-8 border border-white/8 backdrop-blur-md shadow-2xl flex flex-col justify-between h-full min-h-[460px]">
                                 <div className="flex flex-col">
-                                    <h2 className="text-xl font-bold text-white mb-6 border-b border-white/5 pb-3">Basic Information</h2>
+                                    <h2 className="text-xl font-semibold text-white mb-6 border-b border-white/5 pb-3">Basic Information</h2>
                                     
                                     {/* Circular Avatar Upload Panel */}
                                     <div className="flex flex-col items-center mb-6">
@@ -189,7 +189,7 @@ export default function SettingsPage() {
                                 
                                 <button 
                                     onClick={updateProfile} 
-                                    className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider uppercase" 
+                                    className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-s" 
                                     disabled={isUpdatingProfile}
                                 >
                                     {isUpdatingProfile ? "Updating..." : "Update Profile"}
@@ -199,7 +199,7 @@ export default function SettingsPage() {
                             {/* Card 2: Change Password */}
                             <div className="glass-card p-6 sm:p-8 border border-white/8 backdrop-blur-md shadow-2xl flex flex-col justify-between h-full min-h-[460px]">
                                 <div className="flex flex-col">
-                                    <h2 className="text-xl font-bold text-white mb-6 border-b border-white/5 pb-3">Change Password</h2>
+                                    <h2 className="text-xl font-semibold text-white mb-6 border-b border-white/5 pb-3">Change Password</h2>
                                     
                                     <p className="text-xs text-gray-400 mb-6 leading-relaxed font-light">
                                         Keep your account secure by modifying your password regularly. After changing it, you will be redirected to the sign-in screen.
@@ -253,7 +253,7 @@ export default function SettingsPage() {
                                 <button 
                                     onClick={updatePassword} 
                                     disabled={isUpdatingPassword} 
-                                    className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider uppercase"
+                                    className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-s"
                                 >
                                     {isUpdatingPassword ? "Updating..." : "Update Password"}
                                 </button>

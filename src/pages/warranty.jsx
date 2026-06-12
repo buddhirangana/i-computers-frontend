@@ -40,8 +40,8 @@ export default function Warranty() {
             <div className="max-w-6xl mx-auto relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Store Policies</span>
-                    <h1 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Warranty Policy</h1>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Store Policies</span>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Warranty Policy</h1>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                     <p className="text-xs text-gray-500 mt-2">Last Updated: June 2026</p>
                 </div>
@@ -49,7 +49,7 @@ export default function Warranty() {
                 {/* Content Card */}
                 <div className="glass-card p-8 sm:p-12 border border-white/8 backdrop-blur-md shadow-2xl flex flex-col gap-10">
                     <p className="text-sm md:text-base text-gray-400 leading-relaxed font-light">
-                        At <span className="text-white font-semibold">IONIX Computers</span>, we deal exclusively in 100% genuine components carrying full manufacturer warranties. Please read our warranty claim steps and exclusions below.
+                        At <span className="text-white font-medium">IONIX Computers</span>, we deal exclusively in 100% genuine components carrying full manufacturer warranties. Please read our warranty claim steps and exclusions below.
                     </p>
 
                     <div className="grid grid-cols-1 gap-8">
@@ -59,7 +59,7 @@ export default function Warranty() {
                                     {sec.icon}
                                 </div>
                                 <div className="flex flex-col gap-1.5">
-                                    <h2 className="text-lg font-bold text-white tracking-wide">{sec.title}</h2>
+                                    <h2 className="text-lg font-semibold text-white tracking-wide">{sec.title}</h2>
                                     <p className="text-sm text-gray-400 leading-relaxed font-light">{sec.content}</p>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ export default function Warranty() {
                     </div>
 
                     <div className="border-t border-white/5 pt-8 mt-4 text-xs text-gray-500 leading-relaxed font-light">
-                        For online claims or serial status queries, please write to our warranty team at <a href="mailto:warranty@ionix.com" className="text-accent hover:underline">warranty@ionix.com</a>.
+                        For online claims or serial status queries, please write to our warranty team at <a href="mailto:support@ionixcomputers.lk" className="text-accent hover:underline">support@ionixcomputers.lk</a>.
                     </div>
                 </div>
             </div>

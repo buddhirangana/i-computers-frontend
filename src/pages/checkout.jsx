@@ -57,7 +57,7 @@ export default function CheckoutPage() {
                     </p>
                     <Link
                         to="/cart"
-                        className="px-8 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-xs tracking-wider cursor-pointer"
+                        className="px-8 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-s cursor-pointer"
                     >
                         Back to Cart
                     </Link>
@@ -133,11 +133,11 @@ export default function CheckoutPage() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-white/5 pb-8">
                     <div>
-                        <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
+                        <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
                             Secure Checkout
                         </span>
-                        <h1 className="text-3xl sm:text-4xl font-black text-white mt-4 uppercase tracking-tight">
-                            Checkout details
+                        <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
+                            Checkout Details
                         </h1>
                         <p className="text-sm text-gray-500 mt-2 font-light">
                             Enter your details and place your order
@@ -150,7 +150,7 @@ export default function CheckoutPage() {
                     {/* Left Column: Shipping Address Form */}
                     <div className="lg:col-span-2 flex flex-col gap-6">
                         <div className="glass-card p-6 sm:p-8 border border-white/8 backdrop-blur-md shadow-2xl rounded-2xl flex flex-col gap-6">
-                            <h2 className="text-xl font-bold text-white border-b border-white/5 pb-3">
+                            <h2 className="text-xl font-semibold text-white border-b border-white/5 pb-3">
                                 Shipping Address
                             </h2>
 
@@ -300,7 +300,7 @@ export default function CheckoutPage() {
                     {/* Right Column: Checkout Summary Sidebar */}
                     <div className="lg:col-span-1">
                         <div className="glass-card p-6 border border-white/8 backdrop-blur-md shadow-2xl rounded-2xl flex flex-col gap-5 sticky top-24">
-                            <h3 className="text-lg font-black text-white uppercase tracking-wider border-b border-white/5 pb-3">
+                            <h3 className="text-lg font-semibold text-white tracking-wider border-b border-white/5 pb-3">
                                 Order Summary
                             </h3>
 
@@ -317,7 +317,7 @@ export default function CheckoutPage() {
                                             className="w-11 h-11 object-cover rounded-lg border border-white/10 shrink-0 bg-white/5"
                                         />
                                         <div className="flex-1 min-w-0">
-                                            <h4 className="text-xs font-bold text-white truncate">
+                                            <h4 className="text-xs font-semibold text-white truncate">
                                                 {item.product?.name}
                                             </h4>
                                             <div className="flex justify-between items-baseline mt-0.5 text-[10px] text-gray-500 font-light">
@@ -349,10 +349,10 @@ export default function CheckoutPage() {
                                 </div>
                                 <hr className="border-white/5 my-1" />
                                 <div className="flex justify-between items-center">
-                                    <span className="text-sm font-bold text-white uppercase tracking-wider">
+                                    <span className="text-sm font-semibold text-white tracking-wider">
                                         Grand Total
                                     </span>
-                                    <span className="text-lg font-black text-accent-light font-mono text-glow-blue">
+                                    <span className="text-lg font-semibold text-accent-light font-mono text-glow-blue">
                                         {getFormattedPrice(getCartTotal(cart))}
                                     </span>
                                 </div>
@@ -362,7 +362,7 @@ export default function CheckoutPage() {
                             <button
                                 type="submit"
                                 disabled={isPlacingOrder}
-                                className="w-full py-4 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] disabled:opacity-40 disabled:pointer-events-none text-white font-bold rounded-xl transition-all duration-300 text-center text-xs tracking-wider uppercase flex items-center justify-center gap-2 group cursor-pointer"
+                                className="w-full py-4 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] disabled:opacity-40 disabled:pointer-events-none text-white font-semibold rounded-xl transition-all duration-300 text-center text-s flex items-center justify-center gap-2 group cursor-pointer"
                             >
                                 <span>{isPlacingOrder ? "Placing Order..." : "Confirm & Place Order"}</span>
                                 {!isPlacingOrder && (

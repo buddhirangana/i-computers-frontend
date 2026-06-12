@@ -54,7 +54,7 @@ export default function CustomerOrderDetailsModal(props) {
                         </button>
 
                         <div className="w-full">
-                            <h3 className="text-lg font-black text-white uppercase tracking-wider mb-6 pb-3 border-b border-white/5">
+                            <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-6 pb-3 border-b border-white/5">
                                 Order Details
                             </h3>
 
@@ -62,13 +62,13 @@ export default function CustomerOrderDetailsModal(props) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-white/5 pb-6 mb-6">
                                 {/* Delivery Address Card */}
                                 <div className="flex flex-col gap-2.5">
-                                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                    <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
                                         Delivery Address
                                     </h4>
                                     <div className="flex gap-3 bg-white/3 border border-white/5 p-4 rounded-2xl h-full">
                                         <MdHome className="text-xl text-accent-light shrink-0 mt-0.5" />
                                         <div>
-                                            <div className="font-bold text-white text-sm">
+                                            <div className="font-semibold text-white text-sm">
                                                 {order.firstName} {order.lastName}
                                             </div>
                                             <p className="text-xs text-gray-400 leading-relaxed mt-1.5 font-light">
@@ -83,13 +83,13 @@ export default function CustomerOrderDetailsModal(props) {
 
                                 {/* Order Telemetry Card */}
                                 <div className="flex flex-col gap-2.5">
-                                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                    <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
                                         Metadata
                                     </h4>
                                     <div className="flex flex-col gap-2.5 bg-white/3 border border-white/5 p-4 rounded-2xl text-xs font-light text-gray-300">
                                         <div className="flex justify-between items-center">
                                             <span className="text-gray-500 font-medium">Order ID</span>
-                                            <span className="font-mono font-semibold text-white">
+                                            <span className="font-semibold text-white">
                                                 #{order.orderId ? String(order.orderId).toUpperCase() : "N/A"}
                                             </span>
                                         </div>
@@ -139,7 +139,7 @@ export default function CustomerOrderDetailsModal(props) {
                             {/* Order Notes */}
                             {order.notes && (
                                 <div className="w-full flex flex-col gap-1.5 mb-6 bg-white/2 border border-white/5 p-3 rounded-xl">
-                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
                                         Notes
                                     </p>
                                     <p className="text-xs text-gray-400 italic font-light">{order.notes}</p>
@@ -147,7 +147,7 @@ export default function CustomerOrderDetailsModal(props) {
                             )}
 
                             {/* Items List */}
-                            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+                            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
                                 Items Ordered
                             </h4>
                             <div className="w-full max-h-[200px] overflow-y-auto flex flex-col gap-2.5 pr-2 custom-scrollbar">
@@ -188,10 +188,10 @@ export default function CustomerOrderDetailsModal(props) {
 
                         {/* Grand Total Summary */}
                         <div className="w-full flex justify-between items-center bg-white/5 border border-white/5 rounded-2xl p-4 mt-6">
-                            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
                                 Total Amount
                             </span>
-                            <span className="text-xl font-black text-accent-light font-mono text-glow-blue">
+                            <span className="text-xl font-bold text-accent-light font-mono text-glow-blue">
                                 {getFormattedPrice(order.total)}
                             </span>
                         </div>

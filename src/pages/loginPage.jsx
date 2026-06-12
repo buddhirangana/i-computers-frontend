@@ -87,7 +87,7 @@ export default function LoginPage() {
                                 className="h-12 sm:h-14 filter drop-shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-transform duration-300 group-hover:scale-105"
                             />
                         </Link>
-                        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-wider text-center">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-white text-center">
                             Sign In
                         </h1>
                         <p className="text-xs text-gray-400 mt-1.5 font-light text-center">
@@ -137,7 +137,7 @@ export default function LoginPage() {
                     <div className="w-full flex justify-end mb-6">
                         <Link
                             to="/forgot-password"
-                            className="text-xs font-semibold text-accent hover:text-accent-light transition-colors duration-200"
+                            className="text-xs font-medium text-accent hover:text-accent-light transition-colors duration-200"
                         >
                             Forgot password?
                         </Link>
@@ -146,7 +146,7 @@ export default function LoginPage() {
                     {/* Submit Button */}
                     <button
                         onClick={handleLogin}
-                        className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-4"
+                        className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-4"
                     >
                         Sign In
                     </button>
@@ -171,7 +171,7 @@ export default function LoginPage() {
                         Don't have an account?{" "}
                         <Link
                             to="/register"
-                            className="text-accent hover:text-accent-light font-bold transition-colors duration-200"
+                            className="text-accent hover:text-accent-light font-medium transition-colors duration-200"
                         >
                             Register Now
                         </Link>

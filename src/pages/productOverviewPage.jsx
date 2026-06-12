@@ -126,12 +126,12 @@ export default function ProductOverviewPage(){
                         <div className="w-full lg:w-1/2 flex flex-col p-6">
 
                             {/* SKU Code */}
-                            <div className="text-xs text-accent font-extrabold uppercase tracking-widest">
+                            <div className="text-xs text-accent font-bold uppercase tracking-widest">
                                 SKU: {product.productId}
                             </div>
 
                             {/* Product Title */}
-                            <h1 className="text-3xl font-extrabold text-white tracking-tight leading-snug drop-shadow-[0_0_12px_rgba(255,255,255,0.05)] mt-2">
+                            <h1 className="text-3xl font-bold text-white tracking-tight leading-snug drop-shadow-[0_0_12px_rgba(255,255,255,0.05)] mt-2">
                                 {product.name}
                             </h1>
 
@@ -139,7 +139,7 @@ export default function ProductOverviewPage(){
                             {product.altNames && product.altNames.length > 0 && (
                                 <div className="flex flex-wrap gap-2 mt-3.5">
                                     {product.altNames.map((altName, index) => (
-                                        <span key={index} className="text-[10px] bg-white/5 border border-white/8 text-gray-400 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                                        <span key={index} className="text-[10px] bg-white/5 border border-white/8 text-gray-400 font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider">
                                             {altName}
                                         </span>
                                     ))}
@@ -150,7 +150,7 @@ export default function ProductOverviewPage(){
                             <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/8 w-fit flex flex-col gap-1 pr-16 shadow-inner">
                                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Pricing</span>
                                 <div className="flex items-baseline gap-3 mt-1">
-                                    <span className="text-3xl font-extrabold text-accent-light text-glow-blue leading-none">
+                                    <span className="text-3xl font-bold text-accent-light text-glow-blue leading-none">
                                         {getFormattedPrice(product.price)}
                                     </span>
                                     {product.labelledPrice > product.price && (
@@ -165,15 +165,15 @@ export default function ProductOverviewPage(){
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 border-y border-white/5 py-5 max-w-xl">
                                 <div>
                                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Brand</span>
-                                    <span className="text-base text-white font-extrabold mt-1 block">{product.brand}</span>
+                                    <span className="text-base text-white font-bold mt-1 block">{product.brand}</span>
                                 </div>
                                 <div>
                                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Model</span>
-                                    <span className="text-base text-white font-extrabold mt-1 block truncate max-w-[170px]" title={product.model}>{product.model}</span>
+                                    <span className="text-base text-white font-bold mt-1 block truncate max-w-[170px]" title={product.model}>{product.model}</span>
                                 </div>
                                 <div>
                                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Category</span>
-                                    <span className="text-xs text-accent-light font-extrabold uppercase tracking-wider mt-1 block bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-lg text-center w-fit">
+                                    <span className="text-xs text-accent-light font-bold uppercase tracking-wider mt-1 block bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-lg text-center w-fit">
                                         {product.category}
                                     </span>
                                 </div>
@@ -194,7 +194,7 @@ export default function ProductOverviewPage(){
                                     <>
                                         {/* Quantity Selector */}
                                         <div className="flex items-center gap-4 mt-8">
-                                            <span className="text-sm font-bold text-gray-400">Quantity:</span>
+                                            <span className="text-sm font-semibold text-gray-400">Quantity:</span>
                                             <div className="w-[120px] h-[40px] border border-white/10 bg-white/5 rounded-full flex items-center justify-between px-3 text-white">
                                                 <button 
                                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -221,7 +221,7 @@ export default function ProductOverviewPage(){
                                         {/* Action Buttons */}
                                         <div className="flex mt-8 gap-4 fixed lg:static bottom-[82px] left-0 p-2 backdrop-blur-2xl lg:backdrop-blur-none w-full z-10 bg-[#030712]/80 border-t lg:border-t-0 border-white/8 lg:bg-transparent shadow-2xl lg:shadow-none justify-center lg:justify-start">                                
                                             <button 
-                                                className="w-full lg:w-48 h-12 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl cursor-pointer transition-colors duration-300 shadow-md flex items-center justify-center text-sm" 
+                                                className="w-full lg:w-48 h-12 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl cursor-pointer transition-colors duration-300 shadow-md flex items-center justify-center text-sm" 
                                                 onClick={() => {
                                                     addToCart(product, quantity);
                                                     toast.success(`${quantity} x ${product.name} added to cart!`);
@@ -243,7 +243,7 @@ export default function ProductOverviewPage(){
                                                         quantity: quantity
                                                     }
                                                 ]}
-                                                className="w-full lg:w-48 h-12 bg-accent hover:bg-accent-dark text-white font-bold rounded-xl shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center text-sm"
+                                                className="w-full lg:w-48 h-12 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl shadow-md hover:shadow-glow-blue transition-all duration-300 flex justify-center items-center text-sm"
                                             >
                                                 Buy Now
                                             </Link>
@@ -264,7 +264,7 @@ export default function ProductOverviewPage(){
                     {/* Reviews Section */}
                     <div className="w-full border-t border-white/5 mt-12 px-6 py-10 pb-36 bg-[#0b0f19]/20 flex flex-col items-center">
                         <div className="w-full max-w-7xl">
-                            <h3 className="text-2xl font-bold text-white mb-6">Customer Reviews</h3>
+                            <h3 className="text-2xl font-semibold text-white mb-6">Customer Reviews</h3>
 
                             {/* Rating Summary Block */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 glass-card p-6 border border-white/8 shadow-md mb-8">
@@ -305,7 +305,7 @@ export default function ProductOverviewPage(){
                             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                                 {/* Left Side: Write a Review Form */}
                                 <div className="lg:col-span-1 glass-card p-6 border border-white/8 shadow-md sticky top-28">
-                                    <h4 className="text-lg font-bold text-white mb-4">Write a Review</h4>
+                                    <h4 className="text-lg font-semibold text-white mb-4">Write a Review</h4>
                                     
                                     {localStorage.getItem("token") ? (
                                         <form onSubmit={handleSubmitReview} className="flex flex-col gap-4">
@@ -368,7 +368,7 @@ export default function ProductOverviewPage(){
 
                                 {/* Right Side: Reviews List */}
                                 <div className="lg:col-span-2 flex flex-col gap-4">
-                                    <h4 className="text-lg font-bold text-white">Reviews ({reviews.length})</h4>
+                                    <h4 className="text-lg font-semibold text-white">Reviews ({reviews.length})</h4>
                                     
                                     {reviews.length > 0 ? (
                                         reviews.map((rev) => {

@@ -66,7 +66,7 @@ export default function AdminPage() {
                 </div>
                 <div className="px-2 flex flex-col gap-2">
                     <Link to="/" className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl text-sm font-bold border border-white/5 hover:border-white/10 transition-all duration-200">
-                        View Storefront
+                        View Store
                     </Link>
                     <button onClick={() => {
                         localStorage.removeItem("token");

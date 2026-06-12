@@ -51,10 +51,10 @@ export default function CartPage() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-white/5 pb-8">
                     <div>
-                        <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
+                        <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">
                             Shopping Session
                         </span>
-                        <h1 className="text-3xl sm:text-4xl font-black text-white mt-4 uppercase tracking-tight">
+                        <h1 className="text-3xl sm:text-4xl font-bold text-white mt-4 tracking-tight">
                             Your Cart
                         </h1>
                         <p className="text-sm text-gray-500 mt-2 font-light">
@@ -65,7 +65,7 @@ export default function CartPage() {
                         <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                             Cart Items:
                         </span>
-                        <span className="text-lg font-black text-white px-2.5 py-0.5 rounded-lg bg-accent/20 border border-accent/30 text-glow-blue font-mono">
+                        <span className="text-lg font-bold text-white px-2.5 py-0.5 rounded-lg bg-accent/20 border border-accent/30 text-glow-blue font-mono">
                             {cart.length}
                         </span>
                     </div>
@@ -89,14 +89,14 @@ export default function CartPage() {
 
                                 {/* Info and price */}
                                 <div className="flex-1 min-w-0 pr-8 sm:pr-0">
-                                    <h3 className="font-bold text-white text-base sm:text-lg line-clamp-2 leading-snug">
+                                    <h3 className="font-semibold text-white text-base sm:text-lg line-clamp-2 leading-snug">
                                         {item.product.name}
                                     </h3>
                                     <p className="text-xs text-gray-500 mt-0.5 font-mono font-light">
                                         ID: {item.product.productId}
                                     </p>
                                     <div className="flex items-baseline gap-2.5 mt-2">
-                                        <span className="text-accent-light font-bold text-sm sm:text-base font-mono">
+                                        <span className="text-accent-light font-semibold text-sm sm:text-base font-mono">
                                             {getFormattedPrice(item.product.price)}
                                         </span>
                                         {item.product.labelledPrice > item.product.price && (
@@ -139,7 +139,7 @@ export default function CartPage() {
                                     {/* Item Total Subtotal */}
                                     <div className="text-right">
                                         <span className="text-xs text-gray-500 block font-light">Subtotal</span>
-                                        <span className="text-base sm:text-lg font-black text-white font-mono">
+                                        <span className="text-base sm:text-lg font-bold text-white font-mono">
                                             {getFormattedPrice(item.product.price * item.quantity)}
                                         </span>
                                     </div>
@@ -164,7 +164,7 @@ export default function CartPage() {
                     {/* Right Column: Order Summary Sidebar (Col span 1) */}
                     <div className="lg:col-span-1">
                         <div className="glass-card p-6 border border-white/8 backdrop-blur-md shadow-2xl rounded-2xl flex flex-col gap-5 sticky top-24">
-                            <h3 className="text-lg font-black text-white uppercase tracking-wider border-b border-white/5 pb-3">
+                            <h3 className="text-lg font-bold text-white tracking-wider border-b border-white/5 pb-3">
                                 Order Summary
                             </h3>
 
@@ -177,7 +177,7 @@ export default function CartPage() {
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <span className="text-gray-500 font-medium">Shipping</span>
-                                    <span className="text-emerald-400 font-bold uppercase tracking-wider text-xs px-2 py-0.5 rounded bg-emerald-500/5 border border-emerald-500/10">
+                                    <span className="text-emerald-400 font-semibold uppercase tracking-wider text-xs px-2 py-0.5 rounded bg-emerald-500/5 border border-emerald-500/10">
                                         Free
                                     </span>
                                 </div>
@@ -187,10 +187,10 @@ export default function CartPage() {
                                 </div>
                                 <hr className="border-white/5 my-1" />
                                 <div className="flex justify-between items-center">
-                                    <span className="text-base font-bold text-white uppercase tracking-wider">
+                                    <span className="text-base font-semibold text-white tracking-wider">
                                         Est. Total
                                     </span>
-                                    <span className="text-xl font-black text-accent-light font-mono text-glow-blue">
+                                    <span className="text-xl font-semibold text-accent-light font-mono text-glow-blue">
                                         {getFormattedPrice(getCartTotal(cart))}
                                     </span>
                                 </div>
@@ -199,7 +199,7 @@ export default function CartPage() {
                             <Link
                                 to="/checkout"
                                 state={cart}
-                                className="w-full py-4 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 text-center text-xs tracking-wider uppercase flex items-center justify-center gap-2 group cursor-pointer"
+                                className="w-full py-4 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 text-center text-s flex items-center justify-center gap-2 group cursor-pointer"
                             >
                                 <span>Proceed to Checkout</span>
                                 <FiArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />

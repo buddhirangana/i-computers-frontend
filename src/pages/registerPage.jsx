@@ -67,7 +67,7 @@ export default function RegisterPage() {
                                 className="h-12 sm:h-14 filter drop-shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-transform duration-300 group-hover:scale-105" 
                             />
                         </Link>
-                        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-wider text-center">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-white text-center">
                             Sign Up
                         </h1>
                         <p className="text-xs text-gray-400 mt-1.5 font-light text-center">
@@ -169,7 +169,7 @@ export default function RegisterPage() {
                     {/* Submit Button */}
                     <button 
                         onClick={handleRegister} 
-                        className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-6"
+                        className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-6"
                     >
                         Sign Up
                     </button>
@@ -179,7 +179,7 @@ export default function RegisterPage() {
                         Already have an account?{" "}
                         <Link 
                             to="/login" 
-                            className="text-accent hover:text-accent-light font-bold transition-colors duration-200"
+                            className="text-accent hover:text-accent-light font-medium transition-colors duration-200"
                         >
                             Login Now
                         </Link>

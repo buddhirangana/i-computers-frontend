@@ -406,7 +406,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-24">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Fresh In Store</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">New Arrivals</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">New Arrivals</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
 
@@ -427,7 +427,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-12 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Top Rated Choices</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Best Sellers</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Best Sellers</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
 
@@ -448,7 +448,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Browse Collections</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Pro Categories</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Pro Categories</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
 
@@ -468,7 +468,7 @@ export default function LandingPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
 
                             <div className="relative z-20 flex flex-col items-start transition-transform duration-300">
-                                <h3 className="text-xs md:text-sm font-semibold text-white tracking-widest uppercase transition-colors duration-300 group-hover:text-accent-light">
+                                <h3 className="text-xs md:text-sm font-semibold text-white transition-colors duration-300 group-hover:text-accent-light">
                                     {cat.title}
                                 </h3>
                             </div>
@@ -521,7 +521,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Custom Showcase</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Designed by #IONIX</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Designed by #IONIX</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
 
@@ -571,7 +571,7 @@ export default function LandingPage() {
                             </div>
                         </div>
 
-                        <h3 className="text-3xl font-bold text-white mb-4 mt-6 uppercase tracking-tight">Our Core Commitment</h3>
+                        <h3 className="text-3xl font-bold text-white mb-4 mt-6 tracking-tight">Our Core Commitment</h3>
                         <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-sm">
                             We don't cut corners. Every part is genuine, every build is treated like a masterpiece with full official warranty backup.
                         </p>
@@ -621,7 +621,7 @@ export default function LandingPage() {
 
                 <div className="flex flex-col items-center text-center mb-20 relative z-10">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Client Testimonials</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Google Reviews</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Google Reviews</h2>
                     <div className="flex items-center gap-1.5 mt-4 text-yellow-500 text-sm bg-white/[0.02] border border-white/5 px-4 py-2 rounded-full shadow-md">
                         <FiStar className="fill-current text-yellow-400" />
                         <FiStar className="fill-current text-yellow-400" />

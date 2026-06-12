@@ -83,7 +83,7 @@ export default function ForgetPassword() {
                                 className="h-12 sm:h-14 filter drop-shadow-[0_0_10px_rgba(59,130,246,0.3)] transition-transform duration-300 group-hover:scale-105" 
                             />
                         </Link>
-                        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-wider text-center">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-white text-center">
                             Reset Password
                         </h1>
                     </div>
@@ -112,7 +112,7 @@ export default function ForgetPassword() {
                             {/* Submit Button */}
                             <button
                                 onClick={sendEmail}
-                                className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-6"
+                                className="w-full py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_15px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 cursor-pointer text-base md:text-sm tracking-wider mb-6"
                             >
                                 Send OTP Link
                             </button>
@@ -198,7 +198,7 @@ export default function ForgetPassword() {
                     <div className="w-full flex justify-center border-t border-white/5 pt-6 mt-2">
                         <Link 
                             to="/login" 
-                            className="text-xs font-bold text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2"
+                            className="text-xs font-medium text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2"
                         >
                             <FiArrowLeft className="text-sm" /> Back to Sign In
                         </Link>

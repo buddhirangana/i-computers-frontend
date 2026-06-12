@@ -40,8 +40,8 @@ export default function TermsOfUse() {
             <div className="max-w-6xl mx-auto relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Legal Information</span>
-                    <h1 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Terms of Use</h1>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Legal Information</span>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Terms of Use</h1>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                     <p className="text-xs text-gray-500 mt-2">Last Updated: June 2026</p>
                 </div>
@@ -49,7 +49,7 @@ export default function TermsOfUse() {
                 {/* Content Card */}
                 <div className="glass-card p-8 sm:p-12 border border-white/8 backdrop-blur-md shadow-2xl flex flex-col gap-10">
                     <p className="text-sm md:text-base text-gray-400 leading-relaxed font-light">
-                        Please review these Terms of Use carefully. They govern your utilization of the <span className="text-white font-semibold">IONIX Computers</span> marketplace platform, transactions, and custom configuration builder services.
+                        Please review these Terms of Use carefully. They govern your utilization of the <span className="text-white font-medium">IONIX Computers</span> marketplace platform, transactions, and custom configuration builder services.
                     </p>
 
                     <div className="grid grid-cols-1 gap-8">
@@ -59,7 +59,7 @@ export default function TermsOfUse() {
                                     {sec.icon}
                                 </div>
                                 <div className="flex flex-col gap-1.5">
-                                    <h2 className="text-lg font-bold text-white tracking-wide">{sec.title}</h2>
+                                    <h2 className="text-lg font-semibold text-white tracking-wide">{sec.title}</h2>
                                     <p className="text-sm text-gray-400 leading-relaxed font-light">{sec.content}</p>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ export default function TermsOfUse() {
                     </div>
 
                     <div className="border-t border-white/5 pt-8 mt-4 text-xs text-gray-500 leading-relaxed font-light">
-                        If you have questions, please reach out to our legal officer team at <a href="mailto:support@ionix.com" className="text-accent hover:underline">support@ionix.com</a>.
+                        If you have questions, please reach out to our legal officer team at <a href="mailto:support@ionixcomputers.lk" className="text-accent hover:underline">support@ionixcomputers.lk</a>.
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { FiPlus, FiMinus, FiHelpCircle } from "react-icons/fi";
 
 export default function FAQ() {
     useEffect(() => {
-        document.title = "Frequently Asked Questions | IONIX Computers";
+        document.title = "FAQ | IONIX Computers";
         window.scrollTo(0, 0);
     }, []);
 
@@ -50,8 +50,8 @@ export default function FAQ() {
             <div className="max-w-5xl mx-auto relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Support Center</span>
-                    <h1 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">FAQ</h1>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Support Center</span>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">FAQ</h1>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                     <p className="text-sm text-gray-400 mt-3 font-light">Frequently Asked Questions about our store, builds, and policies.</p>
                 </div>
@@ -71,7 +71,7 @@ export default function FAQ() {
                                 >
                                     <div className="flex items-center gap-3">
                                         <FiHelpCircle className="text-lg text-accent-light group-hover:text-accent transition-colors shrink-0" />
-                                        <span className="text-sm sm:text-base font-bold text-white group-hover:text-accent-light transition-colors">{faq.question}</span>
+                                        <span className="text-sm sm:text-base font-medium text-white group-hover:text-accent-light transition-colors">{faq.question}</span>
                                     </div>
                                     <div className="text-gray-500 hover:text-white shrink-0 ml-4">
                                         {isOpen ? <FiMinus className="text-lg text-accent" /> : <FiPlus className="text-lg" />}
@@ -91,7 +91,7 @@ export default function FAQ() {
                 </div>
 
                 <div className="text-center mt-12 text-xs text-gray-500 font-light">
-                    Can't find what you are looking for? Contact our customer support helpline directly or send us an email at <a href="mailto:support@ionix.com" className="text-accent hover:underline font-semibold">support@ionix.com</a>.
+                    Can't find what you are looking for? Contact our customer support helpline directly or send us an email at <a href="mailto:support@ionixcomputers.lk" className="text-accent hover:underline font-semibold">support@ionixcomputers.lk</a>.
                 </div>
             </div>
         </div>
