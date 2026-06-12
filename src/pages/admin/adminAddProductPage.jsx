@@ -235,6 +235,7 @@ export default function AdminAddProductPage(){
                         <option value="Acer">Acer</option>
                         <option value="Nvidia">Nvidia</option>
                         <option value="AMD">AMD</option>
+                        <option value="CORSAIR">CORSAIR</option>
                         <option value="Others">Others</option>
                     </select>
                 </div>
