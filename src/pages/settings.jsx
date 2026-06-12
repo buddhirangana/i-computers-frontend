@@ -116,7 +116,7 @@ export default function SettingsPage() {
             <div className="absolute bottom-0 right-1/4 translate-x-1/2 w-[400px] h-[250px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none" />
 
-            <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
+            <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center">
                 {user ? (
                     <>
                         {/* Header */}

@@ -47,7 +47,7 @@ export default function CartPage() {
             <div className="absolute bottom-0 right-1/4 translate-x-1/2 w-[400px] h-[250px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none" />
 
-            <div className="max-w-6xl mx-auto relative z-10">
+            <div className="max-w-[1440px] mx-auto relative z-10">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 border-b border-white/5 pb-8">
                     <div>

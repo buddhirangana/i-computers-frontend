@@ -129,7 +129,7 @@ export default function LandingPage() {
                 <div className="absolute top-1/2 -translate-y-1/2 -left-[10%] w-[350px] h-[350px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute top-1/2 -translate-y-1/2 -right-[10%] w-[350px] h-[350px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+                <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="lg:col-span-6 flex flex-col">
                         <span className="text-xs font-bold text-accent-light uppercase tracking-widest mb-3 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -177,7 +177,7 @@ export default function LandingPage() {
                     IONIX SYSTEM
                 </div>
                 
-                <div className="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="max-w-[1440px] mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 flex flex-col">
                         <span className="text-xs font-bold text-accent-light uppercase tracking-widest mb-3">Our Legacy</span>
                         <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">Pioneering Custom PC Hardware</h2>
@@ -214,7 +214,7 @@ export default function LandingPage() {
             </div>
 
             {/* New Arrivals */}
-            <div className="max-w-6xl mx-auto px-6 py-24">
+            <div className="max-w-[1440px] mx-auto px-6 py-24">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Fresh In Store</span>
                     <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">New Arrivals</h2>
@@ -235,7 +235,7 @@ export default function LandingPage() {
             </div>
 
             {/* Best Sellers */}
-            <div className="max-w-6xl mx-auto px-6 py-12 border-t border-white/5">
+            <div className="max-w-[1440px] mx-auto px-6 py-12 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Top Rated Choices</span>
                     <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Best Sellers</h2>
@@ -256,7 +256,7 @@ export default function LandingPage() {
             </div>
 
             {/* Pro Categories */}
-            <div className="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
+            <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Browse Collections</span>
                     <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Pro Categories</h2>
@@ -288,7 +288,7 @@ export default function LandingPage() {
             </div>
 
             {/* Designed by #IONIX Computers Grid */}
-            <div className="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
+            <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Custom Showcase</span>
                     <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Designed by #IONIX</h2>
@@ -322,7 +322,7 @@ export default function LandingPage() {
                 {/* Background lights */}
                 <div className="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
                 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+                <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
                         {/* Rotating Dashboard Dial Logo Container */}
                         <div className="relative w-56 h-56 flex items-center justify-center mb-8 lg:mb-0">
@@ -384,7 +384,7 @@ export default function LandingPage() {
             </div>
 
             {/* Google Customer Reviews Section */}
-            <div className="max-w-6xl mx-auto px-6 py-28 relative">
+            <div className="max-w-[1440px] mx-auto px-6 py-28 relative">
                 {/* Background ambient light */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
                 

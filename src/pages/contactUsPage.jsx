@@ -47,7 +47,7 @@ export default function ContactUsPage() {
             </div>
 
             {/* Grid Layout */}
-            <div className="max-w-6xl w-full mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+            <div className="max-w-[1440px] w-full mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
                 
                 {/* Left Side: Contact details */}
                 <div className="lg:col-span-2 flex flex-col gap-6">

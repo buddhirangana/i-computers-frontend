@@ -160,7 +160,7 @@ export default function ProductsPage() {
             </div>
 
             {/* Controls Section (Categories & Sorting) */}
-            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mt-6 border-b border-white/5 pb-4">
+            <div className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mt-6 border-b border-white/5 pb-4">
                 {/* Categories Pill list */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
                     {allCategories.map((cat) => (
@@ -216,7 +216,7 @@ export default function ProductsPage() {
             </div>
 
             {/* Products Grid */}
-            <div className="w-full max-w-6xl mx-auto flex flex-wrap justify-center gap-2 mt-4">
+            <div className="w-full max-w-[1440px] mx-auto flex flex-wrap justify-center gap-2 mt-4">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((item) => (
                         <ProductCard key={item.productId} product={item} />

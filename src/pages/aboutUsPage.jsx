@@ -55,7 +55,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Who We Are & Mission/Vision Section */}
-            <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-[1440px] mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Column: Our Story */}
                 <div className="flex flex-col gap-6">
                     <div>
@@ -114,7 +114,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Statistics Banner (Modern Enclosed Glass Card) */}
-            <div className="max-w-6xl w-full mx-auto px-6 mt-4 mb-8">
+            <div className="max-w-[1440px] w-full mx-auto px-6 mt-4 mb-8">
                 <div className="w-full glass-card border border-white/10 rounded-3xl p-10 backdrop-blur-md shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-8">
                     {stats.map((stat) => (
                         <div key={stat.id} className="flex flex-col items-center text-center">
@@ -126,7 +126,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Our Values Section */}
-            <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center">
+            <div className="max-w-[1440px] mx-auto px-6 py-16 flex flex-col items-center">
                 <div className="text-center mb-12 flex flex-col items-center gap-1.5">
                     <span className="text-xs font-bold text-accent uppercase tracking-wider block">How We Stand Out</span>
                     <h2 className="text-3xl font-extrabold text-white">Our Core Values</h2>
@@ -149,7 +149,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Premium Call to Action (CTA) Section */}
-            <div className="max-w-5xl w-[90%] mx-auto mt-12 bg-gradient-to-r from-accent/20 via-[#0b0f19] to-purple-500/10 border border-white/8 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div className="max-w-7xl w-[90%] mx-auto mt-12 bg-gradient-to-r from-accent/20 via-[#0b0f19] to-purple-500/10 border border-white/8 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
                 <div className="flex flex-col gap-2.5 max-w-xl text-center md:text-left">
                     <h3 className="text-2xl font-extrabold text-white tracking-tight">Ready to Build Your Dream Custom PC?</h3>
                     <p className="text-sm text-gray-400 leading-relaxed">

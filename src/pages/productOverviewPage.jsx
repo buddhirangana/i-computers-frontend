@@ -263,7 +263,7 @@ export default function ProductOverviewPage(){
 
                     {/* Reviews Section */}
                     <div className="w-full border-t border-white/5 mt-12 px-6 py-10 pb-36 bg-[#0b0f19]/20 flex flex-col items-center">
-                        <div className="w-full max-w-5xl">
+                        <div className="w-full max-w-7xl">
                             <h3 className="text-2xl font-bold text-white mb-6">Customer Reviews</h3>
 
                             {/* Rating Summary Block */}

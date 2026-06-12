@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Tech Grid Pattern Mask */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-            <div className="relative max-w-6xl mx-auto px-6 py-20 z-10">
+            <div className="relative max-w-[1440px] mx-auto px-6 py-20 z-10">
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-12 lg:gap-16">
                     {/* Column 1: Branding & Description */}
                     <div className="col-span-1 md:col-span-2 flex flex-col gap-6 pr-0 md:pr-10">
@@ -172,7 +172,7 @@ export default function Footer() {
 
             {/* Bottom copyright banner */}
             <div className="relative w-full bg-[#02040a] border-t border-white/5 py-8 px-6 pb-[100px] md:pb-8 lg:pb-8 shadow-inner z-10">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left text-xs text-gray-500 font-medium">
+                <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left text-xs text-gray-500 font-medium">
                     <span>
                         Copyright &copy; {currentYear}, <span className="text-gray-300 font-semibold transition-colors duration-200 hover:text-white">IONIX Computers</span>. All Rights Reserved. Developed by <a href="https://buddhirangana.com" target="_blank" rel="noopener noreferrer" className="text-accent-light hover:text-accent hover:underline transition-colors duration-200">Buddhi Rangana.</a>
                     </span>
