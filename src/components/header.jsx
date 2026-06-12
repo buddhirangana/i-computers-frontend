@@ -267,7 +267,7 @@ export default function Header() {
                             </Link>
                             <button 
                                 onClick={handleLogout} 
-                                className="text-sm font-bold text-red-500 hover:text-red-400 text-left transition-colors cursor-pointer py-2 px-2 mt-2"
+                                className="text-sm font-semibold text-red-500 hover:text-red-400 text-left transition-colors cursor-pointer py-2 px-2 mt-2"
                             >
                                 Logout
                             </button>
@@ -277,14 +277,14 @@ export default function Header() {
                             <Link 
                                 to="/login" 
                                 onClick={() => setIsMobileMenuOpen(false)} 
-                                className="text-sm font-bold text-gray-300 hover:text-accent py-2 px-3 rounded-lg hover:bg-white/5 transition-all"
+                                className="text-sm font-semibold text-gray-300 hover:text-accent py-2 px-3 rounded-lg hover:bg-white/5 transition-all"
                             >
                                 Login
                             </Link>
                             <Link 
                                 to="/register" 
                                 onClick={() => setIsMobileMenuOpen(false)} 
-                                className="text-sm font-bold text-gray-300 hover:text-accent py-2 px-3 rounded-lg hover:bg-white/5 transition-all"
+                                className="text-sm font-semibold text-gray-300 hover:text-accent py-2 px-3 rounded-lg hover:bg-white/5 transition-all"
                             >
                                 Sign Up
                             </Link>

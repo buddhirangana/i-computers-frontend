@@ -119,7 +119,7 @@ export default function UserData({ className }) {
                             <div className="border-t border-slate-100 pt-1">
                                 <button
                                     onClick={handleLogout}
-                                    className="flex w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 font-bold rounded-lg text-left transition-colors duration-150 cursor-pointer"
+                                    className="flex w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 font-semibold rounded-lg text-left transition-colors duration-150 cursor-pointer"
                                 >
                                     Logout
                                 </button>
@@ -131,14 +131,14 @@ export default function UserData({ className }) {
                             <Link
                                 to="/login"
                                 onClick={() => setIsOpen(false)}
-                                className="flex w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-accent font-bold rounded-lg transition-colors duration-150"
+                                className="flex w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-accent font-semibold rounded-lg transition-colors duration-150"
                             >
                                 Login
                             </Link>
                             <Link
                                 to="/register"
                                 onClick={() => setIsOpen(false)}
-                                className="flex w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-accent font-bold rounded-lg transition-colors duration-150"
+                                className="flex w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-accent font-semibold rounded-lg transition-colors duration-150"
                             >
                                 Sign Up
                             </Link>

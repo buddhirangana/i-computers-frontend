@@ -38,7 +38,7 @@ export default function ContactUsPage() {
             {/* Header / Hero Banner with Ambient Mesh Glow */}
             <div className="relative w-full bg-gradient-to-b from-[#0b0f19] to-[#030712] text-white py-24 px-6 md:px-12 flex flex-col items-center justify-center text-center border-b border-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none"></div>
-                <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 font-sans text-glow-blue relative z-10">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 font-sans text-glow-blue relative z-10">
                     Contact Our Team
                 </h1>
                 <p className="text-base md:text-lg text-blue-200 max-w-2xl font-light relative z-10 leading-relaxed">
@@ -52,8 +52,8 @@ export default function ContactUsPage() {
                 {/* Left Side: Contact details */}
                 <div className="lg:col-span-2 flex flex-col gap-6">
                     <div>
-                        <span className="text-xs font-bold text-accent uppercase tracking-wider block mb-1">Contact Information</span>
-                        <h2 className="text-3xl font-extrabold text-white">Get in Touch</h2>
+                        <span className="text-xs font-semibold text-accent uppercase tracking-wider block mb-1">Contact Information</span>
+                        <h2 className="text-3xl font-bold text-white">Get in Touch</h2>
                         <p className="text-sm text-gray-400 mt-2">Reach out directly via phone or email, or visit our retail store in Colombo.</p>
                     </div>
 
@@ -64,8 +64,8 @@ export default function ContactUsPage() {
                                 <FiPhone className="text-xl" />
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-white text-sm mb-1 uppercase tracking-wide">Phone Number</h3>
-                                <p className="text-sm text-gray-300 font-semibold">+94 11 234 5678</p>
+                                <h3 className="font-bold text-white text-sm mb-1 uppercase tracking-wide">Phone Number</h3>
+                                <p className="text-sm text-gray-300 font-semibold">+94 75 647 7093</p>
                                 <p className="text-xs text-gray-500 mt-1">Mon-Sat: 9:00 AM - 6:00 PM</p>
                             </div>
                         </div>
@@ -76,9 +76,9 @@ export default function ContactUsPage() {
                                 <FiMail className="text-xl" />
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-white text-sm mb-1 uppercase tracking-wide">Email Address</h3>
-                                <p className="text-sm text-gray-300 font-semibold">support@icomputers.lk</p>
-                                <p className="text-sm text-gray-300 font-semibold mt-0.5">sales@icomputers.lk</p>
+                                <h3 className="font-bold text-white text-sm mb-1 uppercase tracking-wide">Email Address</h3>
+                                <p className="text-sm text-gray-300 font-semibold">support@ionixcomputers.lk</p>
+                                <p className="text-sm text-gray-300 font-semibold mt-0.5">sales@ionixcomputers.lk</p>
                             </div>
                         </div>
 
@@ -88,7 +88,7 @@ export default function ContactUsPage() {
                                 <FiMapPin className="text-xl" />
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-white text-sm mb-1 uppercase tracking-wide">Our Location</h3>
+                                <h3 className="font-bold text-white text-sm mb-1 uppercase tracking-wide">Our Location</h3>
                                 <p className="text-sm text-gray-300 font-semibold leading-relaxed">
                                     123 Tech Avenue, Galle Road,<br />Colombo 03, Sri Lanka
                                 </p>
@@ -101,7 +101,7 @@ export default function ContactUsPage() {
                                 <FiClock className="text-xl" />
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-white text-sm mb-1 uppercase tracking-wide">Business Hours</h3>
+                                <h3 className="font-bold text-white text-sm mb-1 uppercase tracking-wide">Business Hours</h3>
                                 <p className="text-sm text-gray-300 font-semibold">Monday - Saturday: 9:00 AM - 6:00 PM</p>
                                 <p className="text-sm text-red-400 font-semibold mt-0.5">Sunday: Closed</p>
                             </div>
@@ -115,21 +115,21 @@ export default function ContactUsPage() {
                             <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-accent/30 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-4 w-4 bg-accent border border-white/20 shadow-md"></span>
                         </div>
-                        <h4 className="font-extrabold text-white text-sm relative z-10 uppercase tracking-wide">IONIX Computers Store</h4>
+                        <h4 className="font-bold text-white text-sm relative z-10 uppercase tracking-wide">IONIX Computers Store</h4>
                         <p className="text-xs text-gray-500 max-w-xs mt-1 relative z-10 leading-relaxed">Galle Road, Colombo 03, Sri Lanka</p>
                     </div>
                 </div>
 
                 {/* Right Side: Contact Form */}
                 <div className="lg:col-span-3 glass-card p-6 md:p-10 shadow-2xl hover:shadow-glow-blue hover:border-accent/20 transition-all duration-300">
-                    <h3 className="text-2xl font-extrabold text-white mb-1.5">Send Us a Message</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1.5">Send Us a Message</h3>
                     <p className="text-sm text-gray-400 mb-8 leading-relaxed">Fill out the form below and our customer support reps will reply within 24 hours.</p>
 
                     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Name */}
                             <div className="flex flex-col">
-                                <label htmlFor="user-name" className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2.5">Full Name</label>
+                                <label htmlFor="user-name" className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">Full Name</label>
                                 <input
                                     id="user-name"
                                     type="text"
@@ -143,7 +143,7 @@ export default function ContactUsPage() {
 
                             {/* Email */}
                             <div className="flex flex-col">
-                                <label htmlFor="user-email" className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2.5">Email Address</label>
+                                <label htmlFor="user-email" className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">Email Address</label>
                                 <input
                                     id="user-email"
                                     type="email"
@@ -158,7 +158,7 @@ export default function ContactUsPage() {
 
                         {/* Subject */}
                         <div className="flex flex-col">
-                            <label htmlFor="msg-subject" className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2.5">Subject</label>
+                            <label htmlFor="msg-subject" className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">Subject</label>
                             <input
                                 id="msg-subject"
                                 type="text"
@@ -172,7 +172,7 @@ export default function ContactUsPage() {
 
                         {/* Message */}
                         <div className="flex flex-col">
-                            <label htmlFor="msg-text" className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2.5">Message Description</label>
+                            <label htmlFor="msg-text" className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">Message Description</label>
                             <textarea
                                 id="msg-text"
                                 rows="6"
@@ -188,7 +188,7 @@ export default function ContactUsPage() {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full py-4 bg-accent text-white font-bold rounded-xl text-sm shadow hover:bg-accent-dark hover:shadow-glow-blue disabled:opacity-50 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]"
+                            className="w-full py-4 bg-accent text-white font-semibold rounded-xl text-sm shadow hover:bg-accent-dark hover:shadow-glow-blue disabled:opacity-50 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]"
                         >
                             {isSubmitting ? (
                                 "Submitting message..."
