@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Tech Grid Pattern Mask */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-            <div className="relative max-w-[1440px] mx-auto px-6 py-20 z-10">
+            <div className="relative max-w-[1440px] mx-auto px-6 md:px-0 py-20 z-10">
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-12 lg:gap-16">
                     {/* Column 1: Branding & Description */}
                     <div className="col-span-1 md:col-span-2 flex flex-col gap-6 pr-0 md:pr-10">
@@ -60,7 +60,7 @@ export default function Footer() {
                     {/* Column 2: Company */}
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-white font-extrabold text-sm tracking-wider uppercase flex items-center gap-2">
+                            <h3 className="text-white font-semibold text-sm tracking-wider uppercase flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                                 Company
                             </h3>
@@ -100,7 +100,7 @@ export default function Footer() {
                     {/* Column 3: Brands */}
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-white font-extrabold text-sm tracking-wider uppercase flex items-center gap-2">
+                            <h3 className="text-white font-semibold text-sm tracking-wider uppercase flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                                 Brands
                             </h3>
@@ -131,7 +131,7 @@ export default function Footer() {
                     {/* Column 4: Support */}
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-white font-extrabold text-sm tracking-wider uppercase flex items-center gap-2">
+                            <h3 className="text-white font-semibold text-sm tracking-wider uppercase flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                                 Support
                             </h3>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { FiCpu, FiAward, FiUsers, FiTrendingUp, FiShield, FiCheckCircle, FiTruck, FiStar, FiChevronRight } from "react-icons/fi";
+import { FiCpu, FiAward, FiUsers, FiTrendingUp, FiShield, FiCheckCircle, FiTruck, FiStar, FiChevronRight, FiRotateCcw, FiBox, FiCreditCard } from "react-icons/fi";
 import ProductCard from "../components/productCard";
 
 export default function LandingPage() {
@@ -71,7 +71,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         document.title = "IONIX Computers | No. 1 Smart Technology Partner in Sri Lanka";
-        
+
         axios.get(import.meta.env.VITE_API_URL + "/products")
             .then((response) => {
                 setProducts(response.data || []);
@@ -89,70 +89,82 @@ export default function LandingPage() {
 
     const categories = [
         {
-            title: "MONITORS",
-            desc: "Experience ultra-high refresh rates & color accuracy.",
-            img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=600",
-            link: "/products"
-        },
-        {
-            title: "COOLERS",
-            desc: "Keep thermals low with liquid & custom loops.",
-            img: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=600",
-            link: "/products"
-        },
-        {
             title: "LAPTOPS",
-            desc: "High-performance portable gaming & workstation gear.",
-            img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=600",
+            img: "/images/category/laptops.png",
+            link: "/products"
+        },
+        {
+            title: "ACCESSORIES",
+            img: "/images/category/accessories.png",
+            link: "/products"
+        },
+        {
+            title: "COMPONENTS",
+            img: "/images/category/components.png",
+            link: "/products"
+        },
+        {
+            title: "MOBILE ACCESSORIES",
+            img: "/images/category/mobile_accessories.png",
+            link: "/products"
+        },
+        {
+            title: "ACTION FIGURES",
+            img: "/images/category/action_figures.png",
+            link: "/products"
+        },
+        {
+            title: "GAME CONTROLLER",
+            img: "/images/category/game_controller.png",
             link: "/products"
         }
     ];
 
     const customRigs = [
         {
-            img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-1.jpg",
             name: "IONIX Chronos v1",
             specs: "Ryzen 7 7800X3D | RTX 4080 Super",
             tag: "Hyper-E-sports"
         },
         {
-            img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-2.jpg",
             name: "IONIX Nebula v2",
             specs: "Intel i9-14900K | RTX 4090 Liquid",
             tag: "Creator Extreme"
         },
         {
-            img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-3.jpg",
             name: "IONIX Apex v3",
             specs: "Ryzen 5 7600 | RTX 4070 Ti Super",
             tag: "Ray Tracing Pro"
         },
         {
-            img: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-4.jpg",
             name: "IONIX Glacier v4",
             specs: "Intel i7-14700K | Dual Loop Custom",
             tag: "Liquid Showpiece"
         },
         {
-            img: "https://images.unsplash.com/photo-1562976540-1502c2145186?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-5.jpg",
             name: "IONIX Vanguard v5",
             specs: "Threadripper 7960X | Dual RTX 4090",
             tag: "Workstation AI"
         },
         {
-            img: "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-6.jpg",
             name: "IONIX Phantom v6",
             specs: "Ryzen 7 5700X3D | RX 7800 XT",
             tag: "Esports Edition"
         },
         {
-            img: "https://images.unsplash.com/photo-1587202372666-5b694b38382c?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-7.jpg",
             name: "IONIX Eclipse v7",
             specs: "Intel i5-14400F | RTX 4060 Ti",
             tag: "Streamer Starter"
         },
         {
-            img: "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?q=80&w=400",
+            img: "/images/custom_showcase/cs-build-8.jpg",
             name: "IONIX Titan v8",
             specs: "Ryzen 9 7950X3D | RTX 4090 AIO",
             tag: "Ultimate Gaming"
@@ -255,7 +267,7 @@ export default function LandingPage() {
                             </Link>
                         </div>
                     </div>
-                    
+
                     <div className="lg:col-span-6 relative flex flex-col w-full">
                         {/* Interactive tabs */}
                         <div className="flex bg-white/5 border border-white/8 rounded-2xl p-1.5 mb-6 gap-1.5 self-center lg:self-start z-20">
@@ -263,11 +275,10 @@ export default function LandingPage() {
                                 <button
                                     key={preset.id}
                                     onClick={() => setActivePresetIdx(idx)}
-                                    className={`px-4.5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
-                                        activePresetIdx === idx
-                                            ? `bg-gradient-to-r ${preset.themeColor} text-white shadow-lg`
-                                            : "text-gray-400 hover:text-white hover:bg-white/5"
-                                    }`}
+                                    className={`px-4.5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${activePresetIdx === idx
+                                        ? `bg-gradient-to-r ${preset.themeColor} text-white shadow-lg`
+                                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                                        }`}
                                 >
                                     {preset.name}
                                 </button>
@@ -344,12 +355,12 @@ export default function LandingPage() {
             {/* IONIX Computers Stats Section */}
             <div className="relative w-full py-28 bg-[#02050b] overflow-hidden border-b border-white/5">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-                
+
                 {/* Background watermarked text */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.01] text-[90px] md:text-[180px] font-black select-none z-0 tracking-widest uppercase text-center w-full">
                     IONIX SYSTEM
                 </div>
-                
+
                 <div className="max-w-[1440px] mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 flex flex-col">
                         <span className="text-xs font-semibold text-accent-light uppercase tracking-widest mb-3">Our Legacy</span>
@@ -358,7 +369,7 @@ export default function LandingPage() {
                             For nearly a decade, we have been delivering top-tier components, gaming set-ups, and workstations to enthusiasts across the island.
                         </p>
                     </div>
-                    
+
                     <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {[
                             { value: "4+", label: "Years of Excellence", icon: <FiAward className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
@@ -369,13 +380,13 @@ export default function LandingPage() {
                             <div key={idx} className="relative overflow-hidden group glass-card p-8 border border-white/5 hover:border-accent-light/30 hover:shadow-[0_12px_35px_rgba(59,130,246,0.15)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between min-h-[200px]">
                                 {/* Laser scanner sweep effect line */}
                                 <div className="absolute left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-accent-light/50 to-transparent opacity-0 group-hover:opacity-100 animate-scan pointer-events-none" />
-                                
+
                                 {/* High-tech corner neon borders */}
                                 <div className="absolute top-0 right-0 w-8 h-[2px] bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
                                 <div className="absolute top-0 right-0 w-[2px] h-8 bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
                                 <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
                                 <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
-                                
+
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xl">
                                         {stat.icon}
@@ -398,7 +409,7 @@ export default function LandingPage() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">New Arrivals</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
-                
+
                 {isLoading ? (
                     <div className="w-full py-12 flex justify-center"><div className="w-8 h-8 border-4 border-accent border-b-transparent rounded-full animate-spin"></div></div>
                 ) : newArrivals.length === 0 ? (
@@ -419,7 +430,7 @@ export default function LandingPage() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Best Sellers</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
-                
+
                 {isLoading ? (
                     <div className="w-full py-12 flex justify-center"><div className="w-8 h-8 border-4 border-accent border-b-transparent rounded-full animate-spin"></div></div>
                 ) : bestSellers.length === 0 ? (
@@ -433,34 +444,75 @@ export default function LandingPage() {
                 )}
             </div>
 
-            {/* Pro Categories */}
+            {/* Redesigned Category & Features Section */}
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Browse Collections</span>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Pro Categories</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                {/* 6-Column Categories Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                     {categories.map((cat, idx) => (
-                        <Link 
-                            to={cat.link} 
+                        <Link
+                            to={cat.link}
                             key={idx}
-                            className="group h-[360px] rounded-2xl overflow-hidden relative border border-white/5 flex flex-col justify-end p-8 hover:border-accent/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] transition-all duration-300"
+                            className="group h-[280px] rounded-2xl overflow-hidden relative border border-white/5 hover:border-accent/30 flex flex-col justify-end p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:-translate-y-1 bg-[#050912]/40"
                         >
-                            <img 
-                                src={cat.img} 
-                                alt={cat.title} 
-                                className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500 z-0 opacity-30 group-hover:opacity-50"
+                            <img
+                                src={cat.img}
+                                alt={cat.title}
+                                className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500 z-0 opacity-70 group-hover:opacity-85"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent z-10"></div>
-                            
-                            <div className="relative z-20 flex flex-col transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                                <span className="text-[10px] font-semibold text-accent-light uppercase tracking-widest mb-1.5 block">Explore</span>
-                                <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-accent-light transition-colors duration-300">{cat.title}</h3>
-                                <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed font-light">{cat.desc}</p>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+
+                            <div className="relative z-20 flex flex-col items-start transition-transform duration-300">
+                                <h3 className="text-xs md:text-sm font-semibold text-white tracking-widest uppercase transition-colors duration-300 group-hover:text-accent-light">
+                                    {cat.title}
+                                </h3>
                             </div>
                         </Link>
+                    ))}
+                </div>
+
+                {/* Interactive Feature Badges Banner */}
+                <div className="w-full border border-white/5 bg-[#050912] rounded-3xl p-6 md:p-8 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center shadow-[inset_0_2px_15px_rgba(59,130,246,0.05)]">
+                    {[
+                        {
+                            icon: <FiShield className="text-xl" />,
+                            title: "BEST PRICE",
+                            desc: "With Price Guarantee"
+                        },
+                        {
+                            icon: <FiRotateCcw className="text-xl" />,
+                            title: "3-DAY RETURN",
+                            desc: "Easy Return Policy"
+                        },
+                        {
+                            icon: <FiBox className="text-xl" />,
+                            title: "NO CUSTOMS DUTY",
+                            desc: "Or Import Fees"
+                        },
+                        {
+                            icon: <FiCreditCard className="text-xl" />,
+                            title: "BUY NOW, PAY LATER",
+                            desc: "With Koko & Payzy"
+                        }
+                    ].map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-4 group">
+                            <div className="p-3 bg-accent/10 text-accent-light border border-accent/20 rounded-full flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.15)] group-hover:bg-accent/20 group-hover:text-white transition-all duration-300">
+                                {feature.icon}
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-xs font-semibold text-white uppercase tracking-wider group-hover:text-accent-light transition-colors duration-200">
+                                    {feature.title}
+                                </span>
+                                <span className="text-[10px] text-gray-500 font-medium mt-0.5">
+                                    {feature.desc}
+                                </span>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -472,14 +524,14 @@ export default function LandingPage() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Designed by #IONIX</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     {customRigs.map((rig, idx) => (
                         <div key={idx} className="group aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/5 bg-white/[0.01] hover:border-accent-light/40 hover:shadow-glow-blue transition-all duration-300">
-                            <img 
-                                src={rig.img} 
+                            <img
+                                src={rig.img}
                                 alt={rig.name}
-                                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500" 
+                                className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
                                 <span className="text-[9px] text-accent-light font-semibold uppercase tracking-widest mb-1">{rig.tag}</span>
@@ -500,7 +552,7 @@ export default function LandingPage() {
             <div className="w-full bg-[#070b13] border-y border-white/5 py-24 px-6 relative overflow-hidden">
                 {/* Background lights */}
                 <div className="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-                
+
                 <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
                         {/* Rotating Dashboard Dial Logo Container */}
@@ -518,13 +570,13 @@ export default function LandingPage() {
                                 <span className="text-[10px] font-bold text-white tracking-widest uppercase">SL NO.1</span>
                             </div>
                         </div>
-                        
+
                         <h3 className="text-3xl font-bold text-white mb-4 mt-6 uppercase tracking-tight">Our Core Commitment</h3>
                         <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-sm">
                             We don't cut corners. Every part is genuine, every build is treated like a masterpiece with full official warranty backup.
                         </p>
                     </div>
-                    
+
                     <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
                         {[
                             {
@@ -566,7 +618,7 @@ export default function LandingPage() {
             <div className="max-w-[1440px] mx-auto px-6 py-28 relative">
                 {/* Background ambient light */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-                
+
                 <div className="flex flex-col items-center text-center mb-20 relative z-10">
                     <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Client Testimonials</span>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Google Reviews</h2>
@@ -579,7 +631,7 @@ export default function LandingPage() {
                         <span className="text-white text-xs font-medium ml-1.5">4.9 / 5.0 (520+ Reviews)</span>
                     </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                     {reviews.map((rev, idx) => (
                         <div key={idx} className="glass-card p-8 border border-white/5 shadow-lg flex flex-col justify-between hover:border-accent/20 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)] transition-all duration-300">
@@ -599,7 +651,7 @@ export default function LandingPage() {
                             </div>
                             <div className="border-t border-white/5 mt-8 pt-4 flex items-center justify-between text-[11px] text-gray-500">
                                 <span className="uppercase tracking-widest font-semibold">Verified Customer</span>
-                                <span className="font-semibold text-accent-light uppercase tracking-wider">Google Maps</span>
+                                <span className="font-medium text-accent-light uppercase tracking-wider">Google Maps</span>
                             </div>
                         </div>
                     ))}
