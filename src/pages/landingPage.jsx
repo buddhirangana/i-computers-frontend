@@ -8,6 +8,67 @@ export default function LandingPage() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const buildPresets = [
+        {
+            id: "esports",
+            name: "Esports Entry",
+            tag: "High FPS at 1080p",
+            price: "LKR 185,000+",
+            themeColor: "from-cyan-500 to-blue-600",
+            glowColor: "shadow-[0_0_30px_rgba(6,182,212,0.2)] border-cyan-500/30",
+            specs: {
+                cpu: "AMD Ryzen 5 5600",
+                gpu: "NVIDIA RTX 4060 8GB",
+                ram: "16GB DDR4 3200MHz RGB",
+                storage: "512GB NVMe M.2 SSD",
+                cooler: "Tower Air Cooler RGB",
+                psu: "550W 80+ Bronze Modular",
+                case: "IONIX Spark Micro-ATX (Black)"
+            },
+            img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=400"
+        },
+        {
+            id: "cyberpunk",
+            name: "Cyberpunk Pro",
+            tag: "Ultra Specs with Ray Tracing",
+            price: "LKR 345,000+",
+            themeColor: "from-amber-400 to-rose-600",
+            glowColor: "shadow-[0_0_30px_rgba(244,63,94,0.2)] border-rose-500/30",
+            specs: {
+                cpu: "Intel Core i5-14600K",
+                gpu: "NVIDIA RTX 4070 Super 12GB",
+                ram: "32GB DDR5 6000MHz RGB",
+                storage: "1TB Gen4 NVMe SSD",
+                cooler: "240mm AIO Liquid Cooler RGB",
+                psu: "750W 80+ Gold Fully Modular",
+                case: "IONIX Prism Mid-Tower (Glass)"
+            },
+            img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=400"
+        },
+        {
+            id: "creator",
+            name: "Creator Extreme",
+            tag: "AI workflow & 4K editing power",
+            price: "LKR 650,000+",
+            themeColor: "from-purple-500 to-blue-600",
+            glowColor: "shadow-[0_0_30px_rgba(168,85,247,0.2)] border-purple-500/30",
+            specs: {
+                cpu: "AMD Ryzen 9 7900X",
+                gpu: "NVIDIA RTX 4080 Super 16GB",
+                ram: "64GB DDR5 6400MHz RGB",
+                storage: "2TB Gen4 NVMe Dual SSD",
+                cooler: "360mm AIO Liquid Cooler RGB",
+                psu: "850W 80+ Gold PCIe 5.0",
+                case: "IONIX Titan Full-Tower (Airflow)"
+            },
+            img: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=400"
+        }
+    ];
+
+    const [activePresetIdx, setActivePresetIdx] = useState(1);
+    const activePreset = buildPresets[activePresetIdx];
+
+
     useEffect(() => {
         document.title = "IONIX Computers | No. 1 Smart Technology Partner in Sri Lanka";
         
@@ -47,16 +108,57 @@ export default function LandingPage() {
         }
     ];
 
-    const rigs = [
-        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=400",
-        "https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=400",
-        "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=400",
-        "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=400",
-        "https://images.unsplash.com/photo-1562976540-1502c2145186?q=80&w=400",
-        "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?q=80&w=400",
-        "https://images.unsplash.com/photo-1587202372666-5b694b38382c?q=80&w=400",
-        "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?q=80&w=400"
+    const customRigs = [
+        {
+            img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=400",
+            name: "IONIX Chronos v1",
+            specs: "Ryzen 7 7800X3D | RTX 4080 Super",
+            tag: "Hyper-E-sports"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=400",
+            name: "IONIX Nebula v2",
+            specs: "Intel i9-14900K | RTX 4090 Liquid",
+            tag: "Creator Extreme"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=400",
+            name: "IONIX Apex v3",
+            specs: "Ryzen 5 7600 | RTX 4070 Ti Super",
+            tag: "Ray Tracing Pro"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=400",
+            name: "IONIX Glacier v4",
+            specs: "Intel i7-14700K | Dual Loop Custom",
+            tag: "Liquid Showpiece"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1562976540-1502c2145186?q=80&w=400",
+            name: "IONIX Vanguard v5",
+            specs: "Threadripper 7960X | Dual RTX 4090",
+            tag: "Workstation AI"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?q=80&w=400",
+            name: "IONIX Phantom v6",
+            specs: "Ryzen 7 5700X3D | RX 7800 XT",
+            tag: "Esports Edition"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1587202372666-5b694b38382c?q=80&w=400",
+            name: "IONIX Eclipse v7",
+            specs: "Intel i5-14400F | RTX 4060 Ti",
+            tag: "Streamer Starter"
+        },
+        {
+            img: "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?q=80&w=400",
+            name: "IONIX Titan v8",
+            specs: "Ryzen 9 7950X3D | RTX 4090 AIO",
+            tag: "Ultimate Gaming"
+        }
     ];
+
 
     const reviews = [
         {
@@ -154,15 +256,86 @@ export default function LandingPage() {
                         </div>
                     </div>
                     
-                    <div className="lg:col-span-6 relative flex justify-center items-center">
-                        <div className="relative group p-4 rounded-3xl bg-white/[0.01] border border-white/5 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                            {/* Neon glow effect border */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            <img 
-                                src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600" 
-                                alt="Custom PC Build"
-                                className="w-full max-w-[480px] rounded-2xl border border-white/10 shadow-2xl relative z-10 transform group-hover:scale-[1.02] transition-all duration-500"
-                            />
+                    <div className="lg:col-span-6 relative flex flex-col w-full">
+                        {/* Interactive tabs */}
+                        <div className="flex bg-white/5 border border-white/8 rounded-2xl p-1.5 mb-6 gap-1.5 self-center lg:self-start z-20">
+                            {buildPresets.map((preset, idx) => (
+                                <button
+                                    key={preset.id}
+                                    onClick={() => setActivePresetIdx(idx)}
+                                    className={`px-4.5 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
+                                        activePresetIdx === idx
+                                            ? `bg-gradient-to-r ${preset.themeColor} text-white shadow-lg`
+                                            : "text-gray-400 hover:text-white hover:bg-white/5"
+                                    }`}
+                                >
+                                    {preset.name}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Gaming Preset Card */}
+                        <div className={`relative w-full rounded-3xl bg-[#090d16] border border-white/5 backdrop-blur-md transition-all duration-500 overflow-hidden ${activePreset.glowColor}`}>
+                            {/* Scanning line indicator */}
+                            <div className="absolute left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-accent-light/40 to-transparent opacity-30 animate-scan pointer-events-none" />
+
+                            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 items-center">
+                                {/* Visual Image (Col 5) */}
+                                <div className="md:col-span-5 relative flex justify-center">
+                                    <div className="relative group w-full aspect-square max-w-[200px] md:max-w-none rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                                        <img
+                                            src={activePreset.img}
+                                            alt={activePreset.name}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-80" />
+                                    </div>
+                                </div>
+
+                                {/* Spec Details (Col 7) */}
+                                <div className="md:col-span-7 flex flex-col gap-4">
+                                    <div>
+                                        <span className="text-[9px] font-bold text-accent-light uppercase tracking-widest bg-accent/15 px-3 py-1 rounded-md border border-accent/20 shadow-glow-blue animate-pulse">
+                                            {activePreset.tag}
+                                        </span>
+                                        <h3 className="text-xl font-extrabold text-white mt-2.5 tracking-tight uppercase">{activePreset.name} Setup</h3>
+                                    </div>
+
+                                    {/* Specs details list */}
+                                    <div className="flex flex-col gap-2 border-y border-white/5 py-3 text-xs leading-relaxed">
+                                        <div className="flex justify-between items-center text-gray-400">
+                                            <span className="font-semibold text-gray-500">CPU</span>
+                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.cpu}>{activePreset.specs.cpu}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-gray-400">
+                                            <span className="font-semibold text-gray-500">GPU</span>
+                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.gpu}>{activePreset.specs.gpu}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-gray-400">
+                                            <span className="font-semibold text-gray-500">Cooler</span>
+                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.cooler}>{activePreset.specs.cooler}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-gray-400">
+                                            <span className="font-semibold text-gray-500">RAM/SSD</span>
+                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={`${activePreset.specs.ram} | ${activePreset.specs.storage}`}>{activePreset.specs.ram}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Price and customize action */}
+                                    <div className="flex justify-between items-center mt-1">
+                                        <div className="flex flex-col">
+                                            <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Est. Cost</span>
+                                            <span className="text-base font-extrabold text-white font-mono">{activePreset.price}</span>
+                                        </div>
+                                        <Link
+                                            to="/products"
+                                            className={`px-5 py-2.5 text-xs font-black uppercase tracking-wider text-white rounded-xl bg-gradient-to-r ${activePreset.themeColor} hover:brightness-110 shadow-md hover:shadow-glow-blue transition-all duration-300 hover:scale-[1.03] cursor-pointer`}
+                                        >
+                                            Customize
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,15 +361,20 @@ export default function LandingPage() {
                     
                     <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {[
-                            { value: "9+", label: "Years of Excellence", icon: <FiAward className="text-accent" /> },
-                            { value: "400K+", label: "Components Supplied", icon: <FiCpu className="text-accent" /> },
-                            { value: "3", label: "Showroom Branches", icon: <FiUsers className="text-accent" /> },
-                            { value: "100K+", label: "PC Builds Completed", icon: <FiTrendingUp className="text-accent" /> }
+                            { value: "9+", label: "Years of Excellence", icon: <FiAward className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
+                            { value: "400K+", label: "Components Supplied", icon: <FiCpu className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
+                            { value: "3", label: "Showroom Branches", icon: <FiUsers className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
+                            { value: "100K+", label: "PC Builds Completed", icon: <FiTrendingUp className="text-accent-light group-hover:text-accent transition-colors duration-300" /> }
                         ].map((stat, idx) => (
-                            <div key={idx} className="relative overflow-hidden group glass-card p-8 border border-white/5 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)] transition-all duration-300 flex flex-col justify-between">
-                                {/* Subtle neon corner lines */}
-                                <div className="absolute top-0 right-0 w-8 h-[2px] bg-accent/20 group-hover:bg-accent transition-colors duration-300" />
-                                <div className="absolute top-0 right-0 w-[2px] h-8 bg-accent/20 group-hover:bg-accent transition-colors duration-300" />
+                            <div key={idx} className="relative overflow-hidden group glass-card p-8 border border-white/5 hover:border-accent-light/30 hover:shadow-[0_12px_35px_rgba(59,130,246,0.15)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between min-h-[200px]">
+                                {/* Laser scanner sweep effect line */}
+                                <div className="absolute left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-accent-light/50 to-transparent opacity-0 group-hover:opacity-100 animate-scan pointer-events-none" />
+                                
+                                {/* High-tech corner neon borders */}
+                                <div className="absolute top-0 right-0 w-8 h-[2px] bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
+                                <div className="absolute top-0 right-0 w-[2px] h-8 bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
+                                <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
+                                <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-accent/20 group-hover:bg-accent-light transition-colors duration-300" />
                                 
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xl">
@@ -296,20 +474,21 @@ export default function LandingPage() {
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {rigs.map((src, idx) => (
-                        <div key={idx} className="group aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/5 bg-white/[0.01]">
+                    {customRigs.map((rig, idx) => (
+                        <div key={idx} className="group aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/5 bg-white/[0.01] hover:border-accent-light/40 hover:shadow-glow-blue transition-all duration-300">
                             <img 
-                                src={src} 
-                                alt={`Custom Rig ${idx + 1}`}
+                                src={rig.img} 
+                                alt={rig.name}
                                 className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500" 
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                                <span className="text-[9px] text-accent-light font-bold uppercase tracking-widest mb-1">Hardware Setup</span>
-                                <span className="text-xs text-white font-extrabold uppercase tracking-wide">
-                                    IONIX Rig v{idx + 1}
-                                </span>
-                                <span className="text-[10px] text-gray-400 mt-1.5 border-t border-white/10 pt-1.5 flex items-center gap-1">
-                                    <FiCpu className="text-[11px]" /> Liquid Cooled Custom build
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                                <span className="text-[9px] text-accent-light font-bold uppercase tracking-widest mb-1">{rig.tag}</span>
+                                <h3 className="text-sm text-white font-extrabold uppercase tracking-wide">
+                                    {rig.name}
+                                </h3>
+                                <span className="text-[10px] text-gray-400 mt-1.5 border-t border-white/10 pt-1.5 flex items-center gap-1.5">
+                                    <FiCpu className="text-[11px] text-accent-light" />
+                                    <span className="truncate">{rig.specs}</span>
                                 </span>
                             </div>
                         </div>
