@@ -7,11 +7,10 @@ import { Toaster } from "react-hot-toast";
 import RegisterPage from "./pages/registerPage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import ForgetPassword from "./pages/forgetPassword";
-//716762410389-aj6869tdov6m97gtnjh7e8pffncvn0qe.apps.googleusercontent.com
 
 function App() {
 	return (
-		<GoogleOAuthProvider clientId="716762410389-aj6869tdov6m97gtnjh7e8pffncvn0qe.apps.googleusercontent.com">			
+		<GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>			
 			<div className="w-full h-screen bg-primary text-secondary">
 				<Toaster position="top-right" />
 				<Routes>
