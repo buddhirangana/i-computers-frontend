@@ -25,7 +25,7 @@ export default function LandingPage() {
                 psu: "550W 80+ Bronze Modular",
                 case: "IONIX Spark Micro-ATX (Black)"
             },
-            img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=400"
+            img: "/images/pc_setup/pc-build-1.png"
         },
         {
             id: "cyberpunk",
@@ -43,7 +43,7 @@ export default function LandingPage() {
                 psu: "750W 80+ Gold Fully Modular",
                 case: "IONIX Prism Mid-Tower (Glass)"
             },
-            img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=400"
+            img: "/images/pc_setup/pc-build-2.png"
         },
         {
             id: "creator",
@@ -61,7 +61,7 @@ export default function LandingPage() {
                 psu: "850W 80+ Gold PCIe 5.0",
                 case: "IONIX Titan Full-Tower (Airflow)"
             },
-            img: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=400"
+            img: "/images/pc_setup/pc-build-3.png"
         }
     ];
 
@@ -196,7 +196,7 @@ export default function LandingPage() {
                     <span className="text-accent-light text-xs font-bold uppercase tracking-widest mb-5 bg-accent/15 px-4 py-2 rounded-full border border-accent/20 shadow-[0_0_15px_rgba(59,130,246,0.25)] animate-pulse">
                         ⚡ No. 1 Smart Technology Partner in Sri Lanka
                     </span>
-                    <h1 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight leading-none uppercase">
+                    <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-none uppercase">
                         Build Your <br className="md:hidden" />
                         <span className="relative">
                             <span className="bg-gradient-to-r from-accent-light via-blue-500 to-accent bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(59,130,246,0.3)]">Dream PC</span>
@@ -207,10 +207,10 @@ export default function LandingPage() {
                         We specialize in providing state-of-the-art computer systems, premium gaming builds, high-performance components and accessories.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Link to="/products" className="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-bold rounded-xl shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.5)] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
+                        <Link to="/products" className="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl shadow-[0_4px_14px_rgba(59,130,246,0.3)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.5)] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
                             Shop Catalog
                         </Link>
-                        <Link to="/contact-us" className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
+                        <Link to="/contact-us" className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
                             Get Quote
                         </Link>
                     </div>
@@ -221,7 +221,7 @@ export default function LandingPage() {
                     <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center p-1.5">
                         <div className="w-1.5 h-2.5 rounded-full bg-accent animate-[bounce_1.5s_infinite]"></div>
                     </div>
-                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Scroll</span>
+                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Scroll</span>
                 </div>
             </div>
 
@@ -237,7 +237,7 @@ export default function LandingPage() {
                             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                             Custom Configurations
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                             Build Your <br />
                             <span className="bg-gradient-to-r from-accent-light to-accent bg-clip-text text-transparent">Own PC Masterpiece</span>
                         </h2>
@@ -245,11 +245,11 @@ export default function LandingPage() {
                             Tailor every component to your exact gaming, rendering, or editing specifications. Our technicians will professionally build, wire-manage, and stress-test your rig before shipping.
                         </p>
                         <div className="flex items-center gap-6">
-                            <Link to="/products" className="px-7 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_14px_rgba(59,130,246,0.3)] text-white font-bold rounded-xl transition-all duration-300 flex items-center gap-2.5 cursor-pointer text-sm">
+                            <Link to="/products" className="px-7 py-3.5 bg-accent hover:bg-accent-dark hover:shadow-[0_4px_14px_rgba(59,130,246,0.3)] text-white font-semibold rounded-xl transition-all duration-300 flex items-center gap-2.5 cursor-pointer text-sm">
                                 <span>Build Now</span>
                                 <FiChevronRight className="text-lg" />
                             </Link>
-                            <Link to="/contact-us" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-semibold flex items-center gap-1.5 group">
+                            <Link to="/contact-us" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium flex items-center gap-1.5 group">
                                 <span>Consult a Specialist</span>
                                 <span className="w-0 group-hover:w-2 h-[1px] bg-white transition-all duration-300" />
                             </Link>
@@ -263,7 +263,7 @@ export default function LandingPage() {
                                 <button
                                     key={preset.id}
                                     onClick={() => setActivePresetIdx(idx)}
-                                    className={`px-4.5 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
+                                    className={`px-4.5 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
                                         activePresetIdx === idx
                                             ? `bg-gradient-to-r ${preset.themeColor} text-white shadow-lg`
                                             : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -298,38 +298,38 @@ export default function LandingPage() {
                                         <span className="text-[9px] font-bold text-accent-light uppercase tracking-widest bg-accent/15 px-3 py-1 rounded-md border border-accent/20 shadow-glow-blue animate-pulse">
                                             {activePreset.tag}
                                         </span>
-                                        <h3 className="text-xl font-extrabold text-white mt-2.5 tracking-tight uppercase">{activePreset.name} Setup</h3>
+                                        <h3 className="text-xl font-bold text-white mt-2.5 tracking-tight uppercase">{activePreset.name} Setup</h3>
                                     </div>
 
                                     {/* Specs details list */}
                                     <div className="flex flex-col gap-2 border-y border-white/5 py-3 text-xs leading-relaxed">
                                         <div className="flex justify-between items-center text-gray-400">
-                                            <span className="font-semibold text-gray-500">CPU</span>
-                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.cpu}>{activePreset.specs.cpu}</span>
+                                            <span className="font-medium text-gray-500">CPU</span>
+                                            <span className="text-white truncate font-semibold max-w-[160px]" title={activePreset.specs.cpu}>{activePreset.specs.cpu}</span>
                                         </div>
                                         <div className="flex justify-between items-center text-gray-400">
-                                            <span className="font-semibold text-gray-500">GPU</span>
-                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.gpu}>{activePreset.specs.gpu}</span>
+                                            <span className="font-medium text-gray-500">GPU</span>
+                                            <span className="text-white truncate font-semibold max-w-[160px]" title={activePreset.specs.gpu}>{activePreset.specs.gpu}</span>
                                         </div>
                                         <div className="flex justify-between items-center text-gray-400">
-                                            <span className="font-semibold text-gray-500">Cooler</span>
-                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={activePreset.specs.cooler}>{activePreset.specs.cooler}</span>
+                                            <span className="font-medium text-gray-500">Cooler</span>
+                                            <span className="text-white truncate font-semibold max-w-[160px]" title={activePreset.specs.cooler}>{activePreset.specs.cooler}</span>
                                         </div>
                                         <div className="flex justify-between items-center text-gray-400">
-                                            <span className="font-semibold text-gray-500">RAM/SSD</span>
-                                            <span className="text-white truncate font-extrabold max-w-[160px]" title={`${activePreset.specs.ram} | ${activePreset.specs.storage}`}>{activePreset.specs.ram}</span>
+                                            <span className="font-medium text-gray-500">RAM/SSD</span>
+                                            <span className="text-white truncate font-semibold max-w-[160px]" title={`${activePreset.specs.ram} | ${activePreset.specs.storage}`}>{activePreset.specs.ram}</span>
                                         </div>
                                     </div>
 
                                     {/* Price and customize action */}
                                     <div className="flex justify-between items-center mt-1">
                                         <div className="flex flex-col">
-                                            <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Est. Cost</span>
-                                            <span className="text-base font-extrabold text-white font-mono">{activePreset.price}</span>
+                                            <span className="text-[9px] font-semibold text-gray-500 uppercase tracking-widest">Est. Cost</span>
+                                            <span className="text-base font-bold text-white font-mono">{activePreset.price}</span>
                                         </div>
                                         <Link
                                             to="/products"
-                                            className={`px-5 py-2.5 text-xs font-black uppercase tracking-wider text-white rounded-xl bg-gradient-to-r ${activePreset.themeColor} hover:brightness-110 shadow-md hover:shadow-glow-blue transition-all duration-300 hover:scale-[1.03] cursor-pointer`}
+                                            className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white rounded-xl bg-gradient-to-r ${activePreset.themeColor} hover:brightness-110 shadow-md hover:shadow-glow-blue transition-all duration-300 hover:scale-[1.03] cursor-pointer`}
                                         >
                                             Customize
                                         </Link>
@@ -352,8 +352,8 @@ export default function LandingPage() {
                 
                 <div className="max-w-[1440px] mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 flex flex-col">
-                        <span className="text-xs font-bold text-accent-light uppercase tracking-widest mb-3">Our Legacy</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">Pioneering Custom PC Hardware</h2>
+                        <span className="text-xs font-semibold text-accent-light uppercase tracking-widest mb-3">Our Legacy</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">Pioneering Custom PC Hardware</h2>
                         <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                             For nearly a decade, we have been delivering top-tier components, gaming set-ups, and workstations to enthusiasts across the island.
                         </p>
@@ -361,10 +361,10 @@ export default function LandingPage() {
                     
                     <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {[
-                            { value: "9+", label: "Years of Excellence", icon: <FiAward className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
-                            { value: "400K+", label: "Components Supplied", icon: <FiCpu className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
+                            { value: "4+", label: "Years of Excellence", icon: <FiAward className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
+                            { value: "100K+", label: "Components Supplied", icon: <FiCpu className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
                             { value: "3", label: "Showroom Branches", icon: <FiUsers className="text-accent-light group-hover:text-accent transition-colors duration-300" /> },
-                            { value: "100K+", label: "PC Builds Completed", icon: <FiTrendingUp className="text-accent-light group-hover:text-accent transition-colors duration-300" /> }
+                            { value: "200+", label: "PC Builds Completed", icon: <FiTrendingUp className="text-accent-light group-hover:text-accent transition-colors duration-300" /> }
                         ].map((stat, idx) => (
                             <div key={idx} className="relative overflow-hidden group glass-card p-8 border border-white/5 hover:border-accent-light/30 hover:shadow-[0_12px_35px_rgba(59,130,246,0.15)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between min-h-[200px]">
                                 {/* Laser scanner sweep effect line */}
@@ -382,7 +382,7 @@ export default function LandingPage() {
                                     </div>
                                 </div>
                                 <div>
-                                    <span className="text-4xl md:text-5xl font-black text-white tracking-tight mb-2 block group-hover:text-accent-light transition-colors duration-300">{stat.value}</span>
+                                    <span className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2 block group-hover:text-accent-light transition-colors duration-300">{stat.value}</span>
                                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">{stat.label}</span>
                                 </div>
                             </div>
@@ -394,8 +394,8 @@ export default function LandingPage() {
             {/* New Arrivals */}
             <div className="max-w-[1440px] mx-auto px-6 py-24">
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Fresh In Store</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">New Arrivals</h2>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Fresh In Store</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">New Arrivals</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
                 
@@ -415,8 +415,8 @@ export default function LandingPage() {
             {/* Best Sellers */}
             <div className="max-w-[1440px] mx-auto px-6 py-12 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Top Rated Choices</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Best Sellers</h2>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Top Rated Choices</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Best Sellers</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
                 
@@ -436,8 +436,8 @@ export default function LandingPage() {
             {/* Pro Categories */}
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Browse Collections</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Pro Categories</h2>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Browse Collections</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Pro Categories</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
                 
@@ -456,8 +456,8 @@ export default function LandingPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/40 to-transparent z-10"></div>
                             
                             <div className="relative z-20 flex flex-col transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                                <span className="text-[10px] font-bold text-accent-light uppercase tracking-widest mb-1.5 block">Explore</span>
-                                <h3 className="text-2xl font-black text-white mb-2 tracking-wide group-hover:text-accent-light transition-colors duration-300">{cat.title}</h3>
+                                <span className="text-[10px] font-semibold text-accent-light uppercase tracking-widest mb-1.5 block">Explore</span>
+                                <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-accent-light transition-colors duration-300">{cat.title}</h3>
                                 <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed font-light">{cat.desc}</p>
                             </div>
                         </Link>
@@ -468,8 +468,8 @@ export default function LandingPage() {
             {/* Designed by #IONIX Computers Grid */}
             <div className="max-w-[1440px] mx-auto px-6 py-24 border-t border-white/5">
                 <div className="flex flex-col items-center text-center mb-16">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Custom Showcase</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Designed by #IONIX</h2>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Custom Showcase</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Designed by #IONIX</h2>
                     <div className="w-16 h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent rounded-full mt-4"></div>
                 </div>
                 
@@ -482,8 +482,8 @@ export default function LandingPage() {
                                 className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-500" 
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                                <span className="text-[9px] text-accent-light font-bold uppercase tracking-widest mb-1">{rig.tag}</span>
-                                <h3 className="text-sm text-white font-extrabold uppercase tracking-wide">
+                                <span className="text-[9px] text-accent-light font-semibold uppercase tracking-widest mb-1">{rig.tag}</span>
+                                <h3 className="text-sm text-white font-bold uppercase tracking-wide">
                                     {rig.name}
                                 </h3>
                                 <span className="text-[10px] text-gray-400 mt-1.5 border-t border-white/10 pt-1.5 flex items-center gap-1.5">
@@ -514,12 +514,12 @@ export default function LandingPage() {
                             {/* Glowing core badge */}
                             <div className="absolute w-[70%] h-[70%] rounded-full bg-[#050912]/80 border border-white/10 flex flex-col items-center justify-center p-4 shadow-[inset_0_2px_10px_rgba(59,130,246,0.15)]">
                                 <img src="/favicon.png" alt="IONIX Computers" className="h-10 w-auto filter drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] hover:scale-110 transition-transform duration-300" />
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-accent-light mt-2">Established</span>
-                                <span className="text-[10px] font-black text-white tracking-widest uppercase">SL NO.1</span>
+                                <span className="text-[10px] font-semibold uppercase tracking-wider text-accent-light mt-2">Established</span>
+                                <span className="text-[10px] font-bold text-white tracking-widest uppercase">SL NO.1</span>
                             </div>
                         </div>
                         
-                        <h3 className="text-3xl font-black text-white mb-4 mt-6 uppercase tracking-tight">Our Core Commitment</h3>
+                        <h3 className="text-3xl font-bold text-white mb-4 mt-6 uppercase tracking-tight">Our Core Commitment</h3>
                         <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-sm">
                             We don't cut corners. Every part is genuine, every build is treated like a masterpiece with full official warranty backup.
                         </p>
@@ -553,7 +553,7 @@ export default function LandingPage() {
                                     {val.icon}
                                 </div>
                                 <div className="flex flex-col">
-                                    <h4 className="text-white font-extrabold mb-1.5 group-hover:text-accent-light transition-colors duration-200">{val.title}</h4>
+                                    <h4 className="text-white font-semibold mb-1.5 group-hover:text-accent-light transition-colors duration-200">{val.title}</h4>
                                     <p className="text-sm text-gray-400 leading-relaxed font-light">{val.desc}</p>
                                 </div>
                             </div>
@@ -568,15 +568,15 @@ export default function LandingPage() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
                 
                 <div className="flex flex-col items-center text-center mb-20 relative z-10">
-                    <span className="text-xs font-bold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Client Testimonials</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mt-4 uppercase tracking-tight">Google Reviews</h2>
+                    <span className="text-xs font-semibold text-accent-light uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">Client Testimonials</span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 uppercase tracking-tight">Google Reviews</h2>
                     <div className="flex items-center gap-1.5 mt-4 text-yellow-500 text-sm bg-white/[0.02] border border-white/5 px-4 py-2 rounded-full shadow-md">
                         <FiStar className="fill-current text-yellow-400" />
                         <FiStar className="fill-current text-yellow-400" />
                         <FiStar className="fill-current text-yellow-400" />
                         <FiStar className="fill-current text-yellow-400" />
                         <FiStar className="fill-current text-yellow-400" />
-                        <span className="text-white text-xs font-extrabold ml-1.5">4.9 / 5.0 (520+ Reviews)</span>
+                        <span className="text-white text-xs font-medium ml-1.5">4.9 / 5.0 (520+ Reviews)</span>
                     </div>
                 </div>
                 
@@ -586,7 +586,7 @@ export default function LandingPage() {
                             <div>
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="flex flex-col">
-                                        <span className="font-bold text-white text-sm">{rev.name}</span>
+                                        <span className="font-semibold text-white text-sm">{rev.name}</span>
                                         <span className="text-xs text-gray-500 mt-1">{rev.date}</span>
                                     </div>
                                     <div className="flex text-yellow-400 text-xs">
@@ -598,8 +598,8 @@ export default function LandingPage() {
                                 <p className="text-sm text-gray-300 leading-relaxed italic font-light">"{rev.comment}"</p>
                             </div>
                             <div className="border-t border-white/5 mt-8 pt-4 flex items-center justify-between text-[11px] text-gray-500">
-                                <span className="uppercase tracking-widest font-bold">Verified Customer</span>
-                                <span className="font-bold text-accent-light uppercase tracking-wider">Google Maps</span>
+                                <span className="uppercase tracking-widest font-semibold">Verified Customer</span>
+                                <span className="font-semibold text-accent-light uppercase tracking-wider">Google Maps</span>
                             </div>
                         </div>
                     ))}
